@@ -1,19 +1,24 @@
 # Brain-State Circuit Replay
 
-**Can a future brain-computer interface help someone re-enter a useful past brain-body state?**
+**Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
 
-This repository is a portfolio-ready conceptual simulation for a speculative neuroscience / BCI idea. It does **not** claim to model the real brain biologically. Instead, it turns the idea into an interactive demo that recruiters, researchers, and classmates can understand quickly.
+This repository is a portfolio-ready conceptual simulation for a speculative neuroscience / BCI idea: if photos, videos, music, and smell can trigger memory, could a future interface go further and help a person partially re-enter the **brain-body state** of a past moment?
+
+It does **not** claim literal time travel, medical treatment, or validated human brain control. Instead, it turns the idea into an interactive demo, research map, synthetic dataset, and decoder baseline that recruiters, researchers, and classmates can understand quickly.
 
 ## Project thesis
 
 We may not be able to go back in time, but we may learn how to revisit brain-body states.
 
-The demo imagines a future closed-loop BCI system that tries to reconstruct a target mental state by:
+The central theory is that a meaningful past moment is not only a stored image. It is a distributed state involving perception, memory, emotion, body sensation, attention, and interpretation. A future closed-loop system might approximate that state by:
 
-1. representing a target state as a distributed pattern across conceptual neural systems;
-2. applying memory cues and stimulation as controlled nudges;
-3. monitoring similarity, reconstruction error, and safety risk;
-4. showing why exact replay is impossible but partial state reconstruction may be useful.
+1. using photos/audio/context as external memory cues;
+2. representing a target moment as a distributed brain-body state signature;
+3. applying cueing, stimulation, or neurofeedback as controlled nudges;
+4. monitoring similarity, reconstruction error, and safety risk;
+5. showing why exact replay is impossible but partial subjective state-time travel may be scientifically imaginable.
+
+Theory note: [`docs/theory.md`](docs/theory.md)
 
 ## Why this is interesting
 
@@ -101,6 +106,7 @@ tests/test_synthetic_data.py # Python tests for synthetic data generation/decodi
 scripts/generate_synthetic_data.py # synthetic state dataset generator
 scripts/evaluate_decoder.py # nearest-centroid decoding report
 data/synthetic_state_samples.csv # generated toy dataset
+docs/theory.md         # user's core photo-to-brain-state-replay theory
 docs/concept.md         # presentable concept note
 docs/research.md        # literature-backed research map
 docs/data-model.md      # synthetic data schema and baseline
