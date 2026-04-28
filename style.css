@@ -75,6 +75,7 @@ a:hover {
 }
 
 .top-overlay,
+.map-guide,
 .control-deck,
 .side-panel,
 .brain-note,
@@ -86,7 +87,7 @@ a:hover {
 .top-overlay {
   top: 20px;
   left: 22px;
-  width: min(720px, calc(100vw - 420px));
+  width: min(520px, calc(100vw - 500px));
   display: flex;
   gap: 18px;
   align-items: flex-start;
@@ -95,6 +96,8 @@ a:hover {
 
 .top-overlay > div,
 .panel-toggle,
+.guide-card,
+.legend-card,
 .control-block,
 .side-panel,
 .brain-note {
@@ -106,7 +109,15 @@ a:hover {
 
 .top-overlay > div {
   padding: 18px 20px;
-  border-radius: 8px;
+  border-radius: 14px;
+}
+
+.map-intent {
+  max-width: 610px;
+  margin: 10px 0 0;
+  color: #aedad2;
+  font-size: 0.92rem;
+  line-height: 1.38;
 }
 
 .eyebrow {
@@ -120,7 +131,7 @@ a:hover {
 
 h1 {
   margin: 0;
-  font-size: clamp(1.85rem, 4vw, 4.6rem);
+  font-size: clamp(1.7rem, 3.3vw, 3.4rem);
   line-height: 0.95;
   letter-spacing: 0;
 }
@@ -160,10 +171,58 @@ h1 {
   cursor: pointer;
 }
 
+
+.map-guide {
+  left: 22px;
+  top: auto;
+  bottom: 330px;
+  width: min(320px, calc(100vw - 500px));
+  display: grid;
+  gap: 10px;
+}
+
+.guide-card,
+.legend-card {
+  border-radius: 14px;
+  padding: 12px 13px;
+}
+
+.guide-card ol {
+  margin: 0;
+  padding-left: 19px;
+  color: #c5d4e8;
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.guide-card li + li {
+  margin-top: 7px;
+}
+
+.legend-card {
+  display: grid;
+  gap: 8px;
+  color: #d8e5f8;
+  font-size: 0.82rem;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  border-radius: 999px;
+  box-shadow: 0 0 14px currentColor;
+}
+
+.legend-dot.known { background: var(--known); color: var(--known); }
+.legend-dot.plausible { background: var(--plausible); color: var(--plausible); }
+.legend-dot.speculative { background: var(--speculative); color: var(--speculative); }
+
 .control-deck {
   left: 22px;
   bottom: 56px;
-  width: min(560px, calc(100vw - 420px));
+  width: min(520px, calc(100vw - 440px));
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
   gap: 12px;
@@ -237,7 +296,7 @@ input[type="range"] {
   top: 20px;
   right: 20px;
   bottom: 56px;
-  width: 360px;
+  width: 340px;
   overflow: auto;
   padding: 18px;
   border-radius: 8px;
@@ -313,6 +372,50 @@ input[type="range"] {
   overflow-wrap: anywhere;
 }
 
+
+.node-explainer-grid,
+.connection-card {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.node-explainer-grid > div,
+.connection-card {
+  border: 1px solid rgba(220, 236, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.node-explainer-grid h3,
+.connection-card h3 {
+  margin: 0 0 6px;
+  color: #f4f9ff;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.node-explainer-grid p,
+.connection-card li {
+  margin: 0;
+  color: #c6d5e9;
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.connection-card ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.connection-card span {
+  color: #93a7bd;
+}
+
 .doc-button {
   display: inline-flex;
   margin: 6px 0 18px;
@@ -371,9 +474,9 @@ input[type="range"] {
 }
 
 .brain-note {
-  right: 398px;
+  right: 378px;
   bottom: 56px;
-  max-width: 315px;
+  max-width: 275px;
   border-radius: 8px;
   padding: 10px 12px;
   color: #d1deee;
@@ -609,6 +712,10 @@ body.journey-page {
   .panel-toggle {
     display: block;
     flex: 0 0 auto;
+  }
+
+  .map-guide {
+    display: none;
   }
 
   .control-deck {

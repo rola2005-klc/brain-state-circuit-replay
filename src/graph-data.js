@@ -11,6 +11,14 @@
 
   const nodes = [
     {
+      id: 'project-thesis',
+      label: 'Brain-State Circuit Replay',
+      cluster: 'Overview',
+      status: 'plausible',
+      description: 'The whole project asks how future AI/neurotechnology could help a person safely re-approach a past-associated integrated self-state: not what the camera saw, but what the person was.',
+      docLink: docs.foundation
+    },
+    {
       id: 'photo-problem',
       label: 'Photo problem',
       cluster: 'Problem',
@@ -332,7 +340,123 @@
     }
   ];
 
+
+  const nodeExplanations = {
+    'project-thesis': {
+      isKey: true,
+      purpose: 'This is the center of the map: the portfolio thesis visitors should remember in one sentence.',
+      reflects: 'It turns your original fear of losing an irreplaceable present into a research/design question about safe state resonance.'
+    },
+    'photo-problem': {
+      isKey: true,
+      purpose: 'Shows the starting dissatisfaction: photos preserve external appearance but miss inner being.',
+      reflects: 'Directly encodes your line: photos record what we saw, not what we were.'
+    },
+    'unreturnable-present': {
+      isKey: true,
+      purpose: 'Names the emotional paradox that motivates the whole project.',
+      reflects: 'It captures the moment where knowing “I cannot return here” creates grief inside the present itself.'
+    },
+    'integrated-self-state': {
+      isKey: true,
+      purpose: 'Defines the real target of replay, so the project is not mistaken for video playback or single-emotion detection.',
+      reflects: 'It preserves your core idea that the meaningful object is body + attention + emotion + context + self-model + meaning.'
+    },
+    'self-capacity': {
+      isKey: true,
+      purpose: 'Reframes replay as recovering a way of being, not copying content.',
+      reflects: 'It expresses your idea that people often miss the capacity to feel/open to the world, not just the event.'
+    },
+    'emotion-structured-information': {
+      isKey: true,
+      purpose: 'Explains why emotion belongs in AI/neurotech as signal, not noise.',
+      reflects: 'It connects your belief that technology should carry and protect human feeling instead of flattening it.'
+    },
+    'ethics-architecture': {
+      isKey: true,
+      purpose: 'Makes safety a core design layer instead of an afterthought.',
+      reflects: 'It encodes your concern about addiction, escape, privacy, manipulation, and drug-like state chasing.'
+    },
+    'experiential-time-travel': {
+      isKey: true,
+      purpose: 'Keeps the time-travel phrase powerful but scientifically bounded.',
+      reflects: 'It says the project is about experiential return/metaphor, not physics time travel.'
+    },
+    'resonance-over-recreation': {
+      isKey: true,
+      purpose: 'Sets the design target: bounded resonance rather than exact recreation.',
+      reflects: 'It protects the project from overclaiming exact memory replay while keeping the emotional aim alive.'
+    },
+    'native-record': {
+      isKey: true,
+      purpose: 'Explains why the body/brain itself may be the “record,” even without prior external recording.',
+      reflects: 'It translates your trace-back intuition into a biology-adjacent hypothesis about plasticity and memory traces.'
+    },
+    'retroactive-addressability': {
+      isKey: true,
+      purpose: 'Marks the hardest technical question: can a past-associated trace be addressed after the fact?',
+      reflects: 'It is where your concept becomes frontier research rather than just memory journaling.'
+    },
+    'reconstruction-vs-replay': {
+      isKey: true,
+      purpose: 'Prevents visitors from thinking the project promises exact playback.',
+      reflects: 'It keeps the claim honest: partial reconstruction/state approximation, not perfect replay.'
+    },
+    'guided-endogenous': {
+      isKey: true,
+      purpose: 'Represents the most plausible product/research pathway: guided self-state re-entry using cues and feedback.',
+      reflects: 'It makes the idea actionable without pretending we can directly read or control engrams.'
+    },
+    'eeg-limits': {
+      isKey: true,
+      purpose: 'Shows scientific humility and protects credibility.',
+      reflects: 'It makes clear EEG can support coarse feedback but cannot read synapses, engrams, or exact memories.'
+    },
+    'metrics': {
+      isKey: true,
+      purpose: 'Turns the concept into something buildable/testable in simulation.',
+      reflects: 'It asks how resonance, uncertainty, reconstruction error, and safety load could be measured.'
+    },
+    'literature-map': {
+      isKey: true,
+      purpose: 'Shows the next credible research step.',
+      reflects: 'It anchors the speculative concept in adjacent literature instead of leaving it as only a personal essay.'
+    }
+  };
+
+  const defaultPurposeByCluster = {
+    Problem: 'Defines the lived problem or philosophical target the project is trying to solve.',
+    Biology: 'Anchors the concept in memory, plasticity, traces, or state biology without overclaiming access.',
+    'Hard Problem': 'Marks the frontier gap between current science and the future capability the project imagines.',
+    'Replay Modes': 'Shows possible ways a system could attempt partial state re-entry, from conservative to speculative.',
+    Technology: 'Maps tools that could support coarse sensing, cueing, feedback, or simulation.',
+    'Ethics/Risk': 'Keeps consent, distortion, identity, addiction, and return-to-present safeguards visible.',
+    'Simulation Layer': 'Turns the thesis into a prototype layer that can be tested with synthetic, clearly labeled data.',
+    Roadmap: 'Shows how the project becomes more credible over time: literature, citations, models, and next steps.'
+  };
+
+  const defaultReflectsByCluster = {
+    Problem: 'It ties the map back to your original human question: why losing access to a past self-state matters.',
+    Biology: 'It asks what kind of biological trace could make “returning toward a state” even thinkable.',
+    'Hard Problem': 'It preserves the ambition while making the uncertainty explicit.',
+    'Replay Modes': 'It shows the path from memory cueing to speculative replay-like resonance.',
+    Technology: 'It separates useful tools from exaggerated claims about mind reading.',
+    'Ethics/Risk': 'It ensures the project is not just intensity optimization, but care for identity and agency.',
+    'Simulation Layer': 'It makes the concept presentable as an open-source artifact rather than only a theory.',
+    Roadmap: 'It explains what reviewers should see as the next serious research/build direction.'
+  };
+
+  nodes.forEach((node) => {
+    const extra = nodeExplanations[node.id] || {};
+    Object.assign(node, {
+      purpose: extra.purpose || defaultPurposeByCluster[node.cluster] || 'Explains one part of the project argument.',
+      reflects: extra.reflects || defaultReflectsByCluster[node.cluster] || 'Connects this node back to the project thesis.',
+      isKey: Boolean(extra.isKey)
+    });
+  });
+
   const links = [
+    ['project-thesis', 'photo-problem'], ['project-thesis', 'unreturnable-present'], ['project-thesis', 'integrated-self-state'], ['project-thesis', 'ethics-architecture'],
     ['photo-problem', 'what-we-saw'], ['photo-problem', 'what-we-were'], ['photo-problem', 'unreturnable-present'],
     ['unreturnable-present', 'integrated-self-state'], ['integrated-self-state', 'self-capacity'],
     ['self-capacity', 'emotion-structured-information'], ['emotion-structured-information', 'ethics-architecture'],

@@ -26,6 +26,9 @@
       nodeCluster: document.getElementById('nodeCluster'),
       nodeStatus: document.getElementById('nodeStatus'),
       nodeDescription: document.getElementById('nodeDescription'),
+      nodePurpose: document.getElementById('nodePurpose'),
+      nodeReflects: document.getElementById('nodeReflects'),
+      nodeConnections: document.getElementById('nodeConnections'),
       nodeDocLink: document.getElementById('nodeDocLink'),
       tooltip: createTooltip()
     };
@@ -86,6 +89,9 @@
     elements.nodeStatus.textContent = node.status;
     elements.nodeStatus.className = `status-badge ${statusClass(node.status)}`;
     elements.nodeDescription.textContent = node.description;
+    elements.nodePurpose.textContent = node.purpose || 'This node explains one role in the project argument.';
+    elements.nodeReflects.textContent = node.reflects || 'This node connects back to the project concept.';
+    renderConnections(elements, node);
 
     if (node.docLink) {
       elements.nodeDocLink.href = node.docLink;
@@ -98,13 +104,47 @@
     setPanelOpen(elements, true);
   }
 
+  function renderConnections(elements, node) {
+    if (!elements.nodeConnections) return;
+    const graph = window.BRAIN_REPLAY_GRAPH || { nodes: [], links: [] };
+    const byId = new Map(graph.nodes.map((item) => [item.id, item]));
+    const neighbors = graph.links
+      .map((link) => {
+        const source = typeof link.source === 'object' ? link.source.id : link.source;
+        const target = typeof link.target === 'object' ? link.target.id : link.target;
+        if (source === node.id) return byId.get(target);
+        if (target === node.id) return byId.get(source);
+        return null;
+      })
+      .filter(Boolean)
+      .slice(0, 6);
+
+    elements.nodeConnections.innerHTML = '';
+    if (!neighbors.length) {
+      const li = document.createElement('li');
+      li.textContent = 'This is a standalone framing node.';
+      elements.nodeConnections.appendChild(li);
+      return;
+    }
+
+    neighbors.forEach((neighbor) => {
+      const li = document.createElement('li');
+      const strong = document.createElement('strong');
+      const span = document.createElement('span');
+      strong.textContent = neighbor.label;
+      span.textContent = ` — ${neighbor.cluster.toLowerCase()} / ${neighbor.status}`;
+      li.append(strong, span);
+      elements.nodeConnections.appendChild(li);
+    });
+  }
+
   function showTooltip(elements, node) {
     if (!node) {
       elements.tooltip.classList.add('hidden');
       return;
     }
 
-    elements.tooltip.innerHTML = `<strong>${node.label}</strong><br><span>${node.cluster} · ${node.status}</span>`;
+    elements.tooltip.innerHTML = `<strong>${node.label}</strong><br><span>${node.cluster} · ${node.status}</span><br><em>${node.purpose || 'Click to inspect this concept.'}</em>`;
     elements.tooltip.classList.remove('hidden');
   }
 

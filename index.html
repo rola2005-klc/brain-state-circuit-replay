@@ -18,6 +18,7 @@
         <p class="eyebrow">Speculative neuroscience concept</p>
         <h1>Brain-State Circuit Replay</h1>
         <p class="thesis">Photos record what we saw; Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
+        <p class="map-intent">This map is the argument structure: each dot is either a problem, a biological bridge, an engineering path, or a safety boundary.</p>
         <div class="hero-links" aria-label="Start here links">
           <a href="journey.html">Process journey</a>
           <a href="docs/unreturnable-present-paradox.md">Full thesis</a>
@@ -25,6 +26,22 @@
       </div>
       <button class="panel-toggle" id="panelToggle" type="button" aria-controls="sidePanel" aria-expanded="true">Details</button>
     </header>
+
+    <aside class="map-guide" aria-label="How to read the mindmap">
+      <div class="guide-card">
+        <p class="eyebrow">How to read this map</p>
+        <ol>
+          <li><strong>Start at the big labeled nodes.</strong> They form the project spine.</li>
+          <li><strong>Click any dot.</strong> The right panel explains why it exists and how it reflects the concept.</li>
+          <li><strong>Use Replay mode.</strong> It highlights one possible pathway through the thesis.</li>
+        </ol>
+      </div>
+      <div class="legend-card" aria-label="Map legend">
+        <span><i class="legend-dot known"></i>known science</span>
+        <span><i class="legend-dot plausible"></i>plausible bridge</span>
+        <span><i class="legend-dot speculative"></i>speculative frontier</span>
+      </div>
+    </aside>
 
     <aside class="control-deck" aria-label="Replay controls">
       <section class="control-block">
@@ -60,7 +77,21 @@
         <span class="status-badge status-plausible" id="nodeStatus">plausible</span>
       </div>
       <p id="nodeDescription">Select a node to inspect how the project separates known science, plausible engineering, and speculative frontier claims.</p>
-      <a class="doc-button" id="nodeDocLink" href="docs/presentable-foundation.md">Open foundation doc</a>
+      <div class="node-explainer-grid" aria-label="Node explanation">
+        <div>
+          <h3>Why this dot exists</h3>
+          <p id="nodePurpose">It tells visitors what role this idea plays in the project.</p>
+        </div>
+        <div>
+          <h3>How it reflects the concept</h3>
+          <p id="nodeReflects">It links the personal thesis to science, engineering, or ethics.</p>
+        </div>
+      </div>
+      <div class="connection-card">
+        <h3>Connected ideas</h3>
+        <ul id="nodeConnections"><li>Click a node to see its neighboring concepts.</li></ul>
+      </div>
+      <a class="doc-button" id="nodeDocLink" href="docs/presentable-foundation.md">Open related doc</a>
       <a class="doc-button secondary-doc-button" href="journey.html">Open process journey</a>
 
       <div class="boundary-card">

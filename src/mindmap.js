@@ -1,5 +1,6 @@
 (function initializeMindmap() {
   const clusterColors = {
+    Overview: '#ffffff',
     Problem: '#79f2c9',
     Biology: '#8fb4ff',
     'Hard Problem': '#ff9ec4',
@@ -63,6 +64,54 @@
   function linkWidth(link) {
     const key = window.BRAIN_REPLAY_MODES.linkKey(link);
     return activeMode.highlightLinks.includes(key) ? 2.2 : 0.7;
+  }
+
+
+
+  function makeLabelSprite(node) {
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    const label = node.label.length > 34 ? `${node.label.slice(0, 31)}…` : node.label;
+    const fontSize = 40;
+    const paddingX = 22;
+    const paddingY = 14;
+    context.font = `800 ${fontSize}px Inter, Arial, sans-serif`;
+    const metrics = context.measureText(label);
+    canvas.width = Math.ceil(metrics.width + paddingX * 2);
+    canvas.height = fontSize + paddingY * 2;
+    context.font = `800 ${fontSize}px Inter, Arial, sans-serif`;
+    context.textBaseline = 'middle';
+    context.fillStyle = 'rgba(4, 7, 12, 0.78)';
+    roundRect(context, 0, 0, canvas.width, canvas.height, 18);
+    context.fill();
+    context.strokeStyle = colorWithAlpha(statusColors[node.status] || clusterColors[node.cluster] || '#ffffff', 0.82);
+    context.lineWidth = 3;
+    roundRect(context, 2, 2, canvas.width - 4, canvas.height - 4, 16);
+    context.stroke();
+    context.fillStyle = '#f5fbff';
+    context.fillText(label, paddingX, canvas.height / 2);
+
+    const texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    const material = new THREE.SpriteMaterial({ map: texture, transparent: true, depthWrite: false });
+    const sprite = new THREE.Sprite(material);
+    sprite.scale.set(canvas.width / 6.4, canvas.height / 6.4, 1);
+    sprite.position.set(0, 12, 0);
+    return sprite;
+  }
+
+  function roundRect(context, x, y, width, height, radius) {
+    context.beginPath();
+    context.moveTo(x + radius, y);
+    context.lineTo(x + width - radius, y);
+    context.quadraticCurveTo(x + width, y, x + width, y + radius);
+    context.lineTo(x + width, y + height - radius);
+    context.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+    context.lineTo(x + radius, y + height);
+    context.quadraticCurveTo(x, y + height, x, y + height - radius);
+    context.lineTo(x, y + radius);
+    context.quadraticCurveTo(x, y, x + radius, y);
+    context.closePath();
   }
 
   function refreshGraph() {
@@ -139,7 +188,10 @@
       .backgroundColor('rgba(0,0,0,0)')
       .width(window.innerWidth)
       .height(window.innerHeight)
-      .nodeLabel((node) => `${node.label} · ${node.status}`)
+      .nodeLabel((node) => `${node.label} · ${node.cluster} · ${node.status}
+${node.purpose || ''}`)
+      .nodeThreeObjectExtend(true)
+      .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
       .nodeResolution(24)
       .linkOpacity(1)
       .linkCurvature(0.08)
@@ -153,8 +205,8 @@
         refreshGraph();
       });
 
-    graph.d3Force('charge').strength(-82);
-    graph.d3Force('link').distance(56);
+    graph.d3Force('charge').strength(-96);
+    graph.d3Force('link').distance(64);
     graph.cameraPosition({ x: 0, y: 70, z: 260 }, { x: 0, y: 0, z: 0 }, 0);
 
     const controls = graph.controls();
@@ -163,7 +215,12 @@
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
 
-    graph.scene().add(new THREE.AmbientLight('#dce8ff', 0.42));
+    const centerNode = window.BRAIN_REPLAY_GRAPH.nodes.find((node) => node.id === 'project-thesis');
+    if (centerNode) {
+      setTimeout(() => focusNode(centerNode), 900);
+    }
+
+    graph.scene().add(new THREE.AmbientLight('#dce8ff', 0.48));
     const keyLight = new THREE.DirectionalLight('#ffffff', 0.55);
     keyLight.position.set(80, 130, 90);
     graph.scene().add(keyLight);
