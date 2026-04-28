@@ -1,5 +1,11 @@
 (function exposeBrainOverlay() {
-  function createMaterial(color, opacity, emissiveIntensity) {
+  const BASE_COLOR = '#dce8ff';
+  const LEFT_BASE = '#79f2c9';
+  const RIGHT_BASE = '#8fb4ff';
+  const FOLD_BASE = '#f0f7ff';
+  const STEM_BASE = '#a8bed6';
+
+  function makeBrainMaterial(color, opacity, emissiveIntensity) {
     return new THREE.MeshPhongMaterial({
       color,
       emissive: color,
@@ -7,92 +13,207 @@
       transparent: true,
       opacity,
       depthWrite: false,
-      blending: THREE.AdditiveBlending
+      blending: THREE.NormalBlending,
+      side: THREE.DoubleSide
     });
   }
 
-  function makeSphere(name, radius, position, scale, color) {
-    const mesh = new THREE.Mesh(
-      new THREE.SphereGeometry(radius, 38, 24),
-      createMaterial(color, 0.2, 0.25)
-    );
-    mesh.name = name;
-    mesh.position.set(position.x, position.y, position.z);
-    mesh.scale.set(scale.x, scale.y, scale.z);
-    mesh.userData.baseScale = mesh.scale.clone();
-    return mesh;
+  function makeAdditiveMaterial(color, opacity, emissiveIntensity) {
+    return new THREE.MeshPhongMaterial({
+      color,
+      emissive: color,
+      emissiveIntensity,
+      transparent: true,
+      opacity,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      side: THREE.DoubleSide
+    });
   }
 
-  function makeParticleField() {
-    const count = 180;
+  function setMaterialColor(material, color) {
+    material.color.set(color);
+    material.emissive.set(color);
+  }
+
+  function makeHemisphere(side) {
+    const group = new THREE.Group();
+    const color = side < 0 ? LEFT_BASE : RIGHT_BASE;
+
+    const mesh = new THREE.Mesh(
+      new THREE.SphereGeometry(58, 54, 30),
+      makeBrainMaterial(color, 0.24, 0.18)
+    );
+    mesh.name = side < 0 ? 'left conceptual hemisphere' : 'right conceptual hemisphere';
+    mesh.position.set(side * 33, 7, 0);
+    mesh.scale.set(0.82, 0.7, 0.54);
+    mesh.userData.baseScale = mesh.scale.clone();
+    group.add(mesh);
+
+    const foldTubes = makeFoldTubes(side);
+    foldTubes.forEach((tube) => group.add(tube));
+
+    group.userData = { mesh, foldTubes };
+    return group;
+  }
+
+  function makeFoldTubes(side) {
+    const tubes = [];
+    const folds = [
+      { y: 35, z: -14, amp: 9, depth: 10, phase: 0.1 },
+      { y: 24, z: 12, amp: 12, depth: 13, phase: 1.1 },
+      { y: 12, z: -24, amp: 10, depth: 14, phase: 2.2 },
+      { y: 3, z: 20, amp: 14, depth: 12, phase: 0.7 },
+      { y: -10, z: -10, amp: 9, depth: 11, phase: 1.8 },
+      { y: -21, z: 16, amp: 7, depth: 9, phase: 2.8 }
+    ];
+
+    folds.forEach((fold, index) => {
+      const points = [];
+      for (let i = 0; i < 7; i += 1) {
+        const t = i / 6;
+        const arc = (t - 0.5) * Math.PI;
+        const x = side * (30 + Math.sin(t * Math.PI) * (18 + fold.amp));
+        const y = fold.y - t * 16 + Math.sin(t * Math.PI * 2 + fold.phase) * 5;
+        const z = fold.z + Math.cos(arc + fold.phase * 0.45) * fold.depth + Math.sin(t * Math.PI * 3) * 4;
+        points.push(new THREE.Vector3(x, y, z));
+      }
+
+      const curve = new THREE.CatmullRomCurve3(points);
+      const geometry = new THREE.TubeGeometry(curve, 52, 1.45, 8, false);
+      const tube = new THREE.Mesh(
+        geometry,
+        makeAdditiveMaterial(index % 2 ? BASE_COLOR : FOLD_BASE, 0.42, 0.35)
+      );
+      tube.name = side < 0 ? 'left cortical fold' : 'right cortical fold';
+      tube.userData.phaseOffset = index * 0.55 + (side < 0 ? 0 : 0.28);
+      tube.userData.baseOpacity = 0.42;
+      tube.userData.baseEmissive = 0.35;
+      tubes.push(tube);
+    });
+
+    return tubes;
+  }
+
+  function makeFissurePlane() {
+    const fissure = new THREE.Mesh(
+      new THREE.PlaneGeometry(7, 86, 1, 1),
+      new THREE.MeshBasicMaterial({
+        color: '#020814',
+        transparent: true,
+        opacity: 0.5,
+        depthWrite: false,
+        side: THREE.DoubleSide
+      })
+    );
+    fissure.name = 'central conceptual fissure';
+    fissure.position.set(0, 9, 4);
+    return fissure;
+  }
+
+  function makeBrainstem() {
+    const stem = new THREE.Mesh(
+      new THREE.CylinderGeometry(9, 13, 34, 24, 1),
+      makeBrainMaterial(STEM_BASE, 0.24, 0.12)
+    );
+    stem.name = 'subtle conceptual brainstem';
+    stem.position.set(0, -44, 7);
+    stem.rotation.x = -0.18;
+    stem.userData.baseScale = stem.scale.clone();
+    return stem;
+  }
+
+  function makeSurfaceParticles() {
+    const count = 140;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(count * 3);
+    const phases = new Float32Array(count);
 
     for (let i = 0; i < count; i += 1) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos((Math.random() * 2) - 1);
-      const radius = 72 + Math.random() * 90;
-      positions[i * 3] = Math.sin(phi) * Math.cos(theta) * radius;
-      positions[i * 3 + 1] = Math.cos(phi) * radius * 0.62;
-      positions[i * 3 + 2] = Math.sin(phi) * Math.sin(theta) * radius * 0.72;
+      const side = i % 2 === 0 ? -1 : 1;
+      const row = Math.floor(i / 2);
+      const theta = (row * 0.71) % (Math.PI * 2);
+      const latitude = -0.58 + ((row * 0.17) % 1.16);
+      const surface = 0.94 + ((i % 7) - 3) * 0.01;
+      const x = side * (32 + Math.cos(theta) * Math.cos(latitude) * 36 * surface);
+      const y = 6 + Math.sin(latitude) * 45 * surface;
+      const z = Math.sin(theta) * Math.cos(latitude) * 34 * surface;
+
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+      phases[i] = theta + side * 0.7;
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 
-    return new THREE.Points(
+    const particles = new THREE.Points(
       geometry,
       new THREE.PointsMaterial({
-        color: '#8fb4ff',
-        size: 2.4,
+        color: '#dce8ff',
+        size: 2.1,
         transparent: true,
-        opacity: 0.48,
+        opacity: 0.34,
         blending: THREE.AdditiveBlending,
         depthWrite: false
       })
     );
+    particles.name = 'near-surface state particles';
+    particles.userData.basePositions = positions.slice();
+    particles.userData.phases = phases;
+    return particles;
+  }
+
+  function makeGlowShell() {
+    const shell = new THREE.Mesh(
+      new THREE.SphereGeometry(66, 54, 30),
+      makeAdditiveMaterial('#dce8ff', 0.07, 0.08)
+    );
+    shell.name = 'low opacity brain glow shell';
+    shell.scale.set(1.42, 0.78, 0.58);
+    shell.position.y = 7;
+    shell.userData.baseScale = shell.scale.clone();
+    return shell;
   }
 
   function addBrainObject(scene) {
     const group = new THREE.Group();
     group.name = 'conceptual-brain-state';
-    group.position.set(0, -14, -76);
+    group.position.set(16, 12, -82);
+    group.rotation.x = -0.03;
 
-    const zones = {
-      sensory: makeSphere('sensory fragments', 42, { x: -48, y: 14, z: 0 }, { x: 1.25, y: 0.8, z: 0.72 }, '#79f2c9'),
-      context: makeSphere('hippocampal/context binding', 34, { x: 10, y: -14, z: 16 }, { x: 1.15, y: 0.7, z: 0.62 }, '#8fb4ff'),
-      salience: makeSphere('emotional salience', 28, { x: 46, y: -8, z: 12 }, { x: 0.9, y: 0.78, z: 0.7 }, '#ff9ec4'),
-      integrated: makeSphere('integrated moment', 62, { x: 0, y: 10, z: -8 }, { x: 1.55, y: 0.86, z: 0.72 }, '#ffffff')
-    };
+    const left = makeHemisphere(-1);
+    const right = makeHemisphere(1);
+    const fissure = makeFissurePlane();
+    const stem = makeBrainstem();
+    const particles = makeSurfaceParticles();
+    const shell = makeGlowShell();
 
-    zones.integrated.material.opacity = 0.08;
-    zones.integrated.material.emissiveIntensity = 0.1;
-
-    Object.values(zones).forEach((mesh) => group.add(mesh));
-
-    const shell = new THREE.Mesh(
-      new THREE.SphereGeometry(86, 48, 32),
-      createMaterial('#dce8ff', 0.055, 0.05)
-    );
-    shell.name = 'conceptual whole-state halo';
-    shell.scale.set(1.45, 0.82, 0.66);
-    shell.userData.baseScale = shell.scale.clone();
     group.add(shell);
-
-    const particles = makeParticleField();
+    group.add(left);
+    group.add(right);
+    group.add(fissure);
+    group.add(stem);
     group.add(particles);
 
-    const light = new THREE.PointLight('#8fb4ff', 0.55, 480);
-    light.position.set(0, 0, 140);
+    const light = new THREE.PointLight('#8fb4ff', 0.62, 480);
+    light.position.set(0, 18, 130);
     group.add(light);
 
+    const foldTubes = [...left.userData.foldTubes, ...right.userData.foldTubes];
+
     group.userData = {
-      zones,
-      shell,
+      left,
+      right,
+      fissure,
+      foldTubes,
       particles,
+      shell,
+      stem,
       mode: null,
       pulse: 0.45,
-      color: new THREE.Color('#79f2c9'),
-      secondaryColor: new THREE.Color('#8fb4ff')
+      color: new THREE.Color(LEFT_BASE),
+      secondaryColor: new THREE.Color(RIGHT_BASE)
     };
 
     scene.add(group);
@@ -108,21 +229,50 @@
     data.color.set(mode.color);
     data.secondaryColor.set(mode.secondaryColor);
 
-    data.zones.sensory.material.color.set(mode.id === 'cue' ? mode.color : '#79f2c9');
-    data.zones.context.material.color.set(mode.id === 'tmr' || mode.id === 'guided' ? mode.color : '#8fb4ff');
-    data.zones.salience.material.color.set(mode.id === 'direct' ? mode.color : '#ff9ec4');
-    data.zones.integrated.material.color.set(mode.secondaryColor);
+    const primary = mode.color;
+    const secondary = mode.secondaryColor;
+    const leftColor = mode.id === 'cue' || mode.id === 'guided' ? primary : secondary;
+    const rightColor = mode.id === 'tmr' || mode.id === 'direct' ? primary : secondary;
 
-    Object.values(data.zones).forEach((zone) => {
-      zone.material.emissive.copy(zone.material.color);
-      zone.material.emissiveIntensity = 0.2 + mode.pulse * 0.35;
-      zone.material.opacity = zone.name === 'integrated moment' ? 0.08 + mode.pulse * 0.08 : 0.17 + mode.pulse * 0.1;
+    [data.left.userData.mesh, data.right.userData.mesh].forEach((mesh, index) => {
+      const target = index === 0 ? leftColor : rightColor;
+      setMaterialColor(mesh.material, target);
+      mesh.material.opacity = 0.2 + mode.pulse * 0.1;
+      mesh.material.emissiveIntensity = 0.12 + mode.pulse * 0.2;
     });
 
-    data.shell.material.color.set(mode.secondaryColor);
-    data.shell.material.emissive.set(mode.secondaryColor);
-    data.particles.material.color.set(mode.color);
-    data.particles.material.opacity = 0.3 + mode.pulse * 0.34;
+    data.foldTubes.forEach((tube, index) => {
+      setMaterialColor(tube.material, index % 2 === 0 ? primary : secondary);
+      tube.material.opacity = 0.38 + mode.pulse * 0.18;
+      tube.material.emissiveIntensity = 0.3 + mode.pulse * 0.35;
+    });
+
+    setMaterialColor(data.stem.material, mode.id === 'direct' ? secondary : STEM_BASE);
+    data.stem.material.opacity = 0.2 + mode.pulse * 0.06;
+    setMaterialColor(data.shell.material, secondary);
+    data.shell.material.opacity = 0.055 + mode.pulse * 0.045;
+    data.shell.material.emissiveIntensity = 0.08 + mode.pulse * 0.12;
+    data.particles.material.color.set(primary);
+    data.particles.material.opacity = 0.26 + mode.pulse * 0.24;
+  }
+
+  function animateSurfaceParticles(particles, timeSeconds, pulse, mode) {
+    const positions = particles.geometry.attributes.position.array;
+    const basePositions = particles.userData.basePositions;
+    const phases = particles.userData.phases;
+    const orbitSpeed = mode === 'guided' ? 0.9 : mode === 'tmr' ? 0.72 : 0.45;
+
+    for (let i = 0; i < phases.length; i += 1) {
+      const index = i * 3;
+      const phase = phases[i] + timeSeconds * orbitSpeed;
+      const drift = Math.sin(phase) * (0.65 + pulse * 0.8);
+      positions[index] = basePositions[index] + Math.cos(phase * 0.7) * drift;
+      positions[index + 1] = basePositions[index + 1] + Math.sin(phase * 0.6) * drift * 0.45;
+      positions[index + 2] = basePositions[index + 2] + Math.sin(phase) * drift;
+    }
+
+    particles.geometry.attributes.position.needsUpdate = true;
+    particles.rotation.y += 0.0007 + pulse * 0.00035;
   }
 
   function animateBrainObject(group, timeSeconds) {
@@ -130,18 +280,36 @@
 
     const data = group.userData;
     const pulse = data.pulse || 0.45;
-    group.rotation.y += 0.0016;
-    group.rotation.x = Math.sin(timeSeconds * 0.25) * 0.045;
+    const mode = data.mode || 'cue';
+    const modeRate = mode === 'direct' ? 1.35 : mode === 'tmr' ? 1 : 0.72;
+    const globalWave = Math.sin(timeSeconds * modeRate) * 0.5 + 0.5;
+    const guidedSweep = mode === 'guided' ? Math.sin(timeSeconds * 1.1 + group.rotation.y * 4) * 0.5 + 0.5 : 0;
+    const directFlicker = mode === 'direct' ? Math.sin(timeSeconds * 5.1) * Math.sin(timeSeconds * 2.4) * 0.08 : 0;
 
-    Object.values(data.zones).forEach((zone, index) => {
-      const phase = timeSeconds * (0.9 + pulse * 0.8) + index * 0.85;
-      const amount = 1 + Math.sin(phase) * 0.035 * (0.5 + pulse);
-      zone.scale.copy(zone.userData.baseScale).multiplyScalar(amount);
+    group.rotation.y = Math.sin(timeSeconds * 0.12) * 0.13;
+    group.rotation.x = -0.03 + Math.sin(timeSeconds * 0.22) * 0.025;
+
+    [data.left.userData.mesh, data.right.userData.mesh].forEach((mesh, index) => {
+      const offset = index === 0 ? 0 : 0.45;
+      const breathe = 1 + Math.sin(timeSeconds * 0.8 + offset) * 0.018 * (0.7 + pulse);
+      const modePulse = mode === 'direct' ? 1 + (globalWave * 0.035 + directFlicker) : breathe;
+      mesh.scale.copy(mesh.userData.baseScale).multiplyScalar(modePulse);
+      mesh.material.emissiveIntensity = 0.14 + pulse * 0.18 + globalWave * 0.08 + Math.max(0, directFlicker);
     });
 
-    data.shell.scale.copy(data.shell.userData.baseScale).multiplyScalar(1 + Math.sin(timeSeconds * 0.8) * 0.025);
-    data.particles.rotation.y -= 0.0012 + pulse * 0.0008;
-    data.particles.rotation.z = Math.sin(timeSeconds * 0.18) * 0.08;
+    data.foldTubes.forEach((tube) => {
+      const phase = timeSeconds * (0.9 + pulse * 0.55) + tube.userData.phaseOffset;
+      const ripple = Math.sin(phase) * 0.5 + 0.5;
+      const sweepBoost = mode === 'guided' ? Math.max(0, 1 - Math.abs(ripple - guidedSweep) * 2.2) * 0.22 : 0;
+      const tmrRipple = mode === 'tmr' ? Math.sin(phase * 1.7) * 0.08 : 0;
+      tube.material.opacity = tube.userData.baseOpacity + ripple * 0.18 + sweepBoost + Math.max(0, directFlicker);
+      tube.material.emissiveIntensity = tube.userData.baseEmissive + ripple * (0.25 + pulse * 0.2) + sweepBoost + tmrRipple;
+    });
+
+    data.fissure.material.opacity = 0.44 + globalWave * 0.08;
+    data.stem.scale.copy(data.stem.userData.baseScale).multiplyScalar(1 + Math.sin(timeSeconds * 0.65) * 0.012);
+    data.shell.scale.copy(data.shell.userData.baseScale).multiplyScalar(1 + Math.sin(timeSeconds * 0.62) * 0.018 + globalWave * 0.012);
+    animateSurfaceParticles(data.particles, timeSeconds, pulse, mode);
   }
 
   window.BRAIN_REPLAY_BRAIN = {
