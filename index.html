@@ -13,21 +13,29 @@
       <div class="ambient-grid" aria-hidden="true"></div>
     </section>
 
-    <header class="top-overlay">
+    <nav class="quick-dock" aria-label="Map panels">
+      <button class="dock-button" type="button" data-toggle-target="topOverlay">Concept</button>
+      <button class="dock-button" type="button" data-toggle-target="mapGuide">Guide</button>
+      <button class="dock-button" type="button" data-toggle-target="controlDeck">Controls</button>
+      <button class="dock-button" type="button" data-toggle-target="sidePanel">Details</button>
+    </nav>
+
+    <header class="top-overlay" id="topOverlay">
       <div>
-        <p class="eyebrow">Speculative neuroscience concept</p>
+        <button class="overlay-close" type="button" data-close-target="topOverlay" aria-label="Hide concept summary">×</button>
+        <p class="eyebrow">Concept / simulation scaffold</p>
         <h1>Brain-State Circuit Replay</h1>
         <p class="thesis">Photos record what we saw; Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
-        <p class="map-intent">This map is the argument structure: each dot is either a problem, a biological bridge, an engineering path, or a safety boundary.</p>
+        <p class="map-intent">This is a concept map and simulation scaffold — not a brain-derived output. Each dot is part of the project's thought process: problem, biological bridge, engineering path, or safety boundary.</p>
         <div class="hero-links" aria-label="Start here links">
           <a href="journey.html">Process journey</a>
           <a href="docs/unreturnable-present-paradox.md">Full thesis</a>
         </div>
       </div>
-      <button class="panel-toggle" id="panelToggle" type="button" aria-controls="sidePanel" aria-expanded="true">Details</button>
     </header>
 
-    <aside class="map-guide" aria-label="How to read the mindmap">
+    <aside class="map-guide compact-panel" id="mapGuide" aria-label="How to read the mindmap">
+      <button class="overlay-close" type="button" data-close-target="mapGuide" aria-label="Hide map guide">×</button>
       <div class="guide-card">
         <p class="eyebrow">How to read this map</p>
         <ol>
@@ -43,7 +51,8 @@
       </div>
     </aside>
 
-    <aside class="control-deck" aria-label="Replay controls">
+    <aside class="control-deck compact-panel" id="controlDeck" aria-label="Replay controls">
+      <button class="overlay-close" type="button" data-close-target="controlDeck" aria-label="Hide replay controls">×</button>
       <section class="control-block">
         <div class="block-heading">
           <span>Replay mode</span>
@@ -66,10 +75,10 @@
       </section>
     </aside>
 
-    <aside class="side-panel open" id="sidePanel" aria-live="polite">
+    <aside class="side-panel" id="sidePanel" aria-live="polite">
       <div class="panel-head">
         <p class="eyebrow">Selected node</p>
-        <button id="closePanel" type="button" aria-label="Close details panel">×</button>
+        <button id="closePanel" type="button" data-close-target="sidePanel" aria-label="Close details panel">×</button>
       </div>
       <h2 id="nodeTitle">Brain-State Circuit Replay</h2>
       <div class="meta-row">
@@ -97,7 +106,7 @@
       <div class="boundary-card">
         <h3>Scientific boundaries</h3>
         <ul>
-          <li>Speculative neuroscience concept, not a medical product or literal time travel.</li>
+          <li>Concept map / simulation scaffold, not a brain-derived output, medical product, or literal time travel.</li>
           <li>Not exact human memory replay and not exact visual playback.</li>
           <li>EEG measures broad scalp-level correlates; it cannot read synaptic traces, identify engrams, or produce exact visual memory playback.</li>
           <li>Brain visualization is conceptual; regions are not anatomically specific.</li>
@@ -116,16 +125,16 @@
       </nav>
     </aside>
 
-    <div class="brain-note">Conceptual brain-state visualization — not anatomically specific.</div>
-    <footer class="boundary-strip">Boundary: speculative concept only. EEG cannot read engrams or exact memories. The 3D brain is an abstract state model, not anatomy.</footer>
+    <div class="brain-note">Use top buttons to open Concept / Guide / Controls / Details. This is a thought-map scaffold, not brain output.</div>
+    <footer class="boundary-strip">Boundary: concept + simulation scaffold only. Not brain-derived output. EEG cannot read engrams or exact memories. The 3D brain is an abstract state model, not anatomy.</footer>
   </main>
 
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
-  <script src="src/graph-data.js?v=mindmap-clarity-a7c1486"></script>
-  <script src="src/replay-modes.js?v=mindmap-clarity-a7c1486"></script>
-  <script src="src/brain-overlay.js?v=mindmap-clarity-a7c1486"></script>
-  <script src="src/ui.js?v=mindmap-clarity-a7c1486"></script>
-  <script src="src/mindmap.js?v=mindmap-clarity-a7c1486"></script>
+  <script src="src/graph-data.js?v=surface-cleanup-v2"></script>
+  <script src="src/replay-modes.js?v=surface-cleanup-v2"></script>
+  <script src="src/brain-overlay.js?v=surface-cleanup-v2"></script>
+  <script src="src/ui.js?v=surface-cleanup-v2"></script>
+  <script src="src/mindmap.js?v=surface-cleanup-v2"></script>
 </body>
 </html>

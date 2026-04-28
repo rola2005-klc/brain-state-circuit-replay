@@ -20,7 +20,6 @@
       slider: document.getElementById('epistemicSlider'),
       epistemicLabel: document.getElementById('epistemicLabel'),
       panel: document.getElementById('sidePanel'),
-      panelToggle: document.getElementById('panelToggle'),
       closePanel: document.getElementById('closePanel'),
       nodeTitle: document.getElementById('nodeTitle'),
       nodeCluster: document.getElementById('nodeCluster'),
@@ -50,12 +49,21 @@
       onEpistemicChange(value);
     });
 
-    elements.panelToggle.addEventListener('click', () => setPanelOpen(elements, !elements.panel.classList.contains('open'), onPanelStateChange));
     elements.closePanel.addEventListener('click', () => setPanelOpen(elements, false, onPanelStateChange));
+    document.querySelectorAll('[data-toggle-target]').forEach((button) => {
+      button.addEventListener('click', () => togglePanel(button.dataset.toggleTarget, onPanelStateChange));
+    });
+    document.querySelectorAll('[data-close-target]').forEach((button) => {
+      button.addEventListener('click', () => closePanelById(button.dataset.closeTarget, onPanelStateChange));
+    });
 
     window.addEventListener('mousemove', (event) => {
       elements.tooltip.style.left = `${event.clientX}px`;
       elements.tooltip.style.top = `${event.clientY}px`;
+    });
+
+    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel'].forEach((id) => {
+      updateDockState(id, document.getElementById(id)?.classList.contains('open'));
     });
 
     return elements;
@@ -63,8 +71,31 @@
 
   function setPanelOpen(elements, isOpen, callback) {
     elements.panel.classList.toggle('open', isOpen);
-    elements.panelToggle.setAttribute('aria-expanded', String(isOpen));
+    updateDockState(elements.panel.id, isOpen);
     if (callback) callback(isOpen);
+  }
+
+  function togglePanel(id, callback) {
+    const panel = document.getElementById(id);
+    if (!panel) return;
+    const isOpen = panel.classList.contains('open');
+    closePanelById(id, callback, isOpen);
+  }
+
+  function closePanelById(id, callback, forceClose = true) {
+    const panel = document.getElementById(id);
+    if (!panel) return;
+    const shouldOpen = forceClose === true ? false : true;
+    panel.classList.toggle('open', shouldOpen);
+    updateDockState(id, shouldOpen);
+    if (callback) callback(shouldOpen);
+  }
+
+  function updateDockState(id, isOpen) {
+    document.querySelectorAll(`[data-toggle-target="${id}"]`).forEach((button) => {
+      button.classList.toggle('active', isOpen);
+      button.setAttribute('aria-pressed', String(isOpen));
+    });
   }
 
   function epistemicLabel(value) {

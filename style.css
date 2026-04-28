@@ -74,6 +74,7 @@ a:hover {
   opacity: 0.24;
 }
 
+.quick-dock,
 .top-overlay,
 .map-guide,
 .control-deck,
@@ -84,8 +85,70 @@ a:hover {
   z-index: 5;
 }
 
+
+.quick-dock {
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(5, 9, 16, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  z-index: 8;
+}
+
+.dock-button {
+  border: 1px solid rgba(220, 236, 255, 0.14);
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #dce8f9;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 750;
+}
+
+.dock-button.active,
+.dock-button:hover {
+  border-color: rgba(121, 242, 201, 0.7);
+  background: rgba(121, 242, 201, 0.14);
+  color: #effffb;
+}
+
+.overlay-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(220, 236, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #dce8f9;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.top-overlay:not(.open),
+.map-guide:not(.open),
+.control-deck:not(.open) {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.top-overlay,
+.map-guide,
+.control-deck {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 .top-overlay {
-  top: 20px;
+  top: 70px;
   left: 22px;
   width: min(520px, calc(100vw - 500px));
   display: flex;
@@ -94,8 +157,13 @@ a:hover {
   pointer-events: none;
 }
 
+.top-overlay.open {
+  pointer-events: auto;
+}
+
 .top-overlay > div,
-.panel-toggle,
+.quick-dock,
+.dock-button,
 .guide-card,
 .legend-card,
 .control-block,
@@ -108,7 +176,8 @@ a:hover {
 }
 
 .top-overlay > div {
-  padding: 18px 20px;
+  position: relative;
+  padding: 18px 44px 18px 20px;
   border-radius: 14px;
 }
 
@@ -175,7 +244,8 @@ h1 {
 .map-guide {
   left: 22px;
   top: auto;
-  bottom: 330px;
+  top: 220px;
+  bottom: auto;
   width: min(320px, calc(100vw - 500px));
   display: grid;
   gap: 10px;
@@ -183,6 +253,7 @@ h1 {
 
 .guide-card,
 .legend-card {
+  position: relative;
   border-radius: 14px;
   padding: 12px 13px;
 }
@@ -222,15 +293,20 @@ h1 {
 .control-deck {
   left: 22px;
   bottom: 56px;
-  width: min(520px, calc(100vw - 440px));
+  width: min(500px, calc(100vw - 460px));
   display: grid;
-  grid-template-columns: 1.2fr 0.9fr;
+  grid-template-columns: 1.15fr 0.85fr;
   gap: 12px;
 }
 
 .control-block {
   padding: 14px;
-  border-radius: 8px;
+  border-radius: 12px;
+}
+
+.control-deck > .overlay-close {
+  top: -12px;
+  right: -12px;
 }
 
 .block-heading,
@@ -293,7 +369,7 @@ input[type="range"] {
 }
 
 .side-panel {
-  top: 20px;
+  top: 70px;
   right: 20px;
   bottom: 56px;
   width: 340px;
@@ -420,8 +496,8 @@ input[type="range"] {
   display: inline-flex;
   margin: 6px 0 18px;
   border: 1px solid rgba(121, 242, 201, 0.54);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border-radius: 999px;
+  padding: 9px 12px;
   background: rgba(121, 242, 201, 0.12);
   font-weight: 750;
 }
@@ -474,11 +550,12 @@ input[type="range"] {
 }
 
 .brain-note {
-  right: 378px;
+  left: 22px;
+  right: auto;
   bottom: 56px;
-  max-width: 275px;
-  border-radius: 8px;
-  padding: 10px 12px;
+  max-width: 390px;
+  border-radius: 999px;
+  padding: 9px 12px;
   color: #d1deee;
   font-size: 0.82rem;
 }
@@ -554,8 +631,8 @@ body.journey-page {
 .journey-nav a,
 .journey-controls button {
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border-radius: 999px;
+  padding: 9px 12px;
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
 }

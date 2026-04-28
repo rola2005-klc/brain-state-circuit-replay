@@ -215,11 +215,6 @@ ${node.purpose || ''}`)
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
 
-    const centerNode = window.BRAIN_REPLAY_GRAPH.nodes.find((node) => node.id === 'project-thesis');
-    if (centerNode) {
-      setTimeout(() => focusNode(centerNode), 900);
-    }
-
     graph.scene().add(new THREE.AmbientLight('#dce8ff', 0.48));
     const keyLight = new THREE.DirectionalLight('#ffffff', 0.55);
     keyLight.position.set(80, 130, 90);
