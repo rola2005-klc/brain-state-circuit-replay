@@ -1,3 +1,4 @@
+(() => {
 const {
   DEFAULT_SYSTEMS,
   TARGET_STATES,
@@ -149,3 +150,4 @@ function svg(tag, attrs) {
 }
 
 init();
+})();
