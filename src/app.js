@@ -1,12 +1,16 @@
 (() => {
 const {
   DEFAULT_SYSTEMS,
+  STIMULATION_PROTOCOLS,
   TARGET_STATES,
   simulateReplay
 } = window.BSCR;
 
 const els = {
   targetState: document.getElementById('targetState'),
+  protocol: document.getElementById('protocol'),
+  methodText: document.getElementById('methodText'),
+  mechanismText: document.getElementById('mechanismText'),
   cue: document.getElementById('cue'),
   stimulation: document.getElementById('stimulation'),
   feedback: document.getElementById('feedback'),
@@ -37,7 +41,14 @@ function init() {
     els.targetState.appendChild(option);
   }
   els.targetState.value = 'childhood';
-  for (const input of [els.cue, els.stimulation, els.feedback, els.targetState]) {
+  for (const [id, protocol] of Object.entries(STIMULATION_PROTOCOLS)) {
+    const option = document.createElement('option');
+    option.value = id;
+    option.textContent = protocol.name;
+    els.protocol.appendChild(option);
+  }
+  els.protocol.value = 'neurofeedback';
+  for (const input of [els.cue, els.stimulation, els.feedback, els.targetState, els.protocol]) {
     input.addEventListener('input', run);
   }
   els.runButton.addEventListener('click', () => { seed += 17; run(); });
@@ -53,6 +64,7 @@ function run() {
     cue: Number(els.cue.value),
     stimulation: Number(els.stimulation.value),
     feedback: Number(els.feedback.value),
+    protocol: els.protocol.value,
     steps: 14,
     seed
   });
@@ -64,6 +76,8 @@ function render(result) {
   const similarityPct = Math.round(last.similarity * 100);
   const riskPct = Math.round(last.risk * 100);
   els.targetDescription.textContent = result.target.description;
+  els.methodText.textContent = result.protocol.method;
+  els.mechanismText.textContent = result.protocol.mechanism;
   els.similarity.textContent = `${similarityPct}%`;
   els.similarityBar.style.width = `${similarityPct}%`;
   els.error.textContent = last.error.toFixed(2);
@@ -122,6 +136,12 @@ function drawTimeline(history) {
   ctx.font = '22px system-ui';
   ctx.fillText('0', 28, h - 28);
   ctx.fillText(`${history.length - 1} replay steps`, w - 190, h - 28);
+  const finalIntervention = history[history.length - 1].intervention;
+  if (finalIntervention) {
+    ctx.fillStyle = '#d9e7ff';
+    ctx.font = '18px system-ui';
+    ctx.fillText(`method: ${finalIntervention.name}`, 34, h - 28);
+  }
 }
 
 function drawSeries(ctx, values, color, label, legendY) {

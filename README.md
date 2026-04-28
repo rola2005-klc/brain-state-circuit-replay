@@ -26,22 +26,29 @@ Humans already experience accidental state replay:
 
 This project asks whether future neurotechnology could make state replay intentional, measurable, and safe.
 
-## Scientific concepts referenced
+## Scientific backing
 
-- memory engrams
-- brain-state decoding
-- neural stimulation
-- closed-loop BCI
-- predictive processing
-- autobiographical memory
-- identity and agency ethics
+This is a speculative project, but it is now grounded in adjacent real research areas:
+
+- **Memory engrams:** animal studies show that activating tagged neural ensembles can evoke memory-like behavior.
+- **Targeted memory reactivation:** sounds/odors paired with learning can bias later memory reactivation, especially during sleep.
+- **Closed-loop neurostimulation:** human studies increasingly decode cognitive/emotional states and adapt stimulation in response.
+- **Hippocampal memory prostheses:** MIMO-style models have been explored for supporting memory encoding/recall.
+- **Neurofeedback:** real-time fMRI/BCI feedback can train partial self-regulation of brain activity.
+
+Read the research map: [`docs/research.md`](docs/research.md)
+
+Long-term development plan: [`docs/development-plan.md`](docs/development-plan.md)
 
 ## Demo features
 
 - Interactive target states: calm focus, autobiographical memory, skill/flow, emotional memory
+- Intervention protocol selector: sensory/context cueing, neurofeedback, closed-loop DBS-like modulation, MIMO-inspired hippocampal correction
+- Method/mechanism panel explaining how the selected protocol changes the simulated state
 - Adjustable cue strength, stimulation strength, and feedback strength
 - Conceptual neural network map with activation levels
 - Timeline chart for similarity and risk across replay steps
+- Research-anchor section and linked backup docs
 - Safety framing: emotional replay is powerful and should require safeguards
 - Pure JavaScript simulation core with Node tests
 
@@ -78,6 +85,8 @@ src/simulation.js       # pure simulation logic
 src/app.js              # UI rendering and interaction
 test.js                 # Node tests for simulation behavior
 docs/concept.md         # presentable concept note
+docs/research.md        # literature-backed research map
+docs/development-plan.md # long-term implementation plan
 docs/roadmap.md         # product/research roadmap
 ```
 

@@ -40,7 +40,7 @@ h1 { font-size: clamp(2.4rem, 7vw, 5.4rem); margin: 8px 0 10px; line-height: 0.9
 }
 .controls {
   display: grid;
-  grid-template-columns: 1.1fr repeat(3, 1fr) auto;
+  grid-template-columns: 1fr 1.2fr 1.4fr;
   gap: 14px;
   padding: 18px;
   align-items: end;
@@ -69,9 +69,19 @@ button {
   box-shadow: 0 12px 30px rgba(124,247,212,0.18);
 }
 button:active { transform: translateY(1px); }
+.method-card {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.045);
+  border-radius: 18px;
+  padding: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+.method-card strong { color: var(--accent); font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.method-card p { margin: 5px 0 10px; }
 
 .grid { display: grid; grid-template-columns: 1.4fr 0.9fr; gap: 18px; margin-bottom: 18px; }
-.brain-card, .metrics-card, .timeline-card, .story { padding: 22px; }
+.brain-card, .metrics-card, .timeline-card, .story, .research-backup { padding: 22px; }
 .section-heading { display: flex; justify-content: space-between; gap: 18px; align-items: start; margin-bottom: 8px; }
 h2 { margin: 0; font-size: 1.2rem; }
 .section-heading p, .story p, .story li { color: var(--muted); }
@@ -91,9 +101,15 @@ h2 { margin: 0; font-size: 1.2rem; }
 #timeline { width: 100%; height: auto; display: block; background: rgba(0,0,0,0.18); border-radius: 18px; }
 .story { line-height: 1.7; }
 .story strong { color: var(--text); }
+.research-backup { margin: 18px 0; }
+.anchor-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.anchor-grid article { border: 1px solid var(--line); background: rgba(255,255,255,0.045); border-radius: 18px; padding: 14px; min-height: 130px; }
+.anchor-grid strong { color: var(--text); display: block; margin-bottom: 8px; }
+.anchor-grid span, .doc-link { color: var(--muted); line-height: 1.45; }
+a { color: var(--accent); }
 
 @media (max-width: 940px) {
-  .controls, .grid { grid-template-columns: 1fr; }
+  .controls, .grid, .anchor-grid { grid-template-columns: 1fr; }
   .section-heading { display: block; }
   #brainMap { min-height: 320px; }
 }
