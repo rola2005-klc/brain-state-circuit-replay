@@ -3,117 +3,91 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brain-State Circuit Replay</title>
+  <title>Brain-State Circuit Replay Mindmap</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="shell">
-    <section class="hero">
-      <p class="eyebrow">Speculative neuroscience × BCI concept demo</p>
-      <h1>Brain-State Circuit Replay</h1>
-      <p class="subtitle">Photos record what we saw. This project asks whether future interfaces could reconstruct what we were.</p>
-      <p class="disclaimer">Subjective state-time travel concept only — not medical software, not literal time travel, and not a biological claim.</p>
+  <main class="app-shell">
+    <section class="graph-stage" aria-label="3D concept mindmap">
+      <div id="graph"></div>
+      <div class="ambient-grid" aria-hidden="true"></div>
     </section>
 
-    <section class="panel controls" aria-label="Simulation controls">
-      <label>
-        Target state
-        <select id="targetState"></select>
-      </label>
-      <label>
-        Intervention method
-        <select id="protocol"></select>
-      </label>
-      <div class="method-card" id="methodCard">
-        <strong>Method:</strong>
-        <p id="methodText"></p>
-        <strong>Mechanism:</strong>
-        <p id="mechanismText"></p>
+    <header class="top-overlay">
+      <div>
+        <p class="eyebrow">Speculative neuroscience concept</p>
+        <h1>Brain-State Circuit Replay</h1>
+        <p class="thesis">Photos record what we saw; Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
       </div>
-      <label>
-        Memory cue strength <span id="cueValue">0.25</span>
-        <input id="cue" type="range" min="0" max="1" step="0.01" value="0.25" />
-      </label>
-      <label>
-        Stimulation strength <span id="stimValue">0.28</span>
-        <input id="stimulation" type="range" min="0" max="0.7" step="0.01" value="0.28" />
-      </label>
-      <label>
-        Closed-loop feedback <span id="feedbackValue">0.50</span>
-        <input id="feedback" type="range" min="0" max="1" step="0.01" value="0.50" />
-      </label>
-      <button id="runButton">Run replay simulation</button>
-    </section>
+      <button class="panel-toggle" id="panelToggle" type="button" aria-controls="sidePanel" aria-expanded="true">Details</button>
+    </header>
 
-    <section class="grid">
-      <article class="panel brain-card">
-        <div class="section-heading">
-          <h2>Network map</h2>
-          <p>Node brightness = current activation. Lines = conceptual coupling.</p>
+    <aside class="control-deck" aria-label="Replay controls">
+      <section class="control-block">
+        <div class="block-heading">
+          <span>Replay mode</span>
+          <strong id="modeTitle">Cue-triggered recall</strong>
         </div>
-        <svg id="brainMap" viewBox="0 0 900 560" role="img" aria-label="Conceptual brain network map"></svg>
-      </article>
+        <div class="mode-grid" id="modeButtons" role="group" aria-label="Replay mode selector"></div>
+        <p class="mode-copy" id="modeCopy"></p>
+      </section>
 
-      <article class="panel metrics-card">
-        <div class="section-heading">
-          <h2>Replay metrics</h2>
-          <p id="targetDescription"></p>
+      <section class="control-block">
+        <label for="epistemicSlider">
+          <span>Epistemic position</span>
+          <strong id="epistemicLabel">Balanced map</strong>
+        </label>
+        <input id="epistemicSlider" type="range" min="0" max="100" value="50" />
+        <div class="slider-scale" aria-hidden="true">
+          <span>Current science</span>
+          <span>Speculative frontier</span>
         </div>
-        <div class="metric">
-          <span>Similarity to target</span>
-          <strong id="similarity">0%</strong>
-          <div class="bar"><i id="similarityBar"></i></div>
-        </div>
-        <div class="metric">
-          <span>Reconstruction error</span>
-          <strong id="error">0.00</strong>
-          <div class="bar"><i id="errorBar"></i></div>
-        </div>
-        <div class="metric">
-          <span>Safety risk</span>
-          <strong id="risk">0%</strong>
-          <div class="bar risk"><i id="riskBar"></i></div>
-        </div>
-        <p class="decoded" id="decoded"></p>
-      </article>
-    </section>
+      </section>
+    </aside>
 
-    <section class="panel timeline-card">
-      <div class="section-heading">
-        <h2>Closed-loop replay timeline</h2>
-        <p>The system gradually nudges the current state toward a target signature while monitoring risk.</p>
+    <aside class="side-panel open" id="sidePanel" aria-live="polite">
+      <div class="panel-head">
+        <p class="eyebrow">Selected node</p>
+        <button id="closePanel" type="button" aria-label="Close details panel">×</button>
       </div>
-      <canvas id="timeline" width="1000" height="260" aria-label="Simulation timeline chart"></canvas>
-    </section>
-
-    <section class="panel research-backup">
-      <div class="section-heading">
-        <h2>Research anchors</h2>
-        <p>This is speculative, but the architecture is backed by adjacent work.</p>
+      <h2 id="nodeTitle">Brain-State Circuit Replay</h2>
+      <div class="meta-row">
+        <span class="cluster-pill" id="nodeCluster">Overview</span>
+        <span class="status-badge status-plausible" id="nodeStatus">plausible</span>
       </div>
-      <div class="anchor-grid">
-        <article><strong>Engrams</strong><span>Distributed memory ensembles can be tagged/reactivated in animal studies.</span></article>
-        <article><strong>Targeted reactivation</strong><span>Sound/odor/context cues can bias memory consolidation and replay.</span></article>
-        <article><strong>Closed-loop DBS</strong><span>Decoded state can guide adaptive stimulation in specialized human settings.</span></article>
-        <article><strong>Memory prosthesis</strong><span>MIMO-style hippocampal models inspire state-transition correction.</span></article>
-        <article><strong>Neurofeedback</strong><span>Real-time feedback can train partial control of emotional/cognitive states.</span></article>
-      </div>
-      <p class="doc-link">Backup content: <a href="docs/research.md">research map</a> · <a href="docs/development-plan.md">development plan</a></p>
-    </section>
+      <p id="nodeDescription">Select a node to inspect how the project separates known science, plausible engineering, and speculative frontier claims.</p>
+      <a class="doc-button" id="nodeDocLink" href="docs/presentable-foundation.md">Open foundation doc</a>
 
-    <section class="panel story">
-      <h2>How to explain this project</h2>
-      <p><strong>Core analogy:</strong> A photo records the outside of a moment. Brain-State Circuit Replay asks whether we can also reconstruct the inside of a moment: perception, emotion, body sensation, attention, and meaning.</p>
-      <p><strong>Thesis:</strong> We may not go back in time, but we may learn how to revisit brain-body states.</p>
-      <ol>
-        <li><strong>Record:</strong> Photos, audio, smell, and context preserve external cues from a past moment.</li>
-        <li><strong>Infer:</strong> A target state is modeled as a distributed brain-body signature.</li>
-        <li><strong>Replay:</strong> Cueing, feedback, or stimulation nudges the current state toward that signature.</li>
-        <li><strong>Safeguard:</strong> Risk metrics prevent uncontrolled emotional replay or false certainty.</li>
-      </ol>
-    </section>
+      <div class="boundary-card">
+        <h3>Scientific boundaries</h3>
+        <ul>
+          <li>Speculative neuroscience concept, not a medical product or literal time travel.</li>
+          <li>Not exact human memory replay and not exact visual playback.</li>
+          <li>EEG measures broad scalp-level correlates; it cannot read synaptic traces, identify engrams, or produce exact visual memory playback.</li>
+          <li>Brain visualization is conceptual; regions are not anatomically specific.</li>
+        </ul>
+      </div>
+
+      <nav class="doc-links" aria-label="Project documents">
+        <a href="docs/presentable-foundation.md">Foundation</a>
+        <a href="docs/presentation-outline.md">Outline</a>
+        <a href="docs/native-memory-trace-reactivation.md">Native trace</a>
+        <a href="docs/research.md">Research</a>
+        <a href="docs/data-model.md">Data model</a>
+        <a href="docs/development-plan.md">Development plan</a>
+      </nav>
+    </aside>
+
+    <div class="brain-note">Conceptual brain-state visualization — not anatomically specific.</div>
+    <footer class="boundary-strip">Boundary: speculative concept only. EEG cannot read engrams or exact memories. The 3D brain is an abstract state model, not anatomy.</footer>
   </main>
-  <script src="src/simulation.js?v=2"></script>
-  <script src="src/app.js?v=2"></script>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+  <script src="src/graph-data.js"></script>
+  <script src="src/replay-modes.js"></script>
+  <script src="src/brain-overlay.js"></script>
+  <script src="src/ui.js"></script>
+  <script src="src/mindmap.js"></script>
 </body>
 </html>

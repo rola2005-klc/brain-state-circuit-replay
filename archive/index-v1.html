@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brain-State Circuit Replay</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow">Speculative neuroscience and BCI foundation</p>
+      <h1>Brain-State Circuit Replay</h1>
+      <p class="subtitle">Photos record what we saw. This project asks whether future interfaces could reconstruct what we were.</p>
+      <p class="disclaimer">A presentable thesis about partial brain-body state reconstruction, not literal time travel, medical software, exact memory replay, or visual playback.</p>
+    </section>
+
+    <section class="concept-layout" aria-label="Concept foundation">
+      <article class="panel concept-primary">
+        <p class="eyebrow small">Core idea</p>
+        <h2>The memory trace is already biological.</h2>
+        <p>A meaningful moment is not just an external image. It is a distributed state involving sensory fragments, hippocampal context, emotional salience, body feeling, attention, and interpretation.</p>
+        <p>The refined hypothesis is that no previous external brain-state recording is strictly required. Plasticity and LTP are the native biological record; the hard problem is retroactive addressability and controlled reactivation.</p>
+      </article>
+      <aside class="panel concept-side">
+        <h2>Scientific boundary</h2>
+        <ul>
+          <li>EEG is a non-invasive state correlate, not a synaptic trace or engram readout.</li>
+          <li>The realistic floor is cue-triggered recall and Targeted Memory Reactivation.</li>
+          <li>The frontier is direct engram reactivation and guided endogenous replay.</li>
+          <li>The goal is partial state approximation, not exact human memory playback.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="panel framework" aria-label="Replay framework">
+      <div class="section-heading">
+        <h2>Conceptual framework</h2>
+        <p>The project is foundation-first: define the science, then use the demo as supporting evidence.</p>
+      </div>
+      <div class="framework-steps">
+        <article><strong>Trace</strong><span>Experience leaves plasticity-based changes in distributed circuits.</span></article>
+        <article><strong>Address</strong><span>Cues, context, sleep, attention, or future stimulation try to access the right trace.</span></article>
+        <article><strong>Reactivate</strong><span>The current brain-body state is nudged toward a remembered state region.</span></article>
+        <article><strong>Safeguard</strong><span>Similarity, uncertainty, distortion, and emotional risk must remain visible.</span></article>
+      </div>
+      <p class="doc-link">Foundation docs: <a href="docs/presentable-foundation.md">presentable foundation</a> | <a href="docs/presentation-outline.md">presentation outline</a> | <a href="docs/native-memory-trace-reactivation.md">native trace explainer</a></p>
+    </section>
+
+    <section class="panel story">
+      <h2>Presentation-ready story</h2>
+      <p><strong>Photo problem:</strong> A photo records the outside of a moment. Brain-State Circuit Replay asks whether we can also reconstruct the inside of a moment: perception, emotion, body sensation, attention, and meaning.</p>
+      <p><strong>Current focus:</strong> The repo is building the conceptual and scientific foundation first. The simulator below is a supporting conceptual demo, not the main product and not biological validation.</p>
+      <ol>
+        <li><strong>Known:</strong> plasticity, memory traces, cue-triggered recall, and Targeted Memory Reactivation.</li>
+        <li><strong>Plausible:</strong> closed-loop cueing and feedback that bias partial state re-entry.</li>
+        <li><strong>Speculative:</strong> direct engram reactivation or guided endogenous replay of a specific past state.</li>
+      </ol>
+    </section>
+
+    <section class="panel controls" aria-label="Simulation controls">
+      <div class="demo-intro">
+        <p class="eyebrow small">Supporting conceptual demo</p>
+        <h2>State approximation sandbox</h2>
+        <p>The controls model replay modes as state-vector nudges with similarity, reconstruction error, and safety risk. They are here to clarify assumptions, not to claim real brain control.</p>
+      </div>
+      <label>
+        Target state
+        <select id="targetState"></select>
+      </label>
+      <label>
+        Intervention method
+        <select id="protocol"></select>
+      </label>
+      <div class="method-card" id="methodCard">
+        <strong>Method:</strong>
+        <p id="methodText"></p>
+        <strong>Mechanism:</strong>
+        <p id="mechanismText"></p>
+      </div>
+      <label>
+        Memory cue strength <span id="cueValue">0.25</span>
+        <input id="cue" type="range" min="0" max="1" step="0.01" value="0.25" />
+      </label>
+      <label>
+        Stimulation strength <span id="stimValue">0.28</span>
+        <input id="stimulation" type="range" min="0" max="0.7" step="0.01" value="0.28" />
+      </label>
+      <label>
+        Closed-loop feedback <span id="feedbackValue">0.50</span>
+        <input id="feedback" type="range" min="0" max="1" step="0.01" value="0.50" />
+      </label>
+      <button id="runButton">Run replay simulation</button>
+    </section>
+
+    <section class="grid">
+      <article class="panel brain-card">
+        <div class="section-heading">
+          <h2>Network map</h2>
+          <p>Node brightness = current activation. Lines = conceptual coupling.</p>
+        </div>
+        <svg id="brainMap" viewBox="0 0 900 560" role="img" aria-label="Conceptual brain network map"></svg>
+      </article>
+
+      <article class="panel metrics-card">
+        <div class="section-heading">
+          <h2>Replay metrics</h2>
+          <p id="targetDescription"></p>
+        </div>
+        <div class="metric">
+          <span>Similarity to target</span>
+          <strong id="similarity">0%</strong>
+          <div class="bar"><i id="similarityBar"></i></div>
+        </div>
+        <div class="metric">
+          <span>Reconstruction error</span>
+          <strong id="error">0.00</strong>
+          <div class="bar"><i id="errorBar"></i></div>
+        </div>
+        <div class="metric">
+          <span>Safety risk</span>
+          <strong id="risk">0%</strong>
+          <div class="bar risk"><i id="riskBar"></i></div>
+        </div>
+        <p class="decoded" id="decoded"></p>
+      </article>
+    </section>
+
+    <section class="panel timeline-card">
+      <div class="section-heading">
+        <h2>Closed-loop replay timeline</h2>
+        <p>The system gradually nudges the current state toward a target signature while monitoring risk.</p>
+      </div>
+      <canvas id="timeline" width="1000" height="260" aria-label="Simulation timeline chart"></canvas>
+    </section>
+
+    <section class="panel research-backup">
+      <div class="section-heading">
+        <h2>Research anchors</h2>
+        <p>This is speculative, but the architecture is backed by adjacent work.</p>
+      </div>
+      <div class="anchor-grid">
+        <article><strong>Engrams</strong><span>Distributed memory ensembles can be tagged/reactivated in animal studies.</span></article>
+        <article><strong>Targeted reactivation</strong><span>Sound/odor/context cues can bias memory consolidation and replay.</span></article>
+        <article><strong>Closed-loop DBS</strong><span>Decoded state can guide adaptive stimulation in specialized human settings.</span></article>
+        <article><strong>Memory prosthesis</strong><span>MIMO-style hippocampal models inspire state-transition correction.</span></article>
+        <article><strong>Neurofeedback</strong><span>Real-time feedback can train partial control of emotional/cognitive states.</span></article>
+      </div>
+      <p class="doc-link">Backup content: <a href="docs/research.md">research map</a> | <a href="docs/development-plan.md">development plan</a> | <a href="docs/data-model.md">data model</a></p>
+    </section>
+  </main>
+  <script src="src/simulation.js?v=2"></script>
+  <script src="src/app.js?v=2"></script>
+</body>
+</html>
