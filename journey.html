@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brain-State Circuit Replay Process Journey</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="journey-page">
+  <header class="journey-header">
+    <nav class="journey-nav" aria-label="Project navigation">
+      <a href="index.html">3D mindmap</a>
+      <a href="docs/unreturnable-present-paradox.md">Full thesis</a>
+      <a href="docs/presentable-foundation.md">Foundation</a>
+    </nav>
+    <p class="eyebrow">Process journey</p>
+    <h1>From the Unreturnable Present to Safe Resonance</h1>
+    <p class="thesis">A static, speculative map of how a future system might help someone re-approach a past-associated integrated self-state without claiming exact replay or literal time travel.</p>
+  </header>
+
+  <main class="journey-shell">
+    <section class="journey-board" aria-label="Journey step selector">
+      <div class="journey-path" id="journeyPath"></div>
+    </section>
+
+    <section class="journey-detail" aria-live="polite">
+      <div class="journey-card">
+        <p class="step-count" id="stepCount"></p>
+        <h2 id="stepTitle"></h2>
+        <p id="stepCopy"></p>
+        <div class="state-panel" aria-label="Conceptual state dimensions">
+          <div class="state-bar"><span>Body</span><meter id="barBody" min="0" max="100"></meter></div>
+          <div class="state-bar"><span>Attention</span><meter id="barAttention" min="0" max="100"></meter></div>
+          <div class="state-bar"><span>Emotion</span><meter id="barEmotion" min="0" max="100"></meter></div>
+          <div class="state-bar"><span>Context</span><meter id="barContext" min="0" max="100"></meter></div>
+          <div class="state-bar"><span>Meaning</span><meter id="barMeaning" min="0" max="100"></meter></div>
+          <div class="state-bar"><span>Safety</span><meter id="barSafety" min="0" max="100"></meter></div>
+        </div>
+      </div>
+
+      <div class="journey-controls" role="group" aria-label="Step controls">
+        <button id="prevStep" type="button">Previous</button>
+        <button id="nextStep" type="button">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <aside class="journey-disclaimer">
+    <strong>Boundary:</strong> This is an educational and speculative interface prototype. It does not claim medical benefit, literal time travel, exact memory replay, exact visual playback, or EEG access to engrams.
+  </aside>
+
+  <script src="src/journey.js"></script>
+</body>
+</html>

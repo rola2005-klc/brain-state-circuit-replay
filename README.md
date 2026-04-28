@@ -2,25 +2,32 @@
 
 **Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
 
-This repository is currently building the conceptual and scientific foundation for a speculative neuroscience / BCI thesis. The first goal is a clear, presentable idea: if photos, videos, music, and smell can trigger memory, could future interfaces help a person partially re-enter the **brain-body state** of a past moment?
+This repository is currently building the conceptual and scientific foundation for a speculative neuroscience / BCI thesis. The first goal is a clear, presentable idea: if photos, videos, music, and smell can trigger memory, could future interfaces help a person partially re-enter the **integrated self-state** of a past moment?
+
+The emotional problem is **The Unreturnable Present Paradox / 当下不可归悖论**: when a person is very happy or inside an important moment, the thought "I can't go back anymore" can create anticipatory grief that blocks the person from fully living that moment.
 
 The interactive simulation is secondary. It supports the thesis by making assumptions visible: target states, replay modes, similarity, reconstruction error, and safety risk. The main artifact is the foundation: what the concept means, what science supports, what is plausible extrapolation, and what remains speculative.
 
 This project does **not** claim literal time travel, medical treatment, exact human memory replay, exact visual playback, or EEG reading synaptic traces.
 
-## Start here
+## Start here: one-minute path
 
-- Presentable foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
-- 8-slide presentation outline: [`docs/presentation-outline.md`](docs/presentation-outline.md)
-- Technical explainer on native memory traces: [`docs/native-memory-trace-reactivation.md`](docs/native-memory-trace-reactivation.md)
-- Original theory note: [`docs/theory.md`](docs/theory.md)
-- Research map: [`docs/research.md`](docs/research.md)
+1. Open the GitHub Pages 3D mindmap: [`index.html`](index.html)
+2. Follow the process journey: [`journey.html`](journey.html)
+3. Read the full thesis: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+4. Check the scientific foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+
+Audience paths:
+
+- **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), and [data model](docs/data-model.md).
+- **Internship reviewers:** start with the [3D mindmap](index.html), skim the [process journey](journey.html), then inspect the [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
+- **General viewers:** start with the [process journey](journey.html), then use the [3D mindmap](index.html) to explore the idea visually.
 
 ## Project thesis
 
-We may not be able to go back in time, but we may learn how to revisit brain-body states.
+We may not be able to go back in time, but we may learn how to revisit parts of brain-body-self states.
 
-The central theory is that a meaningful past moment is not only a stored image. It is a distributed state involving perception, memory, emotion, body sensation, attention, and interpretation.
+The central theory is that a meaningful past moment is not only a stored image. It is a distributed integrated self-state involving body state, attention, emotion topology, context, self-model, meaning, and configured ignorance: the ability to feel the world that way from that version of the self.
 
 The refined idea is that no previous external brain-state recording is strictly required because plasticity and LTP are the native biological record. Experience changes synapses and circuit dynamics. The hard problem is **retroactive addressability and controlled reactivation**: how to access the right trace, reactivate it safely, and measure what happened without pretending it is exact.
 
@@ -42,7 +49,7 @@ Humans already experience accidental state replay:
 - trauma cues recreate body states;
 - athletes re-enter flow states.
 
-This project asks whether future neurotechnology could make state replay intentional, measurable, and safe.
+This project asks whether future neurotechnology could make state replay intentional, measurable, and safe while treating emotion as structured information rather than noise. The design target is **Resonance over Recreation**: past-state replay should return the person to the present, not trap them in the past.
 
 ## Scientific backing
 
@@ -108,7 +115,9 @@ Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
 
 ```text
 index.html              # static website entry point
+journey.html            # one-minute process journey page
 style.css               # responsive visual design
+src/journey.js          # keyboard/click process journey interaction
 src/simulation.js       # pure simulation logic
 src/app.js              # UI rendering and interaction
 test.js                 # Node tests for simulation behavior
@@ -120,6 +129,7 @@ docs/theory.md         # user's core photo-to-brain-state-replay theory
 docs/concept.md         # presentable concept note
 docs/presentable-foundation.md # thesis, pitch, framework, and boundaries
 docs/presentation-outline.md # 8-slide presentation structure
+docs/unreturnable-present-paradox.md # refined thesis and ethical boundary
 docs/native-memory-trace-reactivation.md # EEG/LTP/engram/TMR explainer
 docs/research.md        # literature-backed research map
 docs/data-model.md      # synthetic data schema and baseline

@@ -6,23 +6,24 @@ Bullets:
 
 - Photos preserve the outside of a moment.
 - The lost part is internal: attention, emotion, body state, meaning.
-- Thesis: photos record what we saw; brain-state replay asks whether we can reconstruct what we were.
+- Thesis: photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
 
 Speaker notes:
 
-Start with a familiar problem. A photo can show a birthday, a trip, or a person, but it cannot restore what it felt like to be that version of yourself. This project starts from that gap.
+Start with a familiar problem. A photo can show a birthday, a trip, or a person, but it cannot restore what it felt like to be that version of yourself. This project starts from that gap and introduces the Unreturnable Present Paradox: happiness can be interrupted by the thought that this present cannot be returned to.
 
 ## Slide 2 - What Is a Moment?
 
 Bullets:
 
 - Not an image file or single memory slot.
-- Distributed brain-body state: sensory, hippocampal, emotional, interoceptive, attentional.
+- Distributed integrated self-state: body state, attention, emotion topology, context, self-model, meaning, configured ignorance.
+- Target: 曾经的自己, not scene replay or one emotion.
 - Remembering is reconstruction in the present.
 
 Speaker notes:
 
-Define the unit of the project carefully. A moment is a state across systems, not a photograph in the brain. Any replay would be partial and reconstructed through the current self.
+Define the unit of the project carefully. A moment is a state across systems, not a photograph in the brain. Any replay would be partial and reconstructed through the current self. The key loss is often self-capacity: "at that moment, I had the capacity to feel the world this way."
 
 ## Slide 3 - Plasticity as the Native Record
 
@@ -44,7 +45,7 @@ Bullets:
 - Realistic floor: cue-triggered recall and Targeted Memory Reactivation.
 - Frontier: direct engram reactivation.
 - Frontier: guided endogenous replay without a simple external trigger.
-- All modes are partial state nudges, not exact playback.
+- All modes are partial state nudges, not exact playback or literal time travel.
 
 Speaker notes:
 
@@ -80,7 +81,9 @@ The demo is a supporting artifact. It does not prove real neuroscience. It demon
 
 Bullets:
 
-- No literal time travel.
+- Weak time travel boundary: state reinstatement or neural pattern reactivation.
+- Medium boundary: subjective similarity or phenomenological return.
+- Strong boundary: literal time travel is metaphor only.
 - No medical claim or therapeutic effect.
 - No exact human memory replay.
 - No exact visual playback.
@@ -88,7 +91,7 @@ Bullets:
 
 Speaker notes:
 
-Be explicit about what the project is not. The credible version is a framework for partial state reconstruction and controlled reactivation, not science fiction presented as current capability.
+Be explicit about what the project is not. The credible version is a framework for partial state reconstruction and controlled reactivation, not science fiction presented as current capability. EEG cannot read engrams or synaptic memory traces.
 
 ## Slide 8 - Roadmap and Ethics
 
@@ -97,8 +100,15 @@ Bullets:
 - Build a clearer literature map and citation table.
 - Add attractor-state and synthetic EEG-like models.
 - Keep simulation secondary to the thesis.
-- Ethics: consent, identity, emotional risk, false memory, manipulation.
+- Ethics as architecture: consent, identity, emotional risk, false memory, manipulation.
+- Resonance over Recreation: return to the present, do not trap the user in the past.
 
 Speaker notes:
 
-Close with why this matters. If a system can influence recall intensity or state re-entry, safety and consent are core design requirements. The next step is stronger foundations before richer interaction.
+Close with why this matters. If a system can influence recall intensity or state re-entry, safety and consent are core design requirements. Avoid addiction, escape, and hyperactive state chasing. The next step is stronger foundations before richer interaction.
+
+## Companion links
+
+- 3D mindmap: [../index.html](../index.html)
+- Process journey: [../journey.html](../journey.html)
+- Full thesis: [unreturnable-present-paradox.md](unreturnable-present-paradox.md)

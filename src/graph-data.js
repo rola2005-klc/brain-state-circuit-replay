@@ -2,6 +2,7 @@
   const docs = {
     foundation: 'docs/presentable-foundation.md',
     outline: 'docs/presentation-outline.md',
+    unreturnable: 'docs/unreturnable-present-paradox.md',
     nativeTrace: 'docs/native-memory-trace-reactivation.md',
     research: 'docs/research.md',
     data: 'docs/data-model.md',
@@ -16,6 +17,62 @@
       status: 'plausible',
       description: 'A photo preserves external light from a moment, but it does not preserve the internal state of being there. The project begins from that mismatch between visual record and lived experience.',
       docLink: docs.foundation
+    },
+    {
+      id: 'unreturnable-present',
+      label: 'The Unreturnable Present Paradox',
+      cluster: 'Problem',
+      status: 'plausible',
+      description: 'When a person notices that a happy or important present cannot be returned to, anticipatory grief can interrupt the moment itself. The project asks whether safe state resonance could reduce that pressure.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'integrated-self-state',
+      label: 'Integrated Self-State',
+      cluster: 'Problem',
+      status: 'plausible',
+      description: 'The target is not scene replay or a single emotion. It is a partial body-attention-emotion-context-self-meaning configuration: 曾经的自己.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'self-capacity',
+      label: 'Self-Capacity',
+      cluster: 'Problem',
+      status: 'plausible',
+      description: 'The desired recovery is often the capacity to feel the world a certain way. This reframes replay as a question of human emotional capacity, not content extraction.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'emotion-structured-information',
+      label: 'Emotion as Structured Information',
+      cluster: 'Technology',
+      status: 'plausible',
+      description: 'Emotion is treated as structured information about salience, value, body state, prediction, memory, and self-relevance. AI should carry and protect it, not erase it.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'ethics-architecture',
+      label: 'Ethics as Architecture',
+      cluster: 'Ethics/Risk',
+      status: 'known',
+      description: 'Safety cannot be added after intensity optimization. Consent, uncertainty, anti-addiction limits, and return-to-present design are architectural requirements.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'experiential-time-travel',
+      label: 'Experiential Time Travel (Metaphor)',
+      cluster: 'Hard Problem',
+      status: 'speculative',
+      description: 'Weak means state reinstatement; medium means subjective similarity; strong is only a metaphor. The project does not claim literal physics time travel.',
+      docLink: docs.unreturnable
+    },
+    {
+      id: 'resonance-over-recreation',
+      label: 'Resonance over Recreation',
+      cluster: 'Ethics/Risk',
+      status: 'plausible',
+      description: 'The design target is bounded resonance with a past-associated self-capacity, not copying the past or trapping the person in nostalgic state chasing.',
+      docLink: docs.unreturnable
     },
     {
       id: 'what-we-saw',
@@ -276,15 +333,19 @@
   ];
 
   const links = [
-    ['photo-problem', 'what-we-saw'], ['photo-problem', 'what-we-were'], ['what-we-were', 'lost-internal-state'],
-    ['lost-internal-state', 'moment-as-state'], ['moment-as-state', 'plasticity'], ['plasticity', 'ltp'],
+    ['photo-problem', 'what-we-saw'], ['photo-problem', 'what-we-were'], ['photo-problem', 'unreturnable-present'],
+    ['unreturnable-present', 'integrated-self-state'], ['integrated-self-state', 'self-capacity'],
+    ['self-capacity', 'emotion-structured-information'], ['emotion-structured-information', 'ethics-architecture'],
+    ['ethics-architecture', 'resonance-over-recreation'], ['resonance-over-recreation', 'experiential-time-travel'],
+    ['what-we-were', 'lost-internal-state'], ['lost-internal-state', 'moment-as-state'], ['moment-as-state', 'integrated-self-state'],
+    ['moment-as-state', 'plasticity'], ['plasticity', 'ltp'],
     ['plasticity', 'native-record'], ['native-record', 'engrams'], ['engrams', 'retroactive-addressability'],
     ['retroactive-addressability', 'controlled-reactivation'], ['controlled-reactivation', 'reconstruction-vs-replay'],
     ['reconstruction-vs-replay', 'cue-triggered'], ['cue-triggered', 'tmr'], ['tmr', 'direct-engram'],
     ['direct-engram', 'guided-endogenous'], ['cue-triggered', 'multimodal-cues'], ['guided-endogenous', 'neurofeedback'],
     ['eeg-role', 'eeg-limits'], ['eeg-role', 'neurofeedback'], ['eeg-limits', 'direct-engram'],
     ['multimodal-cues', 'false-memory'], ['false-memory', 'consent'], ['false-memory', 'manipulation'],
-    ['consent', 'identity-risk'], ['identity-risk', 'emotional-risk'], ['emotional-risk', 'metrics'],
+    ['consent', 'identity-risk'], ['identity-risk', 'emotional-risk'], ['emotional-risk', 'ethics-architecture'], ['emotional-risk', 'metrics'],
     ['state-vectors', 'protocols'], ['protocols', 'metrics'], ['metrics', 'synthetic-data'],
     ['state-vectors', 'moment-as-state'], ['protocols', 'guided-endogenous'], ['synthetic-data', 'next-steps'],
     ['literature-map', 'citation-table'], ['literature-map', 'attractor-models'], ['attractor-models', 'state-vectors'],
