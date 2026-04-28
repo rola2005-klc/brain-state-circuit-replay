@@ -40,6 +40,8 @@ Read the research map: [`docs/research.md`](docs/research.md)
 
 Long-term development plan: [`docs/development-plan.md`](docs/development-plan.md)
 
+Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
+
 ## Demo features
 
 - Interactive target states: calm focus, autobiographical memory, skill/flow, emotional memory
@@ -76,6 +78,17 @@ Expected output:
 All simulation tests passed.
 ```
 
+## Data-backed toy model
+
+The repo includes a generated synthetic dataset and decoder baseline:
+
+```bash
+python3 scripts/generate_synthetic_data.py --samples-per-state 120 --seed 42 --out data/synthetic_state_samples.csv
+python3 scripts/evaluate_decoder.py --samples-per-state 120 --seed 42
+```
+
+Current baseline: nearest-centroid decoder reaches about **90.83%** accuracy on 120 held-out synthetic test rows. This does **not** prove real brain-state decoding; it proves the project has an explicit state representation, protocol assumptions, and a reproducible evaluation path.
+
 ## Repository structure
 
 ```text
@@ -84,8 +97,13 @@ style.css               # responsive visual design
 src/simulation.js       # pure simulation logic
 src/app.js              # UI rendering and interaction
 test.js                 # Node tests for simulation behavior
+tests/test_synthetic_data.py # Python tests for synthetic data generation/decoding
+scripts/generate_synthetic_data.py # synthetic state dataset generator
+scripts/evaluate_decoder.py # nearest-centroid decoding report
+data/synthetic_state_samples.csv # generated toy dataset
 docs/concept.md         # presentable concept note
 docs/research.md        # literature-backed research map
+docs/data-model.md      # synthetic data schema and baseline
 docs/development-plan.md # long-term implementation plan
 docs/roadmap.md         # product/research roadmap
 ```
