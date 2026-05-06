@@ -169,9 +169,21 @@
     requestAnimationFrame(frame);
   }
 
+  function showGraphFallback(message) {
+    const graphElement = document.getElementById('graph');
+    if (!graphElement) return;
+    graphElement.innerHTML = `
+      <div class="node-tooltip graph-fallback">
+        <strong>3D view unavailable in this browser context.</strong>
+        <span>${message}</span>
+        <span>The concept map data and project documents still load; try a WebGL-enabled browser for the interactive graph.</span>
+      </div>
+    `;
+  }
+
   function init() {
     if (!window.THREE || !window.ForceGraph3D) {
-      document.getElementById('graph').innerHTML = '<div class="node-tooltip">Unable to load 3D libraries from CDN.</div>';
+      showGraphFallback('Unable to load 3D libraries from CDN.');
       return;
     }
 
@@ -183,27 +195,32 @@
       onPanelStateChange: onResize
     });
 
-    graph = ForceGraph3D({ controlType: 'orbit' })(document.getElementById('graph'))
-      .graphData(window.BRAIN_REPLAY_GRAPH)
-      .backgroundColor('rgba(0,0,0,0)')
-      .width(window.innerWidth)
-      .height(window.innerHeight)
-      .nodeLabel((node) => `${node.label} · ${node.cluster} · ${node.status}
+    try {
+      graph = ForceGraph3D({ controlType: 'orbit' })(document.getElementById('graph'))
+        .graphData(window.BRAIN_REPLAY_GRAPH)
+        .backgroundColor('rgba(0,0,0,0)')
+        .width(window.innerWidth)
+        .height(window.innerHeight)
+        .nodeLabel((node) => `${node.label} · ${node.cluster} · ${node.status}
 ${node.purpose || ''}`)
-      .nodeThreeObjectExtend(true)
-      .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
-      .nodeResolution(24)
-      .linkOpacity(1)
-      .linkCurvature(0.08)
-      .linkDirectionalParticleResolution(8)
-      .cooldownTicks(90)
-      .onNodeClick(focusNode)
-      .onNodeHover((node) => {
-        hoveredNode = node;
-        window.BRAIN_REPLAY_UI.showTooltip(ui, node);
-        document.body.style.cursor = node ? 'pointer' : 'default';
-        refreshGraph();
-      });
+        .nodeThreeObjectExtend(true)
+        .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
+        .nodeResolution(24)
+        .linkOpacity(1)
+        .linkCurvature(0.08)
+        .linkDirectionalParticleResolution(8)
+        .cooldownTicks(90)
+        .onNodeClick(focusNode)
+        .onNodeHover((node) => {
+          hoveredNode = node;
+          window.BRAIN_REPLAY_UI.showTooltip(ui, node);
+          document.body.style.cursor = node ? 'pointer' : 'default';
+          refreshGraph();
+        });
+    } catch (error) {
+      showGraphFallback(error && error.message ? error.message : 'WebGL graph initialization failed.');
+      return;
+    }
 
     graph.d3Force('charge').strength(-96);
     graph.d3Force('link').distance(64);

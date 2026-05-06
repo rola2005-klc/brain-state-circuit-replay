@@ -12,10 +12,17 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 ## Start here: one-minute path
 
-1. Open the GitHub Pages 3D mindmap: [`index.html`](index.html)
-2. Follow the process journey: [`journey.html`](journey.html)
-3. Read the full thesis: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
-4. Check the scientific foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+**One-sentence thesis:** Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+
+**Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
+
+Open these three artifacts first:
+
+1. **3D mindmap:** [`index.html`](index.html)
+2. **Process journey:** [`journey.html`](journey.html)
+3. **Full thesis:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+
+Then check the scientific foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
 
 Audience paths:
 

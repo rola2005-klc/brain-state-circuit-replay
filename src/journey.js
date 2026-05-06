@@ -4,37 +4,37 @@
       icon: '🧍',
       title: 'Present moment: "I can\'t go back anymore"',
       copy: 'A meaningful moment becomes fragile when the person notices it is unrevisitable. Anticipatory grief can interrupt the very presence the person wants to protect.',
-      values: { body: 56, attention: 82, emotion: 88, context: 70, meaning: 92, safety: 44 }
+      values: { body: 56, attention: 82, emotion: 88, context: 70, selfModel: 78, meaning: 92, ignorance: 86, safety: 44 }
     },
     {
       icon: '📷',
       title: 'Cue, photo, or object as anchor',
       copy: 'A photo, song, place, odor, object, or phrase acts as an external anchor. It preserves a doorway into context, not the integrated self-state itself.',
-      values: { body: 48, attention: 74, emotion: 66, context: 90, meaning: 78, safety: 70 }
+      values: { body: 48, attention: 74, emotion: 66, context: 90, selfModel: 62, meaning: 78, ignorance: 66, safety: 70 }
     },
     {
       icon: '🧠',
       title: 'Native biological trace and plasticity as record',
       copy: 'The nervous system carries traces through plasticity and circuit change. The thesis treats biology as the native record while keeping EEG and external sensors in a limited monitoring role.',
-      values: { body: 62, attention: 58, emotion: 64, context: 72, meaning: 68, safety: 74 }
+      values: { body: 62, attention: 58, emotion: 64, context: 72, selfModel: 70, meaning: 68, ignorance: 54, safety: 74 }
     },
     {
       icon: '🧭',
       title: 'Trace navigation and retroactive addressability',
       copy: 'The hard problem is addressing the right trace after the fact. Current science supports cueing and reactivation effects, not precise lookup of a stored past self.',
-      values: { body: 54, attention: 86, emotion: 72, context: 76, meaning: 82, safety: 52 }
+      values: { body: 54, attention: 86, emotion: 72, context: 76, selfModel: 82, meaning: 82, ignorance: 60, safety: 52 }
     },
     {
       icon: '✨',
       title: 'Partial integrated self-state reconstruction',
-      copy: 'A future system might guide partial resonance across body state, attention, emotion topology, context, self-model, and meaning. The target is self-capacity: the ability to feel the world that way.',
-      values: { body: 76, attention: 78, emotion: 84, context: 66, meaning: 88, safety: 64 }
+      copy: 'A future system might guide partial resonance across body state, attention, emotion topology, context, self-model, meaning, and configured ignorance. The target is self-capacity: the ability to feel the world that way.',
+      values: { body: 76, attention: 78, emotion: 84, context: 66, selfModel: 88, meaning: 88, ignorance: 72, safety: 64 }
     },
     {
       icon: '🛡️',
       title: 'Ethics gate: return to present',
       copy: 'The final gate rejects state chasing. Resonance over Recreation means the past-associated state should help the person return to present agency, not trap them in the past.',
-      values: { body: 70, attention: 72, emotion: 68, context: 58, meaning: 84, safety: 94 }
+      values: { body: 70, attention: 72, emotion: 68, context: 58, selfModel: 80, meaning: 84, ignorance: 56, safety: 94 }
     }
   ];
 
@@ -49,7 +49,9 @@
     attention: document.getElementById('barAttention'),
     emotion: document.getElementById('barEmotion'),
     context: document.getElementById('barContext'),
+    selfModel: document.getElementById('barSelfModel'),
     meaning: document.getElementById('barMeaning'),
+    ignorance: document.getElementById('barIgnorance'),
     safety: document.getElementById('barSafety')
   };
   let activeIndex = 0;
