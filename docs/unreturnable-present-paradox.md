@@ -2,13 +2,13 @@
 
 ## One-line thesis
 
-Photos record what we saw. Brain-State Circuit Resonance asks whether we can reconstruct what we were.
+Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
 
 ## Why photos and videos fail
 
 Photos and videos preserve external evidence: faces, places, light, objects, motion, and sound. They do not preserve the internal configuration that made the moment feel like a lived present.
 
-The missing target is not a sharper image or a longer recording. It is the integrated self-state of that moment: body state, attention, emotion topology, context, self-model, meaning, and the configured ignorance that made the world feel open from that exact position in life.
+The missing target is not a sharper image or a longer recording. It is the integrated self-state of that moment: body state, salience weighting, affective manifold, situational embedding, self-model, meaning, and the configured ignorance that made the world feel open from that exact position in life.
 
 ## The Unreturnable Present Paradox
 
@@ -27,18 +27,20 @@ Brain-State Circuit Resonance does not target scene replay, video reconstruction
 
 ```text
 integrated self-state =
-  body state
-  x attention
-  x emotion topology
-  x sensory and social context
-  x self-model
-  x meaning
-  x configured ignorance
+  interoceptive prior / body state
+  x salience weighting / attention
+  x affective manifold / emotion topology
+  x situational embedding / sensory-social context
+  x phenomenal self-model
+  x meaning / narrative relevance
+  x precision-relevance mask / configured ignorance
 ```
 
-"Configured ignorance" matters because a past self did not know everything the present self knows. The ability to feel the world that way depended partly on what had not happened yet, what had not been learned yet, and which future was still psychologically open.
+This list is not a claim that the self has exactly seven measurable parts. It is a minimum interface schema for avoiding a single-channel mistake: a meaningful moment is not only visual content, only emotion, or only hippocampal memory. It is a coupled configuration across body, world, attention, affect, self, and relevance.
 
-Any responsible model must treat this as a partial, present-tense reconstruction. The goal is not to restore an exact old self or erase later growth.
+"Configured ignorance" matters because a past self did not know everything the present self knows. The ability to feel the world that way depended partly on what had not happened yet, what had not been learned yet, and which future was still psychologically open. In the scaffold, configured ignorance is handled as part of the precision-relevance mask: what the system must not overfill with present-day explanation, prediction, or certainty.
+
+Any responsible model must treat this as a partial, present-tense reconstruction. The goal is not to restore an exact old self or erase later growth. The project name uses Resonance because each return is an affective trace encounter: a present self meeting a past-associated trace, not merging with an unchanged archive.
 
 ## Self-capacity: the ability to feel the world that way
 
@@ -81,6 +83,8 @@ The design target is resonance over recreation.
 
 Recreation implies copying the past, restoring an exact state, or making the past compete with the present. Resonance means creating a bounded, partial, honest alignment with a past-associated self-capacity so the person can return with more clarity, not less.
 
+Operationally, future versions should define resonance as convergence toward a declared reference attractor relative to a null baseline. A numeric claim should only appear with its baseline, uncertainty, and epistemic tier. If the system cannot specify those, it should say "unknown" rather than display pseudo-precise confidence.
+
 The system should preserve uncertainty, reveal limits, and favor integration over escape.
 
 ## Known science, plausible extrapolation, speculative frontier
@@ -111,6 +115,7 @@ The system should preserve uncertainty, reveal limits, and favor integration ove
 ## Open research questions
 
 - What measurable features best approximate an integrated self-state without reducing it to one emotion label?
+- How can configured ignorance be represented without inventing false certainty about what the past self did not know?
 - How can a system distinguish helpful resonance from harmful escape?
 - Can subjective similarity be evaluated without pretending to verify exact replay?
 - What role should EEG, wearables, narrative, photos, sound, odor, and place each play?
@@ -118,3 +123,9 @@ The system should preserve uncertainty, reveal limits, and favor integration ove
 - How can uncertainty be shown so users do not confuse generated reconstruction with truth?
 - Could replay reduce the pressure of "you only live once," or would it create new pressure to archive every state?
 - What protocols return the user to present agency after past-state contact?
+
+## Claim maturity and privacy rules
+
+Every capability claim should carry an epistemic tier: **E1 theoretical**, **E2 toy scaffold**, **E3 validated on real user data**, **E4 deployed and production-tested**, or **E5 independently replicated**. The current repository is E1/E2: literature-grounded concept plus synthetic pipeline. Overall maturity should be the lowest tier among safety-critical components, not an average.
+
+Privacy must be designed as a capability boundary, not added later. A future system should maintain a suppression manifest: a human-readable list of signal classes it does not collect or store, plus the inferences those omissions are meant to prevent. Adding a signal should require explaining the expected capability gain and the new privacy risk.

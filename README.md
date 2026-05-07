@@ -46,7 +46,9 @@ Audience paths:
 
 We may not be able to go back in time, but we may learn how to revisit parts of brain-body-self states.
 
-The central theory is that a meaningful past moment is not only a stored image. It is a distributed integrated self-state involving body state, attention, emotion topology, context, self-model, meaning, and **configured ignorance**: the specific boundary of what the past self did not yet know, expect, or have to account for, which made the moment feel open.
+The central theory is that a meaningful past moment is not only a stored image. It is a distributed integrated self-state involving interoceptive prior/body state, salience weighting/attention, affective manifold/emotion topology, situational embedding/context, self-model, meaning, and **configured ignorance**: the specific boundary of what the past self did not yet know, expect, or have to account for, which made the moment feel open.
+
+The project treats return as an **affective trace encounter** rather than archive restoration. Retrieval can update memory through reconsolidation, so the goal is not to recover an unchanged old self; it is to let the present self safely re-meet a past-associated self-capacity.
 
 The refined idea is that no previous external brain-state recording is strictly required for the concept because plasticity and LTP can be treated as a native biological record. That record suggests trace existence, not selective access. Experience changes synapses and circuit dynamics, but the hard problem remains **retroactive addressability and controlled reactivation**: how to access the right trace, reactivate it safely, and measure what happened without pretending it is exact.
 
@@ -70,6 +72,8 @@ Humans already experience accidental state resonance:
 
 This project asks whether future neurotechnology could make partial state resonance intentional, measurable, and safe while treating emotion as structured information rather than noise. The design target is **Resonance over Recreation**: any past-associated state intervention should return the person to the present, not trap them in the past.
 
+Future versions should express resonance as convergence toward a declared reference attractor relative to a null baseline, and avoid pseudo-precise confidence when calibration is unknown.
+
 ## Scientific backing
 
 This is a speculative project, but it is now grounded in adjacent real research areas:
@@ -91,7 +95,7 @@ The repo currently contains three layers:
 2. **Technical concept:** native memory traces, technical replay modes, EEG limits, state-estimation limits, and synthetic data caveats.
 3. **Supporting demo:** a browser simulation that makes the concept tangible without claiming biological validation.
 
-The realistic floor is cue-triggered recall and Targeted Memory Reactivation. The frontier is direct engram reactivation and guided endogenous replay as a technical mode, not exact playback. The simulation exists to keep those categories explicit.
+The realistic floor is cue-triggered recall and Targeted Memory Reactivation. The frontier is direct engram reactivation and guided endogenous replay as a technical mode, not exact playback. The simulation exists to keep those categories explicit. Current claim maturity is E1/E2: literature-grounded concept plus toy scaffold, not a validated brain-derived system.
 
 ## Run locally
 

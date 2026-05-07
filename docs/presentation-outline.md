@@ -6,7 +6,7 @@ Bullets:
 
 - Photos preserve the outside of a moment.
 - The lost part is internal: attention, emotion, body state, meaning.
-- Thesis: photos record what we saw. Brain-State Circuit Resonance asks whether we can reconstruct what we were.
+- Thesis: photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
 
 Speaker notes:
 
@@ -17,9 +17,9 @@ Start with a familiar problem. A photo can show a birthday, a trip, or a person,
 Bullets:
 
 - Not an image file or single memory slot.
-- Distributed integrated self-state: body state, attention, emotion topology, context, self-model, meaning, configured ignorance.
+- Distributed integrated self-state: interoceptive prior/body state, salience weighting/attention, affective manifold, situational embedding, self-model, meaning, configured ignorance.
 - Target: 曾经的自己, not scene replay or one emotion.
-- Remembering is reconstruction in the present.
+- Remembering is reconstruction in the present; return is an affective trace encounter, not exact archive restoration.
 
 Speaker notes:
 
@@ -102,6 +102,8 @@ Bullets:
 - Keep simulation secondary to the thesis.
 - Ethics as architecture: consent, identity, emotional risk, false memory, manipulation.
 - Resonance over Recreation: return to the present, do not trap the user in the past.
+- Claim maturity: current artifact is E1/E2, not a validated brain-derived system.
+- Future safety: qualitative failure states, suppression manifest, privacy-capability frontier.
 
 Speaker notes:
 
