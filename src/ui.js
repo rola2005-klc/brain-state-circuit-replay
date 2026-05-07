@@ -32,6 +32,9 @@
       logicChainStep: document.getElementById('logicChainStep'),
       prevLogicNode: document.getElementById('prevLogicNode'),
       nextLogicNode: document.getElementById('nextLogicNode'),
+      floatingLogicStep: document.getElementById('floatingLogicStep'),
+      floatingPrevLogicNode: document.getElementById('floatingPrevLogicNode'),
+      floatingNextLogicNode: document.getElementById('floatingNextLogicNode'),
       nodeDocLink: document.getElementById('nodeDocLink'),
       tooltip: createTooltip()
     };
@@ -69,6 +72,12 @@
     }
     if (elements.nextLogicNode) {
       elements.nextLogicNode.addEventListener('click', () => selectLogicNeighbor(elements, 1, onSelectNode));
+    }
+    if (elements.floatingPrevLogicNode) {
+      elements.floatingPrevLogicNode.addEventListener('click', () => selectLogicNeighbor(elements, -1, onSelectNode));
+    }
+    if (elements.floatingNextLogicNode) {
+      elements.floatingNextLogicNode.addEventListener('click', () => selectLogicNeighbor(elements, 1, onSelectNode));
     }
 
     window.addEventListener('mousemove', (event) => {
@@ -185,14 +194,20 @@
 
     if (index < 0) {
       elements.logicChainStep.textContent = 'This node is outside the main walkthrough chain; use connected ideas for local context.';
+      if (elements.floatingLogicStep) elements.floatingLogicStep.textContent = 'Outside logic chain';
       if (elements.prevLogicNode) elements.prevLogicNode.disabled = true;
       if (elements.nextLogicNode) elements.nextLogicNode.disabled = true;
+      if (elements.floatingPrevLogicNode) elements.floatingPrevLogicNode.disabled = true;
+      if (elements.floatingNextLogicNode) elements.floatingNextLogicNode.disabled = true;
       return;
     }
 
     const previous = byId.get(chain[index - 1]);
     const next = byId.get(chain[index + 1]);
     elements.logicChainStep.textContent = `Step ${index + 1} / ${chain.length}${next ? ` · Next: ${next.label}` : ' · End of chain'}`;
+    if (elements.floatingLogicStep) {
+      elements.floatingLogicStep.textContent = `Step ${index + 1}/${chain.length}${next ? ` → ${next.label}` : ' · End'}`;
+    }
     if (elements.prevLogicNode) {
       elements.prevLogicNode.disabled = !previous;
       elements.prevLogicNode.textContent = previous ? `← ${previous.label}` : '← Previous';
@@ -200,6 +215,14 @@
     if (elements.nextLogicNode) {
       elements.nextLogicNode.disabled = !next;
       elements.nextLogicNode.textContent = next ? `${next.label} →` : 'End →';
+    }
+    if (elements.floatingPrevLogicNode) {
+      elements.floatingPrevLogicNode.disabled = !previous;
+      elements.floatingPrevLogicNode.title = previous ? `Previous: ${previous.label}` : 'Previous';
+    }
+    if (elements.floatingNextLogicNode) {
+      elements.floatingNextLogicNode.disabled = !next;
+      elements.floatingNextLogicNode.title = next ? `Next: ${next.label}` : 'Next';
     }
   }
 

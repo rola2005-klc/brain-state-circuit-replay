@@ -19,6 +19,12 @@
       <button class="dock-button" type="button" data-explore-map>Explore map</button>
     </nav>
 
+    <nav class="floating-logic-nav" id="floatingLogicNav" aria-label="Logic chain arrows">
+      <button type="button" id="floatingPrevLogicNode" aria-label="Previous logic node">←</button>
+      <span id="floatingLogicStep">Logic chain</span>
+      <button type="button" id="floatingNextLogicNode" aria-label="Next logic node">→</button>
+    </nav>
+
     <header class="top-overlay open" id="topOverlay">
       <div>
         <button class="overlay-close" type="button" data-close-target="topOverlay" aria-label="Hide concept summary">×</button>
@@ -155,10 +161,10 @@
 
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
-  <script src="src/graph-data.js?v=recent-chain-v1"></script>
-  <script src="src/replay-modes.js?v=recent-chain-v1"></script>
-  <script src="src/brain-overlay.js?v=recent-chain-v1"></script>
-  <script src="src/ui.js?v=recent-chain-v1"></script>
-  <script src="src/mindmap.js?v=recent-chain-v1"></script>
+  <script src="src/graph-data.js?v=visible-arrows-v2"></script>
+  <script src="src/replay-modes.js?v=visible-arrows-v2"></script>
+  <script src="src/brain-overlay.js?v=visible-arrows-v2"></script>
+  <script src="src/ui.js?v=visible-arrows-v2"></script>
+  <script src="src/mindmap.js?v=visible-arrows-v2"></script>
 </body>
 </html>
