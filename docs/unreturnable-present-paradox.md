@@ -2,7 +2,9 @@
 
 ## One-line thesis
 
-Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
+Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+
+In the public repo, this is expressed as **Brain-State Circuit Resonance** to keep the boundary visible: the responsible target is bounded state reinstatement / subjective resonance, not exact playback, literal time travel, or a claim that current systems can reconstruct a human mind.
 
 ## Why photos and videos fail
 

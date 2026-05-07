@@ -1,6 +1,8 @@
-Brain-State Circuit Resonance
+Brain-State Circuit Replay / Resonance
 
-**Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.**
+**Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
+
+Public boundary: the repo presents this as **Brain-State Circuit Resonance** because the scientifically careful target is bounded, partial state resonance — not exact playback, literal time travel, or current human brain-state reconstruction.
 
 This repository is building the conceptual, scientific, and engineering foundation for a speculative neuroscience / BCI thesis. The public frame is resonance, not playback: if photos, videos, music, and smell can trigger memory, could future closed-loop interfaces help a person partially re-approach the **integrated self-state** of a past moment while keeping uncertainty and safety visible?
 
@@ -12,18 +14,17 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 ## Start here: one-minute path
 
-**One-sentence thesis:** Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
+**One-sentence thesis:** Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were — with the current public frame restricted to partial, uncertain **resonance**, not exact replay.
 
 **Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
 
-Open these artifacts first:
+Open these three artifacts first:
 
-1. **Project brief:** [`project-brief.html`](project-brief.html)
+1. **3D mindmap:** [`index.html`](index.html)
 2. **Process journey:** [`journey.html`](journey.html)
-3. **3D mindmap:** [`index.html`](index.html)
-4. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+3. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
-Then check the scientific foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+Then check the clean public brief and scientific foundation: [`project-brief.html`](project-brief.html), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
 
 ## Presentation Path
 

@@ -2,7 +2,9 @@
 
 ## One-sentence thesis
 
-Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
+Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+
+Presentation-safe wording: **Brain-State Circuit Resonance** asks whether future systems could approximate parts of what we were. The word resonance is used publicly to prevent overclaiming exact replay.
 
 ## 90-second pitch
 

@@ -6,7 +6,8 @@ Bullets:
 
 - Photos preserve the outside of a moment.
 - The lost part is internal: attention, emotion, body state, meaning.
-- Thesis: photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
+- Thesis: photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+- Public boundary: the repo uses Resonance for the bounded version — partial state reinstatement / subjective similarity, not exact replay.
 
 Speaker notes:
 
