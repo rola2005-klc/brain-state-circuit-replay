@@ -62,6 +62,8 @@
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'journey-step';
+      button.dataset.commentTargetId = `journey-step-${index + 1}`;
+      button.dataset.commentTargetLabel = `${index + 1}. ${step.title}`;
       button.setAttribute('aria-current', index === activeIndex ? 'step' : 'false');
       button.innerHTML = `<span>${step.icon}</span><strong>${index + 1}. ${step.title}</strong>`;
       button.addEventListener('click', () => setStep(index));
@@ -83,6 +85,14 @@
     prev.disabled = activeIndex === 0;
     next.disabled = activeIndex === steps.length - 1;
     renderPath();
+    window.dispatchEvent(new CustomEvent('brainreplay:targetchange', {
+      detail: {
+        kind: 'journey-step',
+        id: `journey-step-${activeIndex + 1}`,
+        label: `${activeIndex + 1}. ${step.title}`,
+        url: `${window.location.pathname}${window.location.hash || ''}`
+      }
+    }));
   }
 
   prev.addEventListener('click', () => setStep(activeIndex - 1));

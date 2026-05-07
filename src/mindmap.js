@@ -172,9 +172,21 @@
     if (node) focusNode(node);
   }
 
+  function dispatchTargetChange(node) {
+    window.dispatchEvent(new CustomEvent('brainreplay:targetchange', {
+      detail: {
+        kind: 'mindmap-node',
+        id: node.id,
+        label: node.label,
+        url: `${window.location.pathname}${window.location.hash || ''}`
+      }
+    }));
+  }
+
   function focusNode(node) {
     selectedNode = node;
     window.BRAIN_REPLAY_UI.showNode(ui, node);
+    dispatchTargetChange(node);
 
     const distance = 92;
     const distRatio = 1 + distance / Math.hypot(node.x || 1, node.y || 1, node.z || 1);
@@ -229,7 +241,10 @@
       onSelectNode: focusNodeById
     });
     selectedNode = window.BRAIN_REPLAY_GRAPH.nodes.find((node) => node.id === 'project-thesis') || window.BRAIN_REPLAY_GRAPH.nodes[0];
-    if (selectedNode) window.BRAIN_REPLAY_UI.showNode(ui, selectedNode);
+    if (selectedNode) {
+      window.BRAIN_REPLAY_UI.showNode(ui, selectedNode);
+      dispatchTargetChange(selectedNode);
+    }
 
     try {
       graph = ForceGraph3D({ controlType: 'orbit' })(document.getElementById('graph'))

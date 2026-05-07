@@ -191,6 +191,7 @@
     const byId = new Map((window.BRAIN_REPLAY_GRAPH?.nodes || []).map((item) => [item.id, item]));
     const index = logicIndex(node.id);
     elements.panel.dataset.currentNodeId = node.id;
+    elements.panel.dataset.currentNodeLabel = node.label;
 
     if (index < 0) {
       elements.logicChainStep.textContent = 'This node is outside the main walkthrough chain; use connected ideas for local context.';

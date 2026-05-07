@@ -17,6 +17,7 @@
       <a class="dock-button" href="project-brief.html">Project brief</a>
       <a class="dock-button" href="journey.html">Guided journey</a>
       <button class="dock-button" type="button" data-explore-map>Explore map</button>
+      <button class="dock-button" type="button" data-comments-toggle>Comments</button>
       <button class="dock-button" type="button" data-toggle-target="topOverlay">What is this?</button>
     </nav>
 
@@ -155,6 +156,8 @@
     <footer class="boundary-strip">Boundary: concept + simulation scaffold only. Not brain-derived output. EEG cannot read engrams or exact memories. The 3D brain is an abstract state model, not anatomy.</footer>
   </main>
 
+  <aside class="comments-drawer" id="commentsDrawer" aria-label="Comment Mode" aria-hidden="true"></aside>
+
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
   <script src="src/graph-data.js?v=visible-arrows-v2"></script>
@@ -162,5 +165,6 @@
   <script src="src/brain-overlay.js?v=visible-arrows-v2"></script>
   <script src="src/ui.js?v=visible-arrows-v2"></script>
   <script src="src/mindmap.js?v=visible-arrows-v2"></script>
+  <script src="src/comments.js?v=comment-mode-v1"></script>
 </body>
 </html>
