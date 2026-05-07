@@ -2,6 +2,7 @@
   const STORAGE_KEY = 'brainReplayComments:v1';
   const TYPES = ['confusion', 'question', 'todo', 'note'];
   const VERSION = 1;
+  const AGENT_INBOX_ENDPOINT = '/api/comment-inbox';
 
   const drawer = document.getElementById('commentsDrawer');
   const toggles = Array.from(document.querySelectorAll('[data-comments-toggle]'));
@@ -161,7 +162,7 @@
     const body = elements.text.value.trim();
     if (!body) return;
     const now = new Date().toISOString();
-    state.comments.unshift({
+    const comment = {
       id: makeId(),
       version: VERSION,
       type: TYPES.includes(elements.type.value) ? elements.type.value : 'note',
@@ -170,9 +171,11 @@
       target: state.target,
       createdAt: now,
       updatedAt: now
-    });
+    };
+    state.comments.unshift(comment);
     elements.text.value = '';
     saveComments();
+    sendToAgentInbox(comment);
     renderList();
   }
 
@@ -257,6 +260,27 @@
   function setStatus(message, isError = false) {
     elements.status.textContent = message || '';
     elements.status.classList.toggle('error', Boolean(isError));
+  }
+
+  async function sendToAgentInbox(comment) {
+    try {
+      const response = await fetch(AGENT_INBOX_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          schema: 'brain-replay-comment-mode/post-v1',
+          source: location.href,
+          pageTitle: document.title,
+          comment
+        }),
+        keepalive: true
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      setStatus('Saved locally and sent to the local agent inbox. Hermes/Codex can pick it up on this machine.');
+    } catch (error) {
+      console.info('Local agent inbox is not available; comment remains local-only.', error);
+      setStatus('Saved locally. Local agent inbox is not running, so Export JSON if you want agents to review it.');
+    }
   }
 
   function renderList() {

@@ -1,0 +1,4 @@
+agent-inbox/*.jsonl
+agent-inbox/*.json
+agent-inbox/*.lock
+agent-inbox/.processed-ids
