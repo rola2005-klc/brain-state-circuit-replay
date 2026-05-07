@@ -504,6 +504,41 @@
       url: 'https://pubmed.ncbi.nlm.nih.gov/29589592/',
       note: 'memory prosthesis adjacent work; invasive and task-specific'
     },
+    memoryEditing2026: {
+      short: 'Memory editing during sleep 2026',
+      title: 'Memory editing during sleep: mechanisms, clinical applications, and technological innovations',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/40897598/',
+      note: 'recent review; supports cue/reactivation adjacency, not exact replay',
+      isRecent: true
+    },
+    closedLoopSleep2025: {
+      short: 'Closed-loop sleep stimulation 2025',
+      title: 'Stimulating the Stimulated Cortex—Frontocortical Anodal Electric Stimulation Combined With Closed-Loop Acoustic Stimulation During Sleep Impairs Memory in Subjects With High Cognitive Ability',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/41042056/',
+      note: 'recent cautionary result: closed-loop cueing can backfire',
+      isRecent: true
+    },
+    brainStateDecoding2025: {
+      short: 'AI brain-state decoding review 2025',
+      title: 'AI-Driven Multimodal Brain-State Decoding for Personalized Closed-Loop TENS: A Comprehensive Review',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/41008264/',
+      note: 'recent closed-loop personalization / state-decoding review',
+      isRecent: true
+    },
+    mvpaNeurofeedback2026: {
+      short: 'MVPA neurofeedback review 2026',
+      title: 'Modulating complex brain states using MVPA-based neurofeedback: A systematic review',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/41702476/',
+      note: 'recent review on feedback for complex brain-state modulation',
+      isRecent: true
+    },
+    adaptiveMemory2026: {
+      short: 'Adaptive episodic memory 2026',
+      title: 'Adaptive episodic memory: how multiple memory representations drive behavior in humans and nonhumans',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/41187993/',
+      note: 'recent review; supports multiple reconstructive memory representations',
+      isRecent: true
+    },
     poldrack2011: {
       short: 'Poldrack 2011',
       title: 'Inferring mental states from neuroimaging data: from reverse inference to large-scale decoding',
@@ -534,15 +569,15 @@
     concept: ['schacter1998', 'conway2000'],
     biology: ['squire2004', 'bliss1973', 'josselyn2015'],
     engram: ['josselyn2015', 'liu2012', 'ramirez2013'],
-    reactivation: ['nader2000', 'diekelmann2010', 'cellini2018'],
-    technology: ['sitaram2017', 'shanechi2019', 'poldrack2011'],
+    reactivation: ['nader2000', 'diekelmann2010', 'cellini2018', 'memoryEditing2026'],
+    technology: ['sitaram2017', 'shanechi2019', 'poldrack2011', 'brainStateDecoding2025', 'mvpaNeurofeedback2026'],
     ethics: ['loftus1995', 'ramirez2013', 'poldrack2011'],
-    simulation: ['hopfield1982', 'mcclelland1995', 'poldrack2011'],
+    simulation: ['hopfield1982', 'mcclelland1995', 'poldrack2011', 'brainStateDecoding2025'],
     prosthesis: ['hampson2018', 'shanechi2019', 'sitaram2017']
   };
 
   const paperIdsByNode = {
-    'project-thesis': ['schacter1998', 'conway2000', 'shanechi2019'],
+    'project-thesis': ['schacter1998', 'conway2000', 'shanechi2019', 'adaptiveMemory2026'],
     'photo-problem': ['schacter1998', 'conway2000'],
     'unreturnable-present': ['conway2000', 'schacter1998'],
     'integrated-self-state': ['conway2000', 'squire2004', 'poldrack2011'],
@@ -560,15 +595,15 @@
     'native-record': ['bliss1973', 'josselyn2015', 'squire2004'],
     engrams: ['josselyn2015', 'liu2012', 'ramirez2013'],
     'retroactive-addressability': ['nader2000', 'liu2012', 'poldrack2011'],
-    'controlled-reactivation': ['nader2000', 'cellini2018', 'shanechi2019'],
+    'controlled-reactivation': ['nader2000', 'cellini2018', 'shanechi2019', 'memoryEditing2026', 'closedLoopSleep2025'],
     'reconstruction-vs-replay': ['schacter1998', 'loftus1995', 'poldrack2011'],
-    'cue-triggered': ['schacter1998', 'cellini2018', 'diekelmann2010'],
-    tmr: ['diekelmann2010', 'cellini2018'],
+    'cue-triggered': ['schacter1998', 'cellini2018', 'diekelmann2010', 'memoryEditing2026'],
+    tmr: ['diekelmann2010', 'cellini2018', 'memoryEditing2026', 'closedLoopSleep2025'],
     'direct-engram': ['liu2012', 'ramirez2013', 'poldrack2011'],
-    'guided-endogenous': ['sitaram2017', 'cellini2018', 'shanechi2019'],
-    'eeg-role': ['poldrack2011', 'sitaram2017'],
+    'guided-endogenous': ['sitaram2017', 'cellini2018', 'shanechi2019', 'mvpaNeurofeedback2026'],
+    'eeg-role': ['poldrack2011', 'sitaram2017', 'brainStateDecoding2025'],
     'eeg-limits': ['poldrack2011', 'josselyn2015'],
-    neurofeedback: ['sitaram2017', 'shanechi2019'],
+    neurofeedback: ['sitaram2017', 'shanechi2019', 'mvpaNeurofeedback2026'],
     'multimodal-cues': ['cellini2018', 'diekelmann2010', 'loftus1995'],
     consent: ['loftus1995', 'poldrack2011'],
     'false-memory': ['loftus1995', 'ramirez2013', 'schacter1998'],
@@ -576,13 +611,13 @@
     'emotional-risk': ['nader2000', 'loftus1995', 'sitaram2017'],
     manipulation: ['loftus1995', 'ramirez2013', 'poldrack2011'],
     'state-vectors': ['hopfield1982', 'mcclelland1995', 'poldrack2011'],
-    protocols: ['shanechi2019', 'sitaram2017', 'cellini2018'],
-    metrics: ['poldrack2011', 'shanechi2019', 'sitaram2017'],
+    protocols: ['shanechi2019', 'sitaram2017', 'cellini2018', 'brainStateDecoding2025'],
+    metrics: ['poldrack2011', 'shanechi2019', 'sitaram2017', 'brainStateDecoding2025'],
     'synthetic-data': ['poldrack2011', 'hopfield1982'],
-    'literature-map': ['josselyn2015', 'cellini2018', 'sitaram2017'],
+    'literature-map': ['josselyn2015', 'cellini2018', 'sitaram2017', 'memoryEditing2026', 'mvpaNeurofeedback2026'],
     'attractor-models': ['hopfield1982', 'mcclelland1995'],
     'citation-table': ['josselyn2015', 'cellini2018', 'shanechi2019'],
-    'next-steps': ['shanechi2019', 'poldrack2011', 'sitaram2017']
+    'next-steps': ['shanechi2019', 'poldrack2011', 'sitaram2017', 'brainStateDecoding2025', 'mvpaNeurofeedback2026']
   };
 
   const defaultPaperSetByCluster = {
@@ -634,6 +669,42 @@
     });
   });
 
+
+  const logicChain = [
+    'project-thesis',
+    'photo-problem',
+    'what-we-saw',
+    'what-we-were',
+    'lost-internal-state',
+    'moment-as-state',
+    'plasticity',
+    'native-record',
+    'engrams',
+    'retroactive-addressability',
+    'controlled-reactivation',
+    'reconstruction-vs-replay',
+    'cue-triggered',
+    'tmr',
+    'guided-endogenous',
+    'eeg-role',
+    'eeg-limits',
+    'neurofeedback',
+    'multimodal-cues',
+    'false-memory',
+    'consent',
+    'identity-risk',
+    'emotional-risk',
+    'ethics-architecture',
+    'resonance-over-recreation',
+    'state-vectors',
+    'protocols',
+    'metrics',
+    'synthetic-data',
+    'literature-map',
+    'citation-table',
+    'next-steps'
+  ];
+
   const links = [
     ['project-thesis', 'photo-problem'], ['project-thesis', 'unreturnable-present'], ['project-thesis', 'integrated-self-state'], ['project-thesis', 'ethics-architecture'],
     ['photo-problem', 'what-we-saw'], ['photo-problem', 'what-we-were'], ['photo-problem', 'unreturnable-present'],
@@ -655,5 +726,5 @@
     ['citation-table', 'eeg-limits'], ['next-steps', 'literature-map'], ['next-steps', 'protocols']
   ].map(([source, target]) => ({ source, target }));
 
-  window.BRAIN_REPLAY_GRAPH = { nodes, links };
+  window.BRAIN_REPLAY_GRAPH = { nodes, links, logicChain };
 })();

@@ -1309,3 +1309,60 @@ body.brief-page {
   color: #9fb0c9;
   margin-top: 2px;
 }
+
+
+.logic-chain-card,
+.node-papers-card {
+  border: 1px solid rgba(190, 212, 240, 0.28);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 14px 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.logic-chain-card h3,
+.node-papers-card h3 {
+  margin: 0 0 8px;
+  color: #f4f9ff;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.logic-chain-card p {
+  margin: 0 0 10px;
+  color: #cfdbed;
+  font-size: 0.84rem;
+  line-height: 1.42;
+}
+
+.logic-chain-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.logic-chain-actions button {
+  min-height: 34px;
+  border: 1px solid rgba(143, 180, 255, 0.44);
+  border-radius: 8px;
+  padding: 7px 9px;
+  overflow: hidden;
+  background: rgba(143, 180, 255, 0.12);
+  color: #edf4ff;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logic-chain-actions button:hover:not(:disabled) {
+  border-color: rgba(121, 242, 201, 0.7);
+  background: rgba(121, 242, 201, 0.14);
+}
+
+.logic-chain-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.46;
+}

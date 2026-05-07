@@ -12,7 +12,7 @@
     return tooltip;
   }
 
-  function initUi({ modes, onModeChange, onEpistemicChange, onPanelStateChange }) {
+  function initUi({ modes, onModeChange, onEpistemicChange, onPanelStateChange, onSelectNode }) {
     const elements = {
       modeButtons: document.getElementById('modeButtons'),
       modeTitle: document.getElementById('modeTitle'),
@@ -29,6 +29,9 @@
       nodeReflects: document.getElementById('nodeReflects'),
       nodeConnections: document.getElementById('nodeConnections'),
       nodePapers: document.getElementById('nodePapers'),
+      logicChainStep: document.getElementById('logicChainStep'),
+      prevLogicNode: document.getElementById('prevLogicNode'),
+      nextLogicNode: document.getElementById('nextLogicNode'),
       nodeDocLink: document.getElementById('nodeDocLink'),
       tooltip: createTooltip()
     };
@@ -60,6 +63,13 @@
     document.querySelectorAll('[data-explore-map]').forEach((button) => {
       button.addEventListener('click', () => startExploring(onPanelStateChange));
     });
+
+    if (elements.prevLogicNode) {
+      elements.prevLogicNode.addEventListener('click', () => selectLogicNeighbor(elements, -1, onSelectNode));
+    }
+    if (elements.nextLogicNode) {
+      elements.nextLogicNode.addEventListener('click', () => selectLogicNeighbor(elements, 1, onSelectNode));
+    }
 
     window.addEventListener('mousemove', (event) => {
       elements.tooltip.style.left = `${event.clientX}px`;
@@ -136,6 +146,7 @@
     elements.nodeDescription.textContent = node.description;
     elements.nodePurpose.textContent = node.purpose || 'This node explains one role in the project argument.';
     elements.nodeReflects.textContent = node.reflects || 'This node connects back to the project concept.';
+    renderLogicChain(elements, node);
     renderConnections(elements, node);
     renderPapers(elements, node);
 
@@ -148,6 +159,48 @@
     }
 
     setPanelOpen(elements, true);
+  }
+
+  function logicIndex(nodeId) {
+    const chain = window.BRAIN_REPLAY_GRAPH?.logicChain || [];
+    return chain.indexOf(nodeId);
+  }
+
+  function selectLogicNeighbor(elements, direction, onSelectNode) {
+    const chain = window.BRAIN_REPLAY_GRAPH?.logicChain || [];
+    const currentId = elements.panel?.dataset.currentNodeId;
+    const index = logicIndex(currentId);
+    if (index < 0) return;
+    const nextIndex = Math.min(chain.length - 1, Math.max(0, index + direction));
+    if (nextIndex === index) return;
+    if (onSelectNode) onSelectNode(chain[nextIndex]);
+  }
+
+  function renderLogicChain(elements, node) {
+    if (!elements.logicChainStep) return;
+    const chain = window.BRAIN_REPLAY_GRAPH?.logicChain || [];
+    const byId = new Map((window.BRAIN_REPLAY_GRAPH?.nodes || []).map((item) => [item.id, item]));
+    const index = logicIndex(node.id);
+    elements.panel.dataset.currentNodeId = node.id;
+
+    if (index < 0) {
+      elements.logicChainStep.textContent = 'This node is outside the main walkthrough chain; use connected ideas for local context.';
+      if (elements.prevLogicNode) elements.prevLogicNode.disabled = true;
+      if (elements.nextLogicNode) elements.nextLogicNode.disabled = true;
+      return;
+    }
+
+    const previous = byId.get(chain[index - 1]);
+    const next = byId.get(chain[index + 1]);
+    elements.logicChainStep.textContent = `Step ${index + 1} / ${chain.length}${next ? ` · Next: ${next.label}` : ' · End of chain'}`;
+    if (elements.prevLogicNode) {
+      elements.prevLogicNode.disabled = !previous;
+      elements.prevLogicNode.textContent = previous ? `← ${previous.label}` : '← Previous';
+    }
+    if (elements.nextLogicNode) {
+      elements.nextLogicNode.disabled = !next;
+      elements.nextLogicNode.textContent = next ? `${next.label} →` : 'End →';
+    }
   }
 
   function renderConnections(elements, node) {
@@ -201,7 +254,7 @@
       a.href = paper.url;
       a.target = '_blank';
       a.rel = 'noopener noreferrer';
-      a.textContent = paper.short || paper.title;
+      a.textContent = `${paper.isRecent ? 'New · ' : ''}${paper.short || paper.title}`;
       const span = document.createElement('span');
       span.textContent = `${paper.title}${paper.note ? ` — ${paper.note}` : ''}`;
       li.append(a, span);

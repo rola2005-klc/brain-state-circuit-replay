@@ -166,6 +166,12 @@
     refreshGraph();
   }
 
+  function focusNodeById(nodeId) {
+    const graphData = window.BRAIN_REPLAY_GRAPH || { nodes: [] };
+    const node = graphData.nodes.find((item) => item.id === nodeId);
+    if (node) focusNode(node);
+  }
+
   function focusNode(node) {
     selectedNode = node;
     window.BRAIN_REPLAY_UI.showNode(ui, node);
@@ -219,7 +225,8 @@
       modes: window.BRAIN_REPLAY_MODES.modes,
       onModeChange: setMode,
       onEpistemicChange: setEpistemic,
-      onPanelStateChange: onResize
+      onPanelStateChange: onResize,
+      onSelectNode: focusNodeById
     });
     selectedNode = window.BRAIN_REPLAY_GRAPH.nodes.find((node) => node.id === 'project-thesis') || window.BRAIN_REPLAY_GRAPH.nodes[0];
     if (selectedNode) window.BRAIN_REPLAY_UI.showNode(ui, selectedNode);
@@ -235,6 +242,7 @@ ${node.purpose || ''}`)
         .nodeThreeObjectExtend(true)
         .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
         .nodeResolution(24)
+        .enableNodeDrag(true)
         .linkOpacity(1)
         .linkCurvature(0.05)
         .linkDirectionalParticleResolution(8)

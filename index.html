@@ -40,7 +40,8 @@
         <p class="eyebrow">How to read this map</p>
         <ol>
           <li><strong>Big labels form the spine.</strong> Start with the thesis, problem, limits, and roadmap.</li>
-          <li><strong>Click one node at a time.</strong> The details panel explains its role and nearby ideas.</li>
+          <li><strong>Click one node at a time.</strong> The details panel explains its role, papers, and nearby ideas.</li>
+          <li><strong>Drag the 3D map freely.</strong> Left-drag rotates, wheel zooms, right-drag pans; arrows only guide the logic chain.</li>
           <li><strong>Resonance pathways are technical routes.</strong> They highlight argument paths, not measured brain output.</li>
         </ol>
       </div>
@@ -96,6 +97,14 @@
         <span class="status-badge status-plausible" id="nodeStatus">plausible</span>
       </div>
       <p id="nodeDescription">Select a node to inspect how the project separates known science, plausible engineering, and speculative frontier claims.</p>
+      <div class="logic-chain-card" aria-label="Logic chain navigation">
+        <h3>Logic chain</h3>
+        <p id="logicChainStep">Use arrows to walk the project argument node by node.</p>
+        <div class="logic-chain-actions">
+          <button type="button" id="prevLogicNode" aria-label="Previous logic node">← Previous</button>
+          <button type="button" id="nextLogicNode" aria-label="Next logic node">Next →</button>
+        </div>
+      </div>
       <div class="node-papers-card" aria-label="Scientific papers for selected node">
         <h3>Scientific papers / anchors</h3>
         <ul id="nodePapers"><li>Select a node to see adjacent scientific sources and boundary notes.</li></ul>
@@ -146,10 +155,10 @@
 
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
-  <script src="src/graph-data.js?v=light-papers-v1"></script>
-  <script src="src/replay-modes.js?v=light-papers-v1"></script>
-  <script src="src/brain-overlay.js?v=light-papers-v1"></script>
-  <script src="src/ui.js?v=light-papers-v1"></script>
-  <script src="src/mindmap.js?v=light-papers-v1"></script>
+  <script src="src/graph-data.js?v=recent-chain-v1"></script>
+  <script src="src/replay-modes.js?v=recent-chain-v1"></script>
+  <script src="src/brain-overlay.js?v=recent-chain-v1"></script>
+  <script src="src/ui.js?v=recent-chain-v1"></script>
+  <script src="src/mindmap.js?v=recent-chain-v1"></script>
 </body>
 </html>
