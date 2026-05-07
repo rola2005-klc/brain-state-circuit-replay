@@ -424,6 +424,184 @@
     }
   };
 
+
+  const paperLibrary = {
+    schacter1998: {
+      short: 'Schacter et al. 1998',
+      title: 'The cognitive neuroscience of constructive memory',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/9864253/',
+      note: 'memory is reconstructive, not literal playback'
+    },
+    conway2000: {
+      short: 'Conway & Pleydell-Pearce 2000',
+      title: 'The construction of autobiographical memories in the self-memory system',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/10657330/',
+      note: 'autobiographical memory connects event detail with self-models'
+    },
+    squire2004: {
+      short: 'Squire et al. 2004',
+      title: 'The medial temporal lobe and memory',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/15217337/',
+      note: 'memory systems anchor; not evidence for exact readout'
+    },
+    bliss1973: {
+      short: 'Bliss & Lømo 1973',
+      title: 'Long-lasting potentiation of synaptic transmission in the dentate area of the anaesthetized rabbit',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/4727084/',
+      note: 'classic LTP / plasticity foundation'
+    },
+    josselyn2015: {
+      short: 'Josselyn et al. 2015',
+      title: 'Finding the engram',
+      url: 'https://www.nature.com/articles/nrn4000',
+      note: 'engram concept and experimental limits'
+    },
+    liu2012: {
+      short: 'Liu/Ramirez et al. 2012',
+      title: 'Optogenetic stimulation of a hippocampal engram activates fear memory recall',
+      url: 'https://www.nature.com/articles/nature11028',
+      note: 'controlled animal engram work; not scalp EEG memory access'
+    },
+    ramirez2013: {
+      short: 'Ramirez et al. 2013',
+      title: 'Creating a false memory in the hippocampus',
+      url: 'https://www.science.org/doi/10.1126/science.1239073',
+      note: 'shows reactivation/manipulation risk in animal models'
+    },
+    nader2000: {
+      short: 'Nader et al. 2000',
+      title: 'Fear memories require protein synthesis in the amygdala for reconsolidation after retrieval',
+      url: 'https://www.nature.com/articles/35021052',
+      note: 'reactivated memories can become labile'
+    },
+    diekelmann2010: {
+      short: 'Diekelmann & Born 2010',
+      title: 'The memory function of sleep',
+      url: 'https://www.nature.com/articles/nrn2762',
+      note: 'sleep consolidation and reactivation background'
+    },
+    cellini2018: {
+      short: 'Cellini & Capuozzo 2018',
+      title: 'Shaping memory consolidation via targeted memory reactivation during sleep',
+      url: 'https://doi.org/10.1016/j.neubiorev.2018.07.017',
+      note: 'TMR review; cue-biased consolidation, not exact replay'
+    },
+    sitaram2017: {
+      short: 'Sitaram et al. 2017',
+      title: 'Closed-loop brain training: the science of neurofeedback',
+      url: 'https://www.nature.com/articles/nrn.2016.164',
+      note: 'feedback can shape coarse brain states under constraints'
+    },
+    shanechi2019: {
+      short: 'Shanechi 2019',
+      title: 'Brain–machine interfaces from motor to mood',
+      url: 'https://www.nature.com/articles/s41593-019-0488-y',
+      note: 'closed-loop state estimation/intervention framing'
+    },
+    hampson2018: {
+      short: 'Hampson et al. 2018',
+      title: 'Developing a hippocampal neural prosthetic to facilitate human memory encoding and recall',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/29589592/',
+      note: 'memory prosthesis adjacent work; invasive and task-specific'
+    },
+    poldrack2011: {
+      short: 'Poldrack 2011',
+      title: 'Inferring mental states from neuroimaging data: from reverse inference to large-scale decoding',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/21416582/',
+      note: 'decoding limits and inference caution'
+    },
+    loftus1995: {
+      short: 'Loftus 1995',
+      title: 'The formation of false memories',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/7770739/',
+      note: 'suggestion and reconstruction can distort memory'
+    },
+    hopfield1982: {
+      short: 'Hopfield 1982',
+      title: 'Neural networks and physical systems with emergent collective computational abilities',
+      url: 'https://www.pnas.org/doi/10.1073/pnas.79.8.2554',
+      note: 'attractor/pattern-completion modeling anchor'
+    },
+    mcclelland1995: {
+      short: 'McClelland et al. 1995',
+      title: 'Why there are complementary learning systems in the hippocampus and neocortex',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/7624455/',
+      note: 'systems-level memory modeling anchor'
+    }
+  };
+
+  const paperSets = {
+    concept: ['schacter1998', 'conway2000'],
+    biology: ['squire2004', 'bliss1973', 'josselyn2015'],
+    engram: ['josselyn2015', 'liu2012', 'ramirez2013'],
+    reactivation: ['nader2000', 'diekelmann2010', 'cellini2018'],
+    technology: ['sitaram2017', 'shanechi2019', 'poldrack2011'],
+    ethics: ['loftus1995', 'ramirez2013', 'poldrack2011'],
+    simulation: ['hopfield1982', 'mcclelland1995', 'poldrack2011'],
+    prosthesis: ['hampson2018', 'shanechi2019', 'sitaram2017']
+  };
+
+  const paperIdsByNode = {
+    'project-thesis': ['schacter1998', 'conway2000', 'shanechi2019'],
+    'photo-problem': ['schacter1998', 'conway2000'],
+    'unreturnable-present': ['conway2000', 'schacter1998'],
+    'integrated-self-state': ['conway2000', 'squire2004', 'poldrack2011'],
+    'self-capacity': ['conway2000', 'sitaram2017'],
+    'emotion-structured-information': ['sitaram2017', 'shanechi2019', 'poldrack2011'],
+    'ethics-architecture': ['loftus1995', 'poldrack2011', 'shanechi2019'],
+    'experiential-time-travel': ['schacter1998', 'conway2000'],
+    'resonance-over-recreation': ['schacter1998', 'nader2000', 'sitaram2017'],
+    'what-we-saw': ['schacter1998', 'conway2000'],
+    'what-we-were': ['conway2000', 'poldrack2011'],
+    'lost-internal-state': ['schacter1998', 'conway2000', 'squire2004'],
+    'moment-as-state': ['squire2004', 'mcclelland1995', 'poldrack2011'],
+    plasticity: ['bliss1973', 'squire2004'],
+    ltp: ['bliss1973', 'mcclelland1995'],
+    'native-record': ['bliss1973', 'josselyn2015', 'squire2004'],
+    engrams: ['josselyn2015', 'liu2012', 'ramirez2013'],
+    'retroactive-addressability': ['nader2000', 'liu2012', 'poldrack2011'],
+    'controlled-reactivation': ['nader2000', 'cellini2018', 'shanechi2019'],
+    'reconstruction-vs-replay': ['schacter1998', 'loftus1995', 'poldrack2011'],
+    'cue-triggered': ['schacter1998', 'cellini2018', 'diekelmann2010'],
+    tmr: ['diekelmann2010', 'cellini2018'],
+    'direct-engram': ['liu2012', 'ramirez2013', 'poldrack2011'],
+    'guided-endogenous': ['sitaram2017', 'cellini2018', 'shanechi2019'],
+    'eeg-role': ['poldrack2011', 'sitaram2017'],
+    'eeg-limits': ['poldrack2011', 'josselyn2015'],
+    neurofeedback: ['sitaram2017', 'shanechi2019'],
+    'multimodal-cues': ['cellini2018', 'diekelmann2010', 'loftus1995'],
+    consent: ['loftus1995', 'poldrack2011'],
+    'false-memory': ['loftus1995', 'ramirez2013', 'schacter1998'],
+    'identity-risk': ['conway2000', 'loftus1995'],
+    'emotional-risk': ['nader2000', 'loftus1995', 'sitaram2017'],
+    manipulation: ['loftus1995', 'ramirez2013', 'poldrack2011'],
+    'state-vectors': ['hopfield1982', 'mcclelland1995', 'poldrack2011'],
+    protocols: ['shanechi2019', 'sitaram2017', 'cellini2018'],
+    metrics: ['poldrack2011', 'shanechi2019', 'sitaram2017'],
+    'synthetic-data': ['poldrack2011', 'hopfield1982'],
+    'literature-map': ['josselyn2015', 'cellini2018', 'sitaram2017'],
+    'attractor-models': ['hopfield1982', 'mcclelland1995'],
+    'citation-table': ['josselyn2015', 'cellini2018', 'shanechi2019'],
+    'next-steps': ['shanechi2019', 'poldrack2011', 'sitaram2017']
+  };
+
+  const defaultPaperSetByCluster = {
+    Overview: paperSets.concept,
+    Problem: paperSets.concept,
+    Biology: paperSets.biology,
+    'Hard Problem': paperSets.reactivation,
+    'Resonance Pathways': paperSets.reactivation,
+    Technology: paperSets.technology,
+    'Ethics/Risk': paperSets.ethics,
+    'Simulation Layer': paperSets.simulation,
+    Roadmap: paperSets.technology
+  };
+
+  function resolvePapers(node) {
+    const ids = paperIdsByNode[node.id] || defaultPaperSetByCluster[node.cluster] || paperSets.concept;
+    return ids.map((id) => paperLibrary[id]).filter(Boolean);
+  }
+
   const defaultPurposeByCluster = {
     Problem: 'Defines the lived problem or philosophical target the project is trying to solve.',
     Biology: 'Anchors the concept in memory, plasticity, traces, or state biology without overclaiming access.',
@@ -451,6 +629,7 @@
     Object.assign(node, {
       purpose: extra.purpose || defaultPurposeByCluster[node.cluster] || 'Explains one part of the project argument.',
       reflects: extra.reflects || defaultReflectsByCluster[node.cluster] || 'Connects this node back to the project thesis.',
+      papers: resolvePapers(node),
       isKey: Boolean(extra.isKey)
     });
   });

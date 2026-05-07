@@ -28,6 +28,7 @@
       nodePurpose: document.getElementById('nodePurpose'),
       nodeReflects: document.getElementById('nodeReflects'),
       nodeConnections: document.getElementById('nodeConnections'),
+      nodePapers: document.getElementById('nodePapers'),
       nodeDocLink: document.getElementById('nodeDocLink'),
       tooltip: createTooltip()
     };
@@ -136,6 +137,7 @@
     elements.nodePurpose.textContent = node.purpose || 'This node explains one role in the project argument.';
     elements.nodeReflects.textContent = node.reflects || 'This node connects back to the project concept.';
     renderConnections(elements, node);
+    renderPapers(elements, node);
 
     if (node.docLink) {
       elements.nodeDocLink.href = node.docLink;
@@ -179,6 +181,31 @@
       span.textContent = ` — ${neighbor.cluster.toLowerCase()} / ${neighbor.status}`;
       li.append(strong, span);
       elements.nodeConnections.appendChild(li);
+    });
+  }
+
+  function renderPapers(elements, node) {
+    if (!elements.nodePapers) return;
+    elements.nodePapers.innerHTML = '';
+    const papers = node.papers || [];
+    if (!papers.length) {
+      const li = document.createElement('li');
+      li.textContent = 'No direct paper attached yet; use the related brief section for the broader citation table.';
+      elements.nodePapers.appendChild(li);
+      return;
+    }
+
+    papers.forEach((paper) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = paper.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = paper.short || paper.title;
+      const span = document.createElement('span');
+      span.textContent = `${paper.title}${paper.note ? ` — ${paper.note}` : ''}`;
+      li.append(a, span);
+      elements.nodePapers.appendChild(li);
     });
   }
 
