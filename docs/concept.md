@@ -1,4 +1,4 @@
-# Concept Note: Brain-State Circuit Replay
+# Concept Note: Brain-State Circuit Resonance
 
 ## One-sentence idea
 
@@ -6,7 +6,7 @@ What if a future brain-computer interface could identify and reactivate the neur
 
 ## Presentation version
 
-Brain-State Circuit Replay is a speculative neuroscience and BCI concept. The idea starts from something humans already experience: a song, smell, place, or trauma cue can suddenly recreate a past emotional and bodily state. The brain is not simply retrieving a file; it is reconstructing a distributed pattern involving memory, emotion, attention, body feeling, and self-narrative.
+Brain-State Circuit Resonance is a speculative neuroscience and BCI concept. The idea starts from something humans already experience: a song, smell, place, or trauma cue can suddenly recreate a past emotional and bodily state. The brain is not simply retrieving a file; it is reconstructing a distributed pattern involving memory, emotion, attention, body feeling, and self-narrative.
 
 This project asks whether future neurotechnology could make that reconstruction intentional. A closed-loop interface could estimate a target state, stimulate or guide the brain toward that pattern, and continuously monitor whether the system is becoming safer, more stable, or more risky.
 

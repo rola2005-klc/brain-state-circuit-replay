@@ -1,28 +1,40 @@
-# Brain-State Circuit Replay
+Brain-State Circuit Resonance
 
-**Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
+**Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.**
 
-This repository is currently building the conceptual and scientific foundation for a speculative neuroscience / BCI thesis. The first goal is a clear, presentable idea: if photos, videos, music, and smell can trigger memory, could future interfaces help a person partially re-enter the **integrated self-state** of a past moment?
+This repository is building the conceptual, scientific, and engineering foundation for a speculative neuroscience / BCI thesis. The public frame is resonance, not playback: if photos, videos, music, and smell can trigger memory, could future closed-loop interfaces help a person partially re-approach the **integrated self-state** of a past moment while keeping uncertainty and safety visible?
 
 The emotional problem is **The Unreturnable Present Paradox / 当下不可归悖论**: when a person is very happy or inside an important moment, the thought "I can't go back anymore" can create anticipatory grief that blocks the person from fully living that moment.
 
-The interactive simulation is secondary. It supports the thesis by making assumptions visible: target states, replay modes, similarity, reconstruction error, and safety risk. The main artifact is the foundation: what the concept means, what science supports, what is plausible extrapolation, and what remains speculative.
+The interactive simulation is secondary. It supports the thesis by making assumptions visible: target states, technical replay modes, similarity, uncertainty, reconstruction error, and safety risk. The main artifact is the foundation: what the concept means, what science supports, what is plausible extrapolation, and what remains speculative.
 
 This project does **not** claim literal time travel, medical treatment, exact human memory replay, exact visual playback, or EEG reading synaptic traces.
 
 ## Start here: one-minute path
 
-**One-sentence thesis:** Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+**One-sentence thesis:** Photos record what we saw. Brain-State Circuit Resonance asks whether future systems could approximate parts of what we were.
 
 **Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
 
-Open these three artifacts first:
+Open these artifacts first:
 
-1. **3D mindmap:** [`index.html`](index.html)
+1. **Project brief:** [`project-brief.html`](project-brief.html)
 2. **Process journey:** [`journey.html`](journey.html)
-3. **Full thesis:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+3. **3D mindmap:** [`index.html`](index.html)
+4. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 Then check the scientific foundation: [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+
+## Presentation Path
+
+Use [`project-brief.html`](project-brief.html) as the clean entry point. It gives the hook, problem, thesis, demo boundary, scientific anchors, system concept, ethics, current artifacts, and next steps without opening raw Markdown in the browser.
+
+Recommended flow:
+
+1. Start on [`project-brief.html`](project-brief.html) and read the hook plus boundary.
+2. Open [`journey.html`](journey.html) and walk through the six-step process.
+3. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
+4. Keep the source Markdown docs available for deeper questions.
 
 Audience paths:
 
@@ -34,29 +46,29 @@ Audience paths:
 
 We may not be able to go back in time, but we may learn how to revisit parts of brain-body-self states.
 
-The central theory is that a meaningful past moment is not only a stored image. It is a distributed integrated self-state involving body state, attention, emotion topology, context, self-model, meaning, and configured ignorance: the ability to feel the world that way from that version of the self.
+The central theory is that a meaningful past moment is not only a stored image. It is a distributed integrated self-state involving body state, attention, emotion topology, context, self-model, meaning, and **configured ignorance**: the specific boundary of what the past self did not yet know, expect, or have to account for, which made the moment feel open.
 
-The refined idea is that no previous external brain-state recording is strictly required because plasticity and LTP are the native biological record. Experience changes synapses and circuit dynamics. The hard problem is **retroactive addressability and controlled reactivation**: how to access the right trace, reactivate it safely, and measure what happened without pretending it is exact.
+The refined idea is that no previous external brain-state recording is strictly required for the concept because plasticity and LTP can be treated as a native biological record. That record suggests trace existence, not selective access. Experience changes synapses and circuit dynamics, but the hard problem remains **retroactive addressability and controlled reactivation**: how to access the right trace, reactivate it safely, and measure what happened without pretending it is exact.
 
 A future closed-loop system might approximate that state by:
 
 1. using photos, audio, place, smell, sleep cues, or context as external memory cues;
 2. treating plasticity and engram-like traces as the biological record;
-3. representing a target moment as a distributed brain-body state signature;
+3. representing a target moment as a distributed brain-body state signature, with integrated self-state treated as a conceptual synthesis rather than an established neuroscience metric;
 4. applying cueing, neurofeedback, or carefully bounded stimulation as controlled nudges;
 5. monitoring similarity, reconstruction error, and safety risk;
-6. showing why exact replay is impossible but partial state reconstruction is scientifically imaginable.
+6. showing why exact replay is not the target, while partial state resonance may be scientifically imaginable as a bounded approximation.
 
 ## Why this is interesting
 
-Humans already experience accidental state replay:
+Humans already experience accidental state resonance:
 
 - a song brings back a whole period of life;
 - a smell triggers childhood memory;
 - trauma cues recreate body states;
 - athletes re-enter flow states.
 
-This project asks whether future neurotechnology could make state replay intentional, measurable, and safe while treating emotion as structured information rather than noise. The design target is **Resonance over Recreation**: past-state replay should return the person to the present, not trap them in the past.
+This project asks whether future neurotechnology could make partial state resonance intentional, measurable, and safe while treating emotion as structured information rather than noise. The design target is **Resonance over Recreation**: any past-associated state intervention should return the person to the present, not trap them in the past.
 
 ## Scientific backing
 
@@ -76,10 +88,10 @@ Important boundary: EEG is a non-invasive state correlate. It may help monitor b
 The repo currently contains three layers:
 
 1. **Presentation foundation:** thesis, pitch outline, scientific boundaries, and roadmap.
-2. **Technical concept:** native memory traces, replay modes, EEG limits, and synthetic data assumptions.
+2. **Technical concept:** native memory traces, technical replay modes, EEG limits, state-estimation limits, and synthetic data caveats.
 3. **Supporting demo:** a browser simulation that makes the concept tangible without claiming biological validation.
 
-The realistic floor is cue-triggered recall and Targeted Memory Reactivation. The frontier is direct engram reactivation and guided endogenous replay. The simulation exists to keep those categories explicit.
+The realistic floor is cue-triggered recall and Targeted Memory Reactivation. The frontier is direct engram reactivation and guided endogenous replay as a technical mode, not exact playback. The simulation exists to keep those categories explicit.
 
 ## Run locally
 
@@ -114,7 +126,7 @@ python3 scripts/generate_synthetic_data.py --samples-per-state 120 --seed 42 --o
 python3 scripts/evaluate_decoder.py --samples-per-state 120 --seed 42
 ```
 
-Current baseline: nearest-centroid decoder reaches about **90.83%** accuracy on 120 held-out synthetic test rows. This does **not** prove real brain-state decoding; it proves the project has an explicit state representation, protocol assumptions, and a reproducible evaluation path.
+Current baseline: nearest-centroid decoder reaches about **90.83%** accuracy on 120 held-out synthetic test rows. Synthetic classifier results illustrate pipeline behavior only and are not empirical validation. This does **not** prove real brain-state decoding; it proves the project has an explicit state representation, protocol assumptions, and a reproducible evaluation path.
 
 Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
 
@@ -122,6 +134,7 @@ Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
 
 ```text
 index.html              # static website entry point
+project-brief.html      # polished project brief
 journey.html            # one-minute process journey page
 style.css               # responsive visual design
 src/journey.js          # keyboard/click process journey interaction

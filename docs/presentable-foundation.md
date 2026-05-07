@@ -2,7 +2,7 @@
 
 ## One-sentence thesis
 
-Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+Photos record what we saw. Brain-State Circuit Resonance asks whether we can reconstruct what we were.
 
 ## 90-second pitch
 
@@ -10,7 +10,7 @@ People take photos because they want to preserve moments. But a photo only store
 
 The refined emotional frame is **The Unreturnable Present Paradox / 当下不可归悖论**: when a person is very happy or inside an important moment, the thought "I can't go back anymore" can create anticipatory grief that prevents the person from fully living that moment. A future safe replay system would not solve time. It might reduce the emotional pressure of unrevisitable presence by allowing bounded resonance with a past-associated integrated self-state.
 
-Brain-State Circuit Replay is a speculative neuroscience and BCI concept asking whether future systems could help a person partially re-enter a past integrated self-state: body state x attention x emotion topology x context x self-model x meaning x configured ignorance. The refined idea is that no previous external brain-state recording is strictly required, because plasticity and long-term potentiation are the native biological record. Experience changes synapses and circuit dynamics. The hard problem is not storage in the simple sense; it is retroactive addressability and controlled reactivation.
+Brain-State Circuit Resonance is a speculative neuroscience and BCI concept asking whether future systems could help a person partially re-enter a past integrated self-state: body state x attention x emotion topology x context x self-model x meaning x configured ignorance. The refined idea is that no previous external brain-state recording is strictly required, because plasticity and long-term potentiation are the native biological record. Experience changes synapses and circuit dynamics. The hard problem is not storage in the simple sense; it is retroactive addressability and controlled reactivation.
 
 The realistic floor is cue-triggered recall and Targeted Memory Reactivation: using photos, sound, odor, place, sleep cues, or guided prompts to bias memory reactivation. EEG can help track broad state correlates, but it cannot read synaptic traces or directly resolve engrams. The frontier is direct engram reactivation or guided endogenous replay, where a system learns how to steer the brain toward an internally stored trace without claiming exact visual playback or literal time travel.
 

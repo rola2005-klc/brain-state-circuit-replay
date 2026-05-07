@@ -2,7 +2,7 @@
 
 > **For Hermes:** Use subagent-driven-development skill to implement this plan task-by-task.
 
-**Goal:** Turn Brain-State Circuit Replay from a thin website into a research-backed GitHub project with data, plausible methods, simulations, and strong portfolio storytelling.
+**Goal:** Turn Brain-State Circuit Resonance from a thin website into a research-backed GitHub project with data, plausible methods, simulations, and strong portfolio storytelling.
 
 **Architecture:** Keep the static web demo as the public face, but make the GitHub repository the real artifact: research notes, simulation core, tests, notebooks, diagrams, and a staged roadmap. The scientific model should remain honest: approximate state signatures and closed-loop modulation, not literal time travel.
 

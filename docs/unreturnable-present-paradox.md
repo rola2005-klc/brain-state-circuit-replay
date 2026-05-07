@@ -2,7 +2,7 @@
 
 ## One-line thesis
 
-Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.
+Photos record what we saw. Brain-State Circuit Resonance asks whether we can reconstruct what we were.
 
 ## Why photos and videos fail
 
@@ -23,7 +23,7 @@ The project asks whether a future system could safely preserve, anchor, or let s
 
 ## Integrated self-state model
 
-Brain-State Circuit Replay does not target scene replay, video reconstruction, or one isolated emotion. It targets a partial approximation of an integrated self-state: 曾经的自己.
+Brain-State Circuit Resonance does not target scene replay, video reconstruction, or one isolated emotion. It targets a partial approximation of an integrated self-state: 曾经的自己.
 
 ```text
 integrated self-state =

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate a synthetic brain-state dataset for Brain-State Circuit Replay.
+"""Generate a synthetic brain-state dataset for Brain-State Circuit Resonance.
 
 This is an educational toy dataset. It does not represent real neural recordings.
 It exists to make the project data-backed: each row is a simulated distributed

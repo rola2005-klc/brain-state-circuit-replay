@@ -56,13 +56,16 @@
     document.querySelectorAll('[data-close-target]').forEach((button) => {
       button.addEventListener('click', () => closePanelById(button.dataset.closeTarget, onPanelStateChange));
     });
+    document.querySelectorAll('[data-explore-map]').forEach((button) => {
+      button.addEventListener('click', () => startExploring(onPanelStateChange));
+    });
 
     window.addEventListener('mousemove', (event) => {
       elements.tooltip.style.left = `${event.clientX}px`;
       elements.tooltip.style.top = `${event.clientY}px`;
     });
 
-    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel'].forEach((id) => {
+    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel', 'firstVisitStrip'].forEach((id) => {
       updateDockState(id, document.getElementById(id)?.classList.contains('open'));
     });
 
@@ -89,6 +92,16 @@
     panel.classList.toggle('open', shouldOpen);
     updateDockState(id, shouldOpen);
     if (callback) callback(shouldOpen);
+  }
+
+  function startExploring(callback) {
+    ['topOverlay', 'controlDeck', 'firstVisitStrip'].forEach((id) => closePanelById(id, callback));
+    const guide = document.getElementById('mapGuide');
+    if (guide) {
+      guide.classList.add('open');
+      updateDockState('mapGuide', true);
+    }
+    if (callback) callback(true);
   }
 
   function updateDockState(id, isOpen) {
@@ -126,7 +139,7 @@
 
     if (node.docLink) {
       elements.nodeDocLink.href = node.docLink;
-      elements.nodeDocLink.textContent = 'Open related doc';
+      elements.nodeDocLink.textContent = 'Open related section';
       elements.nodeDocLink.classList.remove('hidden');
     } else {
       elements.nodeDocLink.classList.add('hidden');

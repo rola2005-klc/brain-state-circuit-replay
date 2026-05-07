@@ -72,7 +72,7 @@ This is more plausible than exact direct control, but still speculative when fra
 
 ## Exact visual replay limitations
 
-Brain-State Circuit Replay should not claim exact visual playback of past experience.
+Brain-State Circuit Resonance should not claim exact visual playback of past experience.
 
 Reasons:
 

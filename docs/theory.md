@@ -18,7 +18,7 @@ But a meaningful moment is not only external. It also has an internal state:
 
 This project asks whether a future system could preserve or reconstruct some part of that internal state, not just the external image.
 
-> **Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
+> **Photos record what we saw. Brain-State Circuit Resonance asks whether we can reconstruct what we were.**
 
 ## 2. The speculative question
 

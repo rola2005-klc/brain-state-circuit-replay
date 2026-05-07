@@ -1,11 +1,11 @@
 # Preplan: Privacy-Aware Neural Photography for Brain-State Replay
 
 Status: early preplan  
-Purpose: define what must exist before Brain-State Circuit Replay could move from speculative demo to a responsible long-term research/product concept.
+Purpose: define what must exist before Brain-State Circuit Resonance could move from speculative demo to a responsible long-term research/product concept.
 
 ## 1. Why a preplan is necessary
 
-The strongest version of Brain-State Circuit Replay assumes some future ability to record rich brain-body states over time. That immediately creates two problems:
+The strongest version of Brain-State Circuit Resonance assumes some future ability to record rich brain-body states over time. That immediately creates two problems:
 
 1. **Realism problem:** current consumer technology cannot record enough neural detail to reconstruct a past self-state.
 2. **Privacy problem:** if a system could record inner states, it would create extremely sensitive data: emotion, memory, attention, identity, relationships, and possible mental health signals.
@@ -14,7 +14,7 @@ Therefore the project should not jump directly to “replay the past.” It need
 
 ## 2. Core distinction
 
-Brain-State Circuit Replay should distinguish three modes:
+Brain-State Circuit Resonance should distinguish three modes:
 
 | Mode | Data source | Claim strength | Example |
 | --- | --- | --- | --- |

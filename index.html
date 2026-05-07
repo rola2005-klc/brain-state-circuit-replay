@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brain-State Circuit Replay Mindmap</title>
+  <title>Brain-State Circuit Resonance Mindmap</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,23 +13,23 @@
       <div class="ambient-grid" aria-hidden="true"></div>
     </section>
 
-    <nav class="quick-dock" aria-label="Map panels">
-      <button class="dock-button" type="button" data-toggle-target="topOverlay">Concept</button>
-      <button class="dock-button" type="button" data-toggle-target="mapGuide">Guide</button>
-      <button class="dock-button" type="button" data-toggle-target="controlDeck">Controls</button>
-      <button class="dock-button" type="button" data-toggle-target="sidePanel">Details</button>
+    <nav class="quick-dock" aria-label="Primary navigation">
+      <a class="dock-button" href="project-brief.html">Project brief</a>
+      <a class="dock-button" href="journey.html">Guided journey</a>
+      <button class="dock-button" type="button" data-explore-map>Explore map</button>
     </nav>
 
-    <header class="top-overlay" id="topOverlay">
+    <header class="top-overlay open" id="topOverlay">
       <div>
         <button class="overlay-close" type="button" data-close-target="topOverlay" aria-label="Hide concept summary">×</button>
         <p class="eyebrow">Concept / simulation scaffold</p>
-        <h1>Brain-State Circuit Replay</h1>
-        <p class="thesis">Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
-        <p class="map-intent">This is a concept map and simulation scaffold — not a brain-derived output. Each dot is part of the project's thought process: problem, biological bridge, engineering path, or safety boundary.</p>
+        <h1>Brain-State Circuit Resonance</h1>
+        <p class="thesis">A public map of the thesis, evidence boundary, and prototype path.</p>
+        <p class="map-intent">This is a concept map and simulation scaffold, not a brain-derived output. It organizes the problem, science anchors, engineering path, and safety limits.</p>
         <div class="hero-links" aria-label="Start here links">
-          <a href="journey.html">Process journey</a>
-          <a href="docs/unreturnable-present-paradox.md">Full thesis</a>
+          <a href="project-brief.html">Project brief</a>
+          <a href="journey.html">Guided journey</a>
+          <button type="button" data-explore-map>Explore map</button>
         </div>
       </div>
     </header>
@@ -39,26 +39,36 @@
       <div class="guide-card">
         <p class="eyebrow">How to read this map</p>
         <ol>
-          <li><strong>Start at the big labeled nodes.</strong> They form the project spine.</li>
-          <li><strong>Click any dot.</strong> The right panel explains why it exists and how it reflects the concept.</li>
-          <li><strong>Use Replay mode.</strong> It highlights one possible pathway through the thesis.</li>
+          <li><strong>Big labels form the spine.</strong> Start with the thesis, problem, limits, and roadmap.</li>
+          <li><strong>Click one node at a time.</strong> The details panel explains its role and nearby ideas.</li>
+          <li><strong>Resonance pathways are technical routes.</strong> They highlight argument paths, not measured brain output.</li>
         </ol>
       </div>
       <div class="legend-card" aria-label="Map legend">
         <span><i class="legend-dot known"></i>known science</span>
         <span><i class="legend-dot plausible"></i>plausible bridge</span>
         <span><i class="legend-dot speculative"></i>speculative frontier</span>
+        <button class="inline-tool-button" type="button" data-toggle-target="controlDeck">Resonance controls</button>
       </div>
     </aside>
 
-    <aside class="control-deck compact-panel" id="controlDeck" aria-label="Replay controls">
-      <button class="overlay-close" type="button" data-close-target="controlDeck" aria-label="Hide replay controls">×</button>
+    <aside class="first-visit-strip open" id="firstVisitStrip" aria-label="How to start">
+      <button class="overlay-close" type="button" data-close-target="firstVisitStrip" aria-label="Hide quick start">×</button>
+      <ol>
+        <li><span>1</span><strong>Read the project brief</strong></li>
+        <li><span>2</span><strong>Use guided journey</strong></li>
+        <li><span>3</span><strong>Explore nodes by claim status</strong></li>
+      </ol>
+    </aside>
+
+    <aside class="control-deck compact-panel" id="controlDeck" aria-label="Resonance controls">
+      <button class="overlay-close" type="button" data-close-target="controlDeck" aria-label="Hide resonance controls">×</button>
       <section class="control-block">
         <div class="block-heading">
-          <span>Replay mode</span>
+          <span>Resonance pathway</span>
           <strong id="modeTitle">Cue-triggered recall</strong>
         </div>
-        <div class="mode-grid" id="modeButtons" role="group" aria-label="Replay mode selector"></div>
+        <div class="mode-grid" id="modeButtons" role="group" aria-label="Resonance pathway selector"></div>
         <p class="mode-copy" id="modeCopy"></p>
       </section>
 
@@ -80,7 +90,7 @@
         <p class="eyebrow">Selected node</p>
         <button id="closePanel" type="button" data-close-target="sidePanel" aria-label="Close details panel">×</button>
       </div>
-      <h2 id="nodeTitle">Brain-State Circuit Replay</h2>
+      <h2 id="nodeTitle">Brain-State Circuit Resonance</h2>
       <div class="meta-row">
         <span class="cluster-pill" id="nodeCluster">Overview</span>
         <span class="status-badge status-plausible" id="nodeStatus">plausible</span>
@@ -100,7 +110,7 @@
         <h3>Connected ideas</h3>
         <ul id="nodeConnections"><li>Click a node to see its neighboring concepts.</li></ul>
       </div>
-      <a class="doc-button" id="nodeDocLink" href="docs/presentable-foundation.md">Open related doc</a>
+      <a class="doc-button" id="nodeDocLink" href="project-brief.html">Open related section</a>
       <a class="doc-button secondary-doc-button" href="journey.html">Open process journey</a>
 
       <div class="boundary-card">
@@ -109,23 +119,24 @@
           <li>Concept map / simulation scaffold, not a brain-derived output, medical product, or literal time travel.</li>
           <li>Not exact human memory replay and not exact visual playback.</li>
           <li>EEG measures broad scalp-level correlates; it cannot read synaptic traces, identify engrams, or produce exact visual memory playback.</li>
+          <li>Synthetic classifier results illustrate pipeline behavior only; they are not empirical validation.</li>
           <li>Brain visualization is conceptual; regions are not anatomically specific.</li>
         </ul>
       </div>
 
       <nav class="doc-links" aria-label="Project documents">
-        <a href="docs/presentable-foundation.md">Foundation</a>
-        <a href="docs/unreturnable-present-paradox.md">Full thesis</a>
+        <a href="project-brief.html">Brief</a>
+        <a href="project-brief.html#thesis">Thesis</a>
         <a href="journey.html">Journey</a>
-        <a href="docs/presentation-outline.md">Outline</a>
-        <a href="docs/native-memory-trace-reactivation.md">Native trace</a>
-        <a href="docs/research.md">Research</a>
-        <a href="docs/data-model.md">Data model</a>
-        <a href="docs/development-plan.md">Development plan</a>
+        <a href="project-brief.html#presentation-path">Path</a>
+        <a href="project-brief.html#scientific-anchors">Science</a>
+        <a href="project-brief.html#system-concept">System</a>
+        <a href="project-brief.html#ethics">Ethics</a>
+        <a href="project-brief.html#next-steps">Next steps</a>
       </nav>
     </aside>
 
-    <div class="brain-note">Use top buttons to open Concept / Guide / Controls / Details. This is a thought-map scaffold, not brain output.</div>
+    <div class="brain-note">Abstract state model only. Node colors separate known science, plausible bridge, and speculative frontier.</div>
     <footer class="boundary-strip">Boundary: concept + simulation scaffold only. Not brain-derived output. EEG cannot read engrams or exact memories. The 3D brain is an abstract state model, not anatomy.</footer>
   </main>
 

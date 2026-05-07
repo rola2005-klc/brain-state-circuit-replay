@@ -27,7 +27,7 @@
     {
       icon: '✨',
       title: 'Partial integrated self-state reconstruction',
-      copy: 'A future system might guide partial resonance across body state, attention, emotion topology, context, self-model, meaning, and configured ignorance. The target is self-capacity: the ability to feel the world that way.',
+      copy: 'A future system might guide partial resonance across body state, attention, emotion topology, context, self-model, meaning, and configured ignorance: the specific boundary of what the past self did not yet know or have to account for. The target is self-capacity: the ability to feel the world that way.',
       values: { body: 76, attention: 78, emotion: 84, context: 66, selfModel: 88, meaning: 88, ignorance: 72, safety: 64 }
     },
     {

@@ -135,7 +135,7 @@ function drawTimeline(history) {
   ctx.fillStyle = '#9fb0c8';
   ctx.font = '22px system-ui';
   ctx.fillText('0', 28, h - 28);
-  ctx.fillText(`${history.length - 1} replay steps`, w - 190, h - 28);
+  ctx.fillText(`${history.length - 1} state steps`, w - 190, h - 28);
   const finalIntervention = history[history.length - 1].intervention;
   if (finalIntervention) {
     ctx.fillStyle = '#d9e7ff';

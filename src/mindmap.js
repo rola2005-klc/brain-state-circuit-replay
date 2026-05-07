@@ -4,7 +4,7 @@
     Problem: '#79f2c9',
     Biology: '#8fb4ff',
     'Hard Problem': '#ff9ec4',
-    'Replay Modes': '#c6f57a',
+    'Resonance Pathways': '#c6f57a',
     Technology: '#68d8ff',
     'Ethics/Risk': '#ffd166',
     'Simulation Layer': '#d9b8ff',
@@ -58,12 +58,39 @@
     const target = typeof link.target === 'object' ? link.target : null;
     const touchesSelected = selectedNode && (source?.id === selectedNode.id || target?.id === selectedNode.id);
     const highlighted = activeMode.highlightLinks.includes(key) || touchesSelected;
-    return highlighted ? colorWithAlpha(activeMode.secondaryColor, 0.72) : 'rgba(190, 210, 235, 0.13)';
+    return highlighted ? colorWithAlpha(activeMode.secondaryColor, 0.78) : 'rgba(190, 210, 235, 0.09)';
   }
 
   function linkWidth(link) {
     const key = window.BRAIN_REPLAY_MODES.linkKey(link);
-    return activeMode.highlightLinks.includes(key) ? 2.2 : 0.7;
+    return activeMode.highlightLinks.includes(key) ? 2.6 : 0.52;
+  }
+
+  function makeStarField() {
+    const count = 280;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(count * 3);
+
+    for (let i = 0; i < count; i += 1) {
+      const radius = 360 + Math.random() * 240;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      positions[i * 3] = Math.sin(phi) * Math.cos(theta) * radius;
+      positions[i * 3 + 1] = Math.cos(phi) * radius;
+      positions[i * 3 + 2] = Math.sin(phi) * Math.sin(theta) * radius;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    return new THREE.Points(
+      geometry,
+      new THREE.PointsMaterial({
+        color: '#dce8ff',
+        size: 1.15,
+        transparent: true,
+        opacity: 0.26,
+        depthWrite: false
+      })
+    );
   }
 
 
@@ -143,7 +170,7 @@
     selectedNode = node;
     window.BRAIN_REPLAY_UI.showNode(ui, node);
 
-    const distance = 82;
+    const distance = 92;
     const distRatio = 1 + distance / Math.hypot(node.x || 1, node.y || 1, node.z || 1);
     graph.cameraPosition(
       { x: (node.x || 0) * distRatio, y: (node.y || 0) * distRatio, z: (node.z || 0) * distRatio },
@@ -207,7 +234,7 @@ ${node.purpose || ''}`)
         .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
         .nodeResolution(24)
         .linkOpacity(1)
-        .linkCurvature(0.08)
+        .linkCurvature(0.05)
         .linkDirectionalParticleResolution(8)
         .cooldownTicks(90)
         .onNodeClick(focusNode)
@@ -222,9 +249,9 @@ ${node.purpose || ''}`)
       return;
     }
 
-    graph.d3Force('charge').strength(-96);
-    graph.d3Force('link').distance(64);
-    graph.cameraPosition({ x: 0, y: 70, z: 260 }, { x: 0, y: 0, z: 0 }, 0);
+    graph.d3Force('charge').strength(-118);
+    graph.d3Force('link').distance(72);
+    graph.cameraPosition({ x: 0, y: 78, z: 285 }, { x: 0, y: 4, z: 0 }, 0);
 
     const controls = graph.controls();
     controls.autoRotate = true;
@@ -232,10 +259,15 @@ ${node.purpose || ''}`)
     controls.enableDamping = true;
     controls.dampingFactor = 0.06;
 
-    graph.scene().add(new THREE.AmbientLight('#dce8ff', 0.48));
-    const keyLight = new THREE.DirectionalLight('#ffffff', 0.55);
+    graph.scene().fog = new THREE.FogExp2('#03050a', 0.0032);
+    graph.scene().add(makeStarField());
+    graph.scene().add(new THREE.AmbientLight('#dce8ff', 0.36));
+    const keyLight = new THREE.DirectionalLight('#ffffff', 0.68);
     keyLight.position.set(80, 130, 90);
     graph.scene().add(keyLight);
+    const rimLight = new THREE.DirectionalLight('#79f2c9', 0.34);
+    rimLight.position.set(-140, 60, -120);
+    graph.scene().add(rimLight);
 
     brain = window.BRAIN_REPLAY_BRAIN.addBrainObject(graph.scene());
     setMode(activeMode.id);

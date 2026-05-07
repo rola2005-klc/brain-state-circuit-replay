@@ -1,18 +1,18 @@
 (function exposeGraphData() {
   const docs = {
-    foundation: 'docs/presentable-foundation.md',
-    outline: 'docs/presentation-outline.md',
-    unreturnable: 'docs/unreturnable-present-paradox.md',
-    nativeTrace: 'docs/native-memory-trace-reactivation.md',
-    research: 'docs/research.md',
-    data: 'docs/data-model.md',
-    plan: 'docs/development-plan.md'
+    foundation: 'project-brief.html#thesis',
+    outline: 'project-brief.html#presentation-path',
+    unreturnable: 'project-brief.html#problem',
+    nativeTrace: 'project-brief.html#scientific-anchors',
+    research: 'project-brief.html#scientific-anchors',
+    data: 'project-brief.html#system-concept',
+    plan: 'project-brief.html#next-steps'
   };
 
   const nodes = [
     {
       id: 'project-thesis',
-      label: 'Brain-State Circuit Replay',
+      label: 'Brain-State Circuit Resonance',
       cluster: 'Overview',
       status: 'plausible',
       description: 'The whole project asks how future AI/neurotechnology could help a person safely re-approach a past-associated integrated self-state: not what the camera saw, but what the person was.',
@@ -39,7 +39,7 @@
       label: 'Integrated Self-State',
       cluster: 'Problem',
       status: 'plausible',
-      description: 'The target is not scene replay or a single emotion. It is a partial body-attention-emotion-context-self-meaning configuration: 曾经的自己.',
+      description: 'The target is not scene replay or a single emotion. It is a partial body-attention-emotion-context-self-meaning configuration that includes configured ignorance: what the past self did not yet know or have to account for.',
       docLink: docs.unreturnable
     },
     {
@@ -47,7 +47,7 @@
       label: 'Self-Capacity',
       cluster: 'Problem',
       status: 'plausible',
-      description: 'The desired recovery is often the capacity to feel the world a certain way. This reframes replay as a question of human emotional capacity, not content extraction.',
+      description: 'The desired recovery is often the capacity to feel the world a certain way. This reframes resonance as a question of human emotional capacity, not content extraction.',
       docLink: docs.unreturnable
     },
     {
@@ -173,15 +173,15 @@
     {
       id: 'cue-triggered',
       label: 'Cue-triggered recall',
-      cluster: 'Replay Modes',
+      cluster: 'Resonance Pathways',
       status: 'known',
-      description: 'Sensory and contextual cues can influence recall by reintroducing parts of the original context. In this concept, cueing is the most conservative replay mode.',
+      description: 'Sensory and contextual cues can influence recall by reintroducing parts of the original context. In this concept, cueing is the most conservative path toward partial resonance.',
       docLink: docs.research
     },
     {
       id: 'tmr',
       label: 'Targeted Memory Reactivation',
-      cluster: 'Replay Modes',
+      cluster: 'Resonance Pathways',
       status: 'known',
       description: 'TMR uses cues, often during sleep, to bias memory consolidation or reactivation. It is real adjacent science, but it does not provide exact memory playback.',
       docLink: docs.research
@@ -189,17 +189,17 @@
     {
       id: 'direct-engram',
       label: 'Direct engram access',
-      cluster: 'Replay Modes',
+      cluster: 'Resonance Pathways',
       status: 'speculative',
-      description: 'Directly accessing a specific human memory trace would require capabilities far beyond scalp EEG. The node marks a speculative frontier, not a current product path.',
+      description: 'Directly accessing a specific human memory trace would require capabilities far beyond scalp EEG. The node marks a speculative frontier, not a current product path or exact playback claim.',
       docLink: docs.nativeTrace
     },
     {
       id: 'guided-endogenous',
-      label: 'Guided endogenous replay',
-      cluster: 'Replay Modes',
+      label: 'Guided endogenous resonance',
+      cluster: 'Resonance Pathways',
       status: 'plausible',
-      description: 'A person may be guided through cues, attention, narrative, and feedback to re-enter parts of a memory-related state. This is more plausible than direct engram control but still limited and subjective.',
+      description: 'A person may be guided through cues, attention, narrative, and feedback to re-approach parts of a memory-related state. This is more plausible than direct engram control but still limited, noisy, and subjective.',
       docLink: docs.plan
     },
     {
@@ -223,7 +223,7 @@
       label: 'Neurofeedback',
       cluster: 'Technology',
       status: 'plausible',
-      description: 'Neurofeedback can help people learn partial regulation of measured states. It may fit a guided replay concept, but it remains indirect and noisy.',
+      description: 'Neurofeedback can help people learn partial regulation of measured states. It may fit a guided resonance concept, but it remains indirect and noisy.',
       docLink: docs.research
     },
     {
@@ -247,7 +247,7 @@
       label: 'False memory',
       cluster: 'Ethics/Risk',
       status: 'known',
-      description: 'Suggestion and reconstruction can distort remembered experience. A replay system must expose uncertainty instead of presenting generated state content as truth.',
+      description: 'Suggestion and reconstruction can distort remembered experience. A resonance system must expose uncertainty instead of presenting generated state content as truth.',
       docLink: docs.research
     },
     {
@@ -295,7 +295,7 @@
       label: 'Metrics',
       cluster: 'Simulation Layer',
       status: 'plausible',
-      description: 'Similarity, uncertainty, reconstruction error, and safety risk are useful conceptual measures. Any real version would need stronger validation and ethical review.',
+      description: 'Similarity, uncertainty, reconstruction error, and safety risk are useful conceptual measures. Any real version would need stronger validation boundaries, stop criteria, and ethical review.',
       docLink: docs.data
     },
     {
@@ -335,7 +335,7 @@
       label: 'Next steps',
       cluster: 'Roadmap',
       status: 'plausible',
-      description: 'The immediate path is better documentation, clearer assumptions, and richer simulations. The MVP intentionally stays static and GitHub Pages-compatible.',
+      description: 'The immediate path is clearer assumptions, stronger validation boundaries, uncertainty displays, richer simulations, and research anchors. The MVP intentionally stays static and GitHub Pages-compatible.',
       docLink: docs.plan
     }
   ];
@@ -359,12 +359,12 @@
     },
     'integrated-self-state': {
       isKey: true,
-      purpose: 'Defines the real target of replay, so the project is not mistaken for video playback or single-emotion detection.',
+      purpose: 'Defines the real target of resonance, so the project is not mistaken for video playback or single-emotion detection.',
       reflects: 'It preserves your core idea that the meaningful object is body + attention + emotion + context + self-model + meaning.'
     },
     'self-capacity': {
       isKey: true,
-      purpose: 'Reframes replay as recovering a way of being, not copying content.',
+      purpose: 'Reframes resonance as recovering a way of being, not copying content.',
       reflects: 'It expresses your idea that people often miss the capacity to feel/open to the world, not just the event.'
     },
     'emotion-structured-information': {
@@ -428,7 +428,7 @@
     Problem: 'Defines the lived problem or philosophical target the project is trying to solve.',
     Biology: 'Anchors the concept in memory, plasticity, traces, or state biology without overclaiming access.',
     'Hard Problem': 'Marks the frontier gap between current science and the future capability the project imagines.',
-    'Replay Modes': 'Shows possible ways a system could attempt partial state re-entry, from conservative to speculative.',
+    'Resonance Pathways': 'Shows possible ways a system could attempt partial state re-entry, from conservative to speculative.',
     Technology: 'Maps tools that could support coarse sensing, cueing, feedback, or simulation.',
     'Ethics/Risk': 'Keeps consent, distortion, identity, addiction, and return-to-present safeguards visible.',
     'Simulation Layer': 'Turns the thesis into a prototype layer that can be tested with synthetic, clearly labeled data.',
@@ -439,7 +439,7 @@
     Problem: 'It ties the map back to your original human question: why losing access to a past self-state matters.',
     Biology: 'It asks what kind of biological trace could make “returning toward a state” even thinkable.',
     'Hard Problem': 'It preserves the ambition while making the uncertainty explicit.',
-    'Replay Modes': 'It shows the path from memory cueing to speculative replay-like resonance.',
+    'Resonance Pathways': 'It shows the path from memory cueing to speculative replay-like resonance.',
     Technology: 'It separates useful tools from exaggerated claims about mind reading.',
     'Ethics/Risk': 'It ensures the project is not just intensity optimization, but care for identity and agency.',
     'Simulation Layer': 'It makes the concept presentable as an open-source artifact rather than only a theory.',

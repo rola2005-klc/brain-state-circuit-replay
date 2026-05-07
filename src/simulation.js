@@ -1,4 +1,4 @@
-/* Brain-State Circuit Replay simulation core.
+/* Brain-State Circuit Resonance simulation core.
  * A conceptual, educational model — not a biological claim.
  */
 
