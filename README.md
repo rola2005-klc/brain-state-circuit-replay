@@ -18,11 +18,12 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 **Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
 
-Open these three artifacts first:
+Open these four artifacts first:
 
 1. **3D mindmap:** [`index.html`](index.html)
 2. **Process journey:** [`journey.html`](journey.html)
-3. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+3. **Future research directions:** [`future-research.html`](future-research.html)
+4. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 Then check the clean public brief and scientific foundation: [`project-brief.html`](project-brief.html), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
 
@@ -34,13 +35,14 @@ Recommended flow:
 
 1. Start on [`project-brief.html`](project-brief.html) and read the hook plus boundary.
 2. Open [`journey.html`](journey.html) and walk through the six-step process.
-3. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
-4. Keep the source Markdown docs available for deeper questions.
+3. Open [`future-research.html`](future-research.html) to show the creative frontier: what current science cannot do yet and what a responsible research path could ask.
+4. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
+5. Keep the source Markdown docs available for deeper questions.
 
 Audience paths:
 
-- **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), and [data model](docs/data-model.md).
-- **Internship reviewers:** start with the [3D mindmap](index.html), skim the [process journey](journey.html), then inspect the [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
+- **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), [future research directions](future-research.html), and [data model](docs/data-model.md).
+- **Internship reviewers:** start with the [3D mindmap](index.html), skim the [process journey](journey.html), then inspect the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
 - **General viewers:** start with the [process journey](journey.html), then use the [3D mindmap](index.html) to explore the idea visually.
 
 ## Project thesis
@@ -114,13 +116,20 @@ http://127.0.0.1:8765
 
 ```bash
 node test.js
+python3 -m unittest discover -s tests
 ```
 
-Expected output:
+The expected test outputs include `All simulation tests passed.` from the Node toy simulation tests and standard `unittest` output from the Python synthetic-data tests.
 
-```text
-All simulation tests passed.
+## Pre-publish safety check
+
+Before any public push or nightly publish, run:
+
+```bash
+python3 scripts/safety_check.py
 ```
+
+This local gate checks that `agent-inbox/` comment artifacts are ignored/untracked, scans repo text-like files for credential patterns, verifies local HTML references and anchors, and runs the JavaScript and Python toy-model tests. It exists because the public GitHub Pages site is concept/thesis + thought map + simulation scaffold only; private local comment inbox data must stay local.
 
 ## Data-backed toy model
 
@@ -141,6 +150,7 @@ Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
 index.html              # static website entry point
 project-brief.html      # polished project brief
 journey.html            # one-minute process journey page
+future-research.html       # creative but bounded future research directions
 style.css               # responsive visual design
 src/journey.js          # keyboard/click process journey interaction
 src/simulation.js       # pure simulation logic
@@ -157,6 +167,7 @@ docs/presentation-outline.md # 8-slide presentation structure
 docs/unreturnable-present-paradox.md # refined thesis and ethical boundary
 docs/native-memory-trace-reactivation.md # EEG/LTP/engram/TMR explainer
 docs/research.md        # literature-backed research map
+docs/future-research-directions.md # future capabilities current science cannot yet provide
 docs/data-model.md      # synthetic data schema and baseline
 docs/development-plan.md # long-term implementation plan
 docs/roadmap.md         # product/research roadmap
@@ -168,10 +179,14 @@ This project is an educational and speculative interface prototype. It is not me
 
 ## Future direction
 
-The long-term version could become a serious portfolio project combining:
+The long-term version is not just a nicer interface. The serious frontier is a set of research problems current science cannot solve yet:
 
-- literature review of engrams and BCI decoding;
-- Python notebooks for toy dynamical systems;
-- EEG/neurofeedback-inspired mock data;
-- a React/Three.js visual interface;
-- ethical analysis of memory manipulation and brain-state data.
+- **encoding-imminence fingerprinting:** detecting when a lived moment is becoming deeply encoded without turning life into surveillance;
+- **configured ignorance modeling:** representing what the past self did not yet know without paternalistic information control;
+- **affective topology mapping:** modeling the shape and attractor structure of feeling rather than reducing it to valence/arousal;
+- **closed-loop multimodal cue orchestration:** coordinating smell, sound, light, haptics, posture, and narrative context while maintaining a present-anchor;
+- **sleep-integrated resonance assistance:** collaborating with native sleep replay without disrupting sleep or consent boundaries;
+- **personal corpus state archaeology:** using writing/art/context as reflective scaffolds for past states, not as an oracle;
+- **reconstructive loosening protocols:** asking how unwanted state-attractors could be loosened voluntarily, reversibly, and safely.
+
+Full page: [`future-research.html`](future-research.html) and source note: [`docs/future-research-directions.md`](docs/future-research-directions.md).

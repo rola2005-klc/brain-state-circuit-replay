@@ -6,6 +6,7 @@
     nativeTrace: 'project-brief.html#scientific-anchors',
     research: 'project-brief.html#scientific-anchors',
     data: 'project-brief.html#system-concept',
+    future: 'future-research.html',
     plan: 'project-brief.html#next-steps'
   };
 
@@ -331,6 +332,14 @@
       docLink: docs.research
     },
     {
+      id: 'future-research',
+      label: 'Future Research Directions',
+      cluster: 'Roadmap',
+      status: 'speculative',
+      description: 'Names the technologies and research questions current science cannot solve yet: encoding-imminence, configured ignorance, affective topology, sleep resonance, corpus state archaeology, and safe loosening of unwanted state-attractors.',
+      docLink: docs.future
+    },
+    {
       id: 'next-steps',
       label: 'Next steps',
       cluster: 'Roadmap',
@@ -615,6 +624,7 @@
     metrics: ['poldrack2011', 'shanechi2019', 'sitaram2017', 'brainStateDecoding2025'],
     'synthetic-data': ['poldrack2011', 'hopfield1982'],
     'literature-map': ['josselyn2015', 'cellini2018', 'sitaram2017', 'memoryEditing2026', 'mvpaNeurofeedback2026'],
+    'future-research': ['poldrack2011', 'brainStateDecoding2025', 'memoryEditing2026', 'mvpaNeurofeedback2026', 'adaptiveMemory2026'],
     'attractor-models': ['hopfield1982', 'mcclelland1995'],
     'citation-table': ['josselyn2015', 'cellini2018', 'shanechi2019'],
     'next-steps': ['shanechi2019', 'poldrack2011', 'sitaram2017', 'brainStateDecoding2025', 'mvpaNeurofeedback2026']
@@ -701,6 +711,7 @@
     'metrics',
     'synthetic-data',
     'literature-map',
+    'future-research',
     'citation-table',
     'next-steps'
   ];
@@ -722,7 +733,7 @@
     ['consent', 'identity-risk'], ['identity-risk', 'emotional-risk'], ['emotional-risk', 'ethics-architecture'], ['emotional-risk', 'metrics'],
     ['state-vectors', 'protocols'], ['protocols', 'metrics'], ['metrics', 'synthetic-data'],
     ['state-vectors', 'moment-as-state'], ['protocols', 'guided-endogenous'], ['synthetic-data', 'next-steps'],
-    ['literature-map', 'citation-table'], ['literature-map', 'attractor-models'], ['attractor-models', 'state-vectors'],
+    ['literature-map', 'citation-table'], ['literature-map', 'future-research'], ['future-research', 'next-steps'], ['literature-map', 'attractor-models'], ['attractor-models', 'state-vectors'],
     ['citation-table', 'eeg-limits'], ['next-steps', 'literature-map'], ['next-steps', 'protocols']
   ].map(([source, target]) => ({ source, target }));
 
