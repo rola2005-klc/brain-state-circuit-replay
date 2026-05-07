@@ -12,6 +12,17 @@ The questions Resonance is built around — what it would mean to re-approach a 
 - EEG cannot read synaptic traces, identify engrams, or reconstruct exact memories.
 - Future directions below are research questions, not features implemented by the current site.
 
+## Current BCI / Neuro Signals to Watch
+
+These are current radar items for presentation context, not evidence that Brain-State Circuit Resonance can decode memories, identify engrams, infer private experience, or provide clinical benefit. They should stay in the project as a cautious source-backed watchlist.
+
+- **Neuralink surgical robot / implantation workflow reports:** Treat as secondary and low-confidence until an official source is added to the project notes. The useful signal is infrastructure: reports describe a surgical robot and workflow intended to make thin-electrode implantation more repeatable. Implantation repeatability could matter for future BCI access, but it is not decoding, and it does not imply memory reconstruction. Source: [secondary report](https://www.eandtmagazine.com/2026/05/01/neuralink-builds-surgical-robot-implant-its-brain-chip-humans).
+- **arXiv 2605.04680, "Multi-Level Bidirectional Biomimetic Learning for EEG-Based Visual Decoding" (2026-05-06):** Watch as an EEG visual-decoding representation paper, not as exact memory reading. For Resonance, the boundary is that EEG visual decoding is lossy representation reconstruction tied to task data and model assumptions, not access to a private remembered scene. Source: [arXiv](https://arxiv.org/abs/2605.04680).
+- **arXiv 2605.03874, "Spatiotemporal Convolutions on EEG signal -- A Representation Learning Perspective on Efficient and Explainable EEG Classification with Convolutional Neural Nets" (2026-05-05):** Watch for efficient EEG classification and explainability methods. The boundary is state classification: separating task or state labels from EEG features is not the same as reading a lived integrated self-state or recovering a circuit trace. Source: [arXiv](https://arxiv.org/abs/2605.03874).
+- **arXiv 2605.03169, "NeuralSet: A High-Performing Python Package for Neuro-AI" (2026-05-04):** Watch as possible tooling and scaffold relevance. A neuro-AI data interface could inform future simulation, provenance, and multimodal dataset organization, but it does not validate the current toy model or supply biological evidence by itself. Source: [arXiv](https://arxiv.org/abs/2605.03169).
+
+**Presentation wording:** These items show adjacent movement in implantation infrastructure, EEG representation learning, EEG classification, and neuro-AI tooling. They do not move the project beyond its current E1/E2 boundary.
+
 ## 1. Encoding-imminence fingerprinting
 
 **What current technology cannot do:** Current EEG, fMRI, wearables, and affective-computing systems cannot detect the specific moment when a person’s brain-body system is beginning to treat the present as deeply worth encoding. They can correlate broad signals with attention, arousal, salience, or later report, but they cannot identify “this is the moment I will later wish I could return to.”
