@@ -335,7 +335,7 @@ h1 {
 
 .first-visit-strip {
   left: 50%;
-  bottom: 58px;
+  bottom: 104px;
   width: min(760px, calc(100vw - 420px));
   transform: translateX(-50%);
   border: 1px solid var(--line);
@@ -1228,7 +1228,7 @@ body.brief-page {
   .first-visit-strip {
     left: 12px;
     right: 12px;
-    bottom: 48px;
+    bottom: 96px;
     width: auto;
     transform: none;
   }
