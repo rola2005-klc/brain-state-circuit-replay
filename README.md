@@ -144,6 +144,26 @@ Current baseline: nearest-centroid decoder reaches about **90.83%** accuracy on 
 
 Synthetic data layer: [`docs/data-model.md`](docs/data-model.md)
 
+## Known limitations
+
+After advisor review, two structural limitations are flagged and explored in
+the repo:
+
+1. **Decoding power.** Telling apart a target "happy memory" state from
+   background noise and other emotional states. A noise-robustness sweep
+   ([`scripts/evaluate_decoder_noise.py`](scripts/evaluate_decoder_noise.py))
+   shows accuracy decays from ~91% on clean synthetic data to near chance
+   well before realistic noise levels.
+2. **Stimulation coverage and precision.** Where memory lives and whether a
+   finite electrode array can evoke it without recruiting unrelated neurons.
+   A toy 2-D simulation
+   ([`scripts/simulate_stimulation_coverage.py`](scripts/simulate_stimulation_coverage.py))
+   visualizes the precision/coverage tradeoff; a literature map
+   ([`docs/stimulation-coverage-precision.md`](docs/stimulation-coverage-precision.md))
+   surveys engram localization and modality tradeoffs.
+
+Full writeup: [`docs/limitations.md`](docs/limitations.md).
+
 ## Repository structure
 
 ```text
@@ -159,7 +179,13 @@ test.js                 # Node tests for simulation behavior
 tests/test_synthetic_data.py # Python tests for synthetic data generation/decoding
 scripts/generate_synthetic_data.py # synthetic state dataset generator
 scripts/evaluate_decoder.py # nearest-centroid decoding report
+scripts/evaluate_decoder_noise.py # decoder noise-robustness sweep (limitation 1)
+scripts/simulate_stimulation_coverage.py # stimulation precision/coverage toy sim (limitation 2)
 data/synthetic_state_samples.csv # generated toy dataset
+data/decoder_noise_sweep.csv # noise-sweep results
+data/stimulation_coverage_sweep.csv # coverage-sweep results
+docs/limitations.md     # advisor-flagged limitations and current responses
+docs/stimulation-coverage-precision.md # engram localization & stim modality literature map
 docs/theory.md         # user's core photo-to-brain-state-replay theory
 docs/concept.md         # presentable concept note
 docs/presentable-foundation.md # thesis, pitch, framework, and boundaries

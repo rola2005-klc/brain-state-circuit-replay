@@ -12,6 +12,21 @@ The questions Resonance is built around — what it would mean to re-approach a 
 - EEG cannot read synaptic traces, identify engrams, or reconstruct exact memories.
 - Future directions below are research questions, not features implemented by the current site.
 
+## Two structural limitations to address before the directions below
+
+After advisor review, two limitations sit upstream of every direction listed
+here, and are documented in [limitations.md](limitations.md):
+
+- **Decoding power** — separating a target memory state from background noise
+  and other emotional states. Direction 1 (encoding-imminence fingerprinting)
+  and direction 3 (affective topology mapping) both depend on solving this.
+- **Stimulation coverage and precision** — knowing where the engram lives and
+  reaching it without recruiting unrelated neurons. Direction 4 (closed-loop
+  multimodal cue orchestration) and direction 5 (sleep-integrated resonance)
+  are the honest near-term substitutes for direct stimulation; see
+  [stimulation-coverage-precision.md](stimulation-coverage-precision.md) for
+  the literature map and modality tradeoffs.
+
 ## Current BCI / Neuro Signals to Watch
 
 These are current radar items for presentation context, not evidence that Brain-State Circuit Resonance can decode memories, identify engrams, infer private experience, or provide clinical benefit. They should stay in the project as a cautious source-backed watchlist.
