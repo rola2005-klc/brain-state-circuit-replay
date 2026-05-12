@@ -38,8 +38,9 @@
     },
     {
       icon: '🌌',
-      title: 'Open horizon: what science cannot do yet',
-      copy: 'The project ends by naming future research questions rather than pretending they are solved: encoding-imminence, configured ignorance, affective topology, sleep-integrated resonance, personal corpus state archaeology, and voluntary loosening of unwanted state-attractors.',
+      title: 'Future research horizon',
+      copy: 'The journey ends by naming what remains unsolved: encoding-imminence, configured ignorance, affective topology, sleep resonance, corpus archaeology, and safe loosening of unwanted state-attractors.',
+      href: 'future-research.html',
       values: { body: 64, attention: 88, emotion: 74, context: 82, selfModel: 86, meaning: 96, ignorance: 78, safety: 90 }
     }
   ];
@@ -48,6 +49,7 @@
   const stepCount = document.getElementById('stepCount');
   const stepTitle = document.getElementById('stepTitle');
   const stepCopy = document.getElementById('stepCopy');
+  const stepLink = document.getElementById('stepLink');
   const prev = document.getElementById('prevStep');
   const next = document.getElementById('nextStep');
   const bars = {
@@ -83,6 +85,12 @@
     stepCount.textContent = `Step ${activeIndex + 1} of ${steps.length}`;
     stepTitle.textContent = step.title;
     stepCopy.textContent = step.copy;
+    if (step.href) {
+      stepLink.href = step.href;
+      stepLink.classList.remove('hidden');
+    } else {
+      stepLink.classList.add('hidden');
+    }
 
     Object.entries(step.values).forEach(([key, value]) => {
       bars[key].value = value;

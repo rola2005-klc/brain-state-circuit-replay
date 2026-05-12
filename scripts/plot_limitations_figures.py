@@ -203,8 +203,8 @@ def plot_spatial_coverage(out_path: Path, fig=None, axes=None) -> None:
 # ---------------------------------------------------------------------------
 
 def plot_summary(out_path: Path) -> None:
-    fig = plt.figure(figsize=(12, 14))
-    gs = fig.add_gridspec(3, 2, height_ratios=[1.0, 1.4, 0.25], hspace=0.45, wspace=0.15)
+    fig = plt.figure(figsize=(12, 15.5))
+    gs = fig.add_gridspec(4, 2, height_ratios=[1.0, 1.4, 0.36, 0.36], hspace=0.55, wspace=0.15)
 
     # Top: decoder curve spans both columns
     ax_top = fig.add_subplot(gs[0, :])
@@ -237,15 +237,35 @@ def plot_summary(out_path: Path) -> None:
     ax_caption = fig.add_subplot(gs[2, :])
     ax_caption.axis("off")
     ax_caption.text(
-        0.5, 0.6,
+        0.5, 0.72,
         "Both limitations are made visible — not solved.",
         ha="center", fontsize=13, fontweight="bold",
     )
     ax_caption.text(
-        0.5, 0.15,
-        "Honest near-term path: cue-driven reactivation (use the brain's own retrieval) +\n"
-        "state-level neuromodulation (bias arousal/valence, don't try to write content).",
-        ha="center", fontsize=10, style="italic", color="#444",
+        0.5, 0.25,
+        "Current technology does not allow real memory decoding or safe, precise human engram stimulation.\n"
+        "So the project stays at concept + toy scaffold until future validation clears these gates.",
+        ha="center", fontsize=10.5, style="italic", color="#444",
+    )
+
+    ax_plan = fig.add_subplot(gs[3, :])
+    ax_plan.axis("off")
+    plan_box = dict(boxstyle="round,pad=0.55", facecolor="#f8fbff", edgecolor="#9db7d8", linewidth=1.2)
+    ax_plan.text(
+        0.02, 0.5,
+        "Future plan — Decoding:\n"
+        "coarse state convergence above baseline;\n"
+        "target vs neutral/mismatched cues;\n"
+        "within-subject reliability + uncertainty.",
+        ha="left", va="center", fontsize=9.6, bbox=plan_box,
+    )
+    ax_plan.text(
+        0.52, 0.5,
+        "Future plan — Stimulation:\n"
+        "cue / TMR / neurofeedback first;\n"
+        "state-level modulation only;\n"
+        "direct engram stimulation = far-future.",
+        ha="left", va="center", fontsize=9.6, bbox=plan_box,
     )
 
     fig.suptitle("Brain-State Circuit Resonance — two structural limitations",

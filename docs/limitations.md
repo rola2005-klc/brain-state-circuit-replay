@@ -53,6 +53,32 @@ classifier.
 The repo is honest about this: the synthetic pipeline is a scaffold, not
 evidence.
 
+### Future plan for decoding
+
+Current technology does **not** allow this project to decode a real past
+memory, a private scene, or an exact integrated self-state. The responsible
+next step is narrower: test whether a system can estimate **coarse,
+self-reported state dimensions** above baseline under controlled cueing.
+
+A realistic future plan would proceed in stages:
+
+1. **Baseline-first validation.** Compare target cues against neutral and
+   mismatched cues, and report whether the model does better than random or
+   simple affect labels.
+2. **Coarse state targets only.** Predict bounded dimensions such as affect,
+   attention, context vividness, body state, self-continuity, meaning, and
+   safety — not memory content.
+3. **Within-subject reliability.** Ask whether the same person produces a
+   repeatable target-state signature across sessions before attempting any
+   cross-subject generalization.
+4. **Multimodal support.** Treat EEG, physiology, behavior, and self-report as
+   partial correlates. None of them should be framed as an engram readout.
+5. **Uncertainty display.** Show confidence, null baselines, and failure modes
+   instead of a single pseudo-precise “replay score.”
+
+Success would mean evidence for partial state convergence relative to a null
+baseline. It would still not mean exact memory replay.
+
 ## Limitation 2 — Stimulation: coverage and precision
 
 > Where in the brain does memory live, and can a finite array of electrodes
@@ -106,6 +132,33 @@ Targeted Memory Reactivation) and **state-level neuromodulation** rather than
 direct content writing. The project's existing `cue` and `mimo` synthetic
 protocols already point this way; this should be the framing the project
 leads with.
+
+### Future plan for stimulation
+
+Current technology does **not** allow safe, precise stimulation of a specific
+human memory engram. The project should therefore treat direct stimulation as
+a far-future research frontier, not as an implemented or near-term capability.
+
+A responsible plan would move from least invasive to most speculative:
+
+1. **Cue-first protocols.** Start with photos, sound, smell, place, narrative,
+   and sleep-compatible cues that work through native retrieval circuits.
+2. **Targeted Memory Reactivation and neurofeedback.** Explore whether
+   non-invasive feedback or sleep cueing can bias broad state dynamics without
+   claiming direct content insertion.
+3. **State-level modulation only.** If stimulation is considered, frame it as
+   coarse regulation of arousal, attention, or affective state — not writing a
+   memory back into the brain.
+4. **Subject-specific localization.** Any stronger intervention would require
+   individualized mapping, invasive validation, temporal pattern control, and
+   off-target risk measurement.
+5. **Safety gates.** Require reversibility, stop criteria, distress monitoring,
+   consent renewal, and a return-to-present endpoint before optimizing any
+   resonance effect.
+
+The practical near-term plan is therefore not “stimulate the memory.” It is
+“use conservative cues and feedback to test whether partial, safe resonance is
+possible while preserving present agency.”
 
 ## One-page summary
 

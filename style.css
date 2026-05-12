@@ -415,6 +415,13 @@ h1 {
   list-style: none;
 }
 
+.first-visit-strip p {
+  margin: 0 0 10px;
+  color: #f6e7aa;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
 .first-visit-strip li {
   display: flex;
   gap: 9px;
@@ -853,6 +860,10 @@ input[type="range"] {
 
 .doc-button.hidden {
   display: none;
+}
+
+.journey-step-link {
+  margin: 12px 0 0;
 }
 
 .boundary-card {

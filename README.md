@@ -22,12 +22,12 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 Open these four artifacts first:
 
-1. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+1. **Project brief / start path:** https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
 2. **Process journey:** https://rola2005-klc.github.io/brain-state-circuit-replay/journey.html
-3. **Future research directions:** https://rola2005-klc.github.io/brain-state-circuit-replay/future-research.html
-4. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+3. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+4. **Future research horizon:** https://rola2005-klc.github.io/brain-state-circuit-replay/future-research.html
 
-Then check the clean public brief and scientific foundation: [`project-brief.html`](project-brief.html), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+Then check the full thesis source and scientific foundation: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
 
 ## Presentation Path
 
@@ -36,16 +36,16 @@ Use [`project-brief.html`](project-brief.html) as the clean entry point. It give
 Recommended flow:
 
 1. Start on [`project-brief.html`](project-brief.html) and read the hook plus boundary.
-2. Open [`journey.html`](journey.html) and walk through the six-step process.
-3. Open [`future-research.html`](future-research.html) to show the creative frontier: what current science cannot do yet and what a responsible research path could ask.
-4. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
+2. Open [`journey.html`](journey.html) and walk through the seven-step process.
+3. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
+4. Open [`future-research.html`](future-research.html) as the closing horizon: what current science cannot do yet and what a responsible research path could ask.
 5. Keep the source Markdown docs available for deeper questions.
 
 Audience paths:
 
 - **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), [future research directions](future-research.html), and [data model](docs/data-model.md).
-- **Internship reviewers:** start with the [3D mindmap](index.html), skim the [process journey](journey.html), then inspect the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
-- **General viewers:** start with the [process journey](journey.html), then use the [3D mindmap](index.html) to explore the idea visually.
+- **Internship reviewers:** start with the [project brief](project-brief.html), skim the [process journey](journey.html), inspect the [3D mindmap](index.html), then close with the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
+- **General viewers:** start with the [project brief](project-brief.html), follow the [process journey](journey.html), then use the [3D mindmap](index.html) before the [future research horizon](future-research.html).
 
 ## Project thesis
 
@@ -164,7 +164,7 @@ the repo:
    ([`docs/stimulation-coverage-precision.md`](docs/stimulation-coverage-precision.md))
    surveys engram localization and modality tradeoffs.
 
-Full writeup: [`docs/limitations.md`](docs/limitations.md).
+Full writeup and future plan: [`docs/limitations.md`](docs/limitations.md). The key stance is that current technology does **not** yet allow real memory decoding or safe, precise engram stimulation; near-term work should test coarse state convergence, cue-driven reactivation, neurofeedback, uncertainty displays, and safety gates rather than claiming replay.
 
 ## Repository structure
 
