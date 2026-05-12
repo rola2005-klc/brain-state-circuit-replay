@@ -17,6 +17,7 @@
       <a class="dock-button" href="project-brief.html">Project brief</a>
       <a class="dock-button" href="journey.html">Guided journey</a>
       <a class="dock-button" href="docs/unreturnable-present-paradox.md">Thesis doc</a>
+      <button class="dock-button" type="button" data-toggle-target="prototypeConsole">Live prototype</button>
       <button class="dock-button" type="button" data-explore-map>Explore map</button>
       <button class="dock-button" type="button" data-comments-toggle>Comments</button>
       <button class="dock-button" type="button" data-toggle-target="topOverlay">What is this?</button>
@@ -33,10 +34,76 @@
         <button class="overlay-close" type="button" data-close-target="topOverlay" aria-label="Hide concept summary">×</button>
         <p class="eyebrow">Concept / simulation scaffold</p>
         <h1>Brain-State Circuit Resonance</h1>
-        <p class="thesis">A public map of the thesis, evidence boundary, and prototype path.</p>
-        <p class="map-intent">This is a concept map and simulation scaffold, not a brain-derived output. It organizes the problem, science anchors, engineering path, and safety limits.</p>
+        <p class="thesis">A research demo for designing bounded, closed-loop memory-state resonance systems.</p>
+        <p class="map-intent">Use the live prototype to tune a synthetic target state, then inspect the 3D map for the science anchors, uncertainty boundaries, and product path.</p>
+        <div class="hero-actions" aria-label="Primary demo actions">
+          <button type="button" data-toggle-target="prototypeConsole">Run prototype</button>
+          <button type="button" data-explore-map>Explore evidence map</button>
+        </div>
+        <div class="hero-metrics" aria-label="Demo status">
+          <span><strong>4</strong> target states</span>
+          <span><strong>4</strong> intervention modes</span>
+          <span><strong>E1/E2</strong> concept tier</span>
+        </div>
       </div>
     </header>
+
+    <aside class="prototype-console compact-panel open" id="prototypeConsole" aria-label="Live resonance prototype">
+      <button class="overlay-close" type="button" data-close-target="prototypeConsole" aria-label="Hide live prototype">×</button>
+      <section class="prototype-head">
+        <p class="eyebrow">Live prototype</p>
+        <h2>Synthetic closed-loop state replay</h2>
+        <p>Adjust a target state and intervention strategy. The numbers are toy-system behavior, not brain-derived evidence.</p>
+      </section>
+
+      <section class="prototype-controls" aria-label="Prototype controls">
+        <label>
+          <span>Target state</span>
+          <select id="prototypeTarget"></select>
+        </label>
+        <label>
+          <span>Protocol</span>
+          <select id="prototypeProtocol"></select>
+        </label>
+        <label>
+          <span>Cue strength <strong id="prototypeCueValue">0.34</strong></span>
+          <input id="prototypeCue" type="range" min="0" max="1" step="0.01" value="0.34" />
+        </label>
+        <label>
+          <span>Feedback gain <strong id="prototypeFeedbackValue">0.62</strong></span>
+          <input id="prototypeFeedback" type="range" min="0" max="1" step="0.01" value="0.62" />
+        </label>
+      </section>
+
+      <section class="prototype-readout" aria-label="Prototype metrics">
+        <div class="metric-tile">
+          <span>Resonance</span>
+          <strong id="prototypeSimilarity">--</strong>
+          <i id="prototypeSimilarityBar"></i>
+        </div>
+        <div class="metric-tile">
+          <span>Risk load</span>
+          <strong id="prototypeRisk">--</strong>
+          <i id="prototypeRiskBar"></i>
+        </div>
+        <div class="metric-tile">
+          <span>Decode gap</span>
+          <strong id="prototypeError">--</strong>
+          <i id="prototypeErrorBar"></i>
+        </div>
+      </section>
+
+      <section class="prototype-trace" aria-label="Prototype trace">
+        <canvas id="prototypeTimeline" width="720" height="180"></canvas>
+        <p id="prototypeNarrative">Loading simulation.</p>
+      </section>
+
+      <section class="prototype-actions" aria-label="Prototype actions">
+        <button type="button" id="prototypeRun">New run</button>
+        <a href="project-brief.html#system-concept">System concept</a>
+        <a href="future-research.html">Research path</a>
+      </section>
+    </aside>
 
     <aside class="map-guide compact-panel" id="mapGuide" aria-label="How to read the mindmap">
       <button class="overlay-close" type="button" data-close-target="mapGuide" aria-label="Hide map guide">×</button>
@@ -57,7 +124,7 @@
       </div>
     </aside>
 
-    <aside class="first-visit-strip open" id="firstVisitStrip" aria-label="How to start">
+    <aside class="first-visit-strip" id="firstVisitStrip" aria-label="How to start">
       <button class="overlay-close" type="button" data-close-target="firstVisitStrip" aria-label="Hide quick start">×</button>
       <ol>
         <li><span>1</span><strong>Read the project brief</strong></li>
@@ -163,11 +230,13 @@
 
   <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
   <script src="https://unpkg.com/3d-force-graph@1.73.4/dist/3d-force-graph.min.js"></script>
+  <script src="src/simulation.js?v=prototype-console-v1"></script>
   <script src="src/graph-data.js?v=future-research-v1"></script>
   <script src="src/replay-modes.js?v=visible-arrows-v2"></script>
   <script src="src/brain-overlay.js?v=visible-arrows-v2"></script>
   <script src="src/ui.js?v=visible-arrows-v2"></script>
   <script src="src/mindmap.js?v=visible-arrows-v2"></script>
+  <script src="src/prototype-console.js?v=prototype-console-v1"></script>
   <script src="src/comments.js?v=comment-mode-v1"></script>
 </body>
 </html>
