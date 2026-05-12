@@ -4,6 +4,8 @@ Brain-State Circuit Replay / Resonance
 
 Public boundary: the repo presents this as **Brain-State Circuit Resonance** because the scientifically careful target is bounded, partial state resonance — not exact playback, literal time travel, or current human brain-state reconstruction.
 
+**Open the live prototype:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+
 This repository is building the conceptual, scientific, and engineering foundation for a speculative neuroscience / BCI thesis. The public frame is resonance, not playback: if photos, videos, music, and smell can trigger memory, could future closed-loop interfaces help a person partially re-approach the **integrated self-state** of a past moment while keeping uncertainty and safety visible?
 
 The emotional problem is **The Unreturnable Present Paradox / 当下不可归悖论**: when a person is very happy or inside an important moment, the thought "I can't go back anymore" can create anticipatory grief that blocks the person from fully living that moment.
@@ -20,9 +22,9 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 Open these four artifacts first:
 
-1. **3D mindmap:** [`index.html`](index.html)
-2. **Process journey:** [`journey.html`](journey.html)
-3. **Future research directions:** [`future-research.html`](future-research.html)
+1. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+2. **Process journey:** https://rola2005-klc.github.io/brain-state-circuit-replay/journey.html
+3. **Future research directions:** https://rola2005-klc.github.io/brain-state-circuit-replay/future-research.html
 4. **Full thesis source:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 Then check the clean public brief and scientific foundation: [`project-brief.html`](project-brief.html), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
