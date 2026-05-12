@@ -85,7 +85,7 @@
       elements.tooltip.style.top = `${event.clientY}px`;
     });
 
-    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel', 'firstVisitStrip'].forEach((id) => {
+    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel', 'firstVisitStrip', 'prototypeConsole'].forEach((id) => {
       updateDockState(id, document.getElementById(id)?.classList.contains('open'));
     });
 
@@ -115,7 +115,7 @@
   }
 
   function startExploring(callback) {
-    ['topOverlay', 'controlDeck', 'firstVisitStrip'].forEach((id) => closePanelById(id, callback));
+    ['topOverlay', 'controlDeck', 'firstVisitStrip', 'prototypeConsole'].forEach((id) => closePanelById(id, callback));
     const guide = document.getElementById('mapGuide');
     if (guide) {
       guide.classList.add('open');

@@ -242,7 +242,6 @@
     });
     selectedNode = window.BRAIN_REPLAY_GRAPH.nodes.find((node) => node.id === 'project-thesis') || window.BRAIN_REPLAY_GRAPH.nodes[0];
     if (selectedNode) {
-      window.BRAIN_REPLAY_UI.showNode(ui, selectedNode);
       dispatchTargetChange(selectedNode);
     }
 
