@@ -35,13 +35,6 @@
       title: 'Ethics gate: return to present',
       copy: 'The final gate rejects state chasing. Resonance over Recreation means the past-associated state should help the person return to present agency, not trap them in the past.',
       values: { body: 70, attention: 72, emotion: 68, context: 58, selfModel: 80, meaning: 84, ignorance: 56, safety: 94 }
-    },
-    {
-      icon: '🌌',
-      title: 'Future research horizon',
-      copy: 'The journey ends by naming what remains unsolved: encoding-imminence, configured ignorance, affective topology, sleep resonance, corpus archaeology, and safe loosening of unwanted state-attractors.',
-      href: 'future-research.html',
-      values: { body: 64, attention: 88, emotion: 74, context: 82, selfModel: 86, meaning: 96, ignorance: 78, safety: 90 }
     }
   ];
 

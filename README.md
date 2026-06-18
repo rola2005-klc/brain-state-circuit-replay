@@ -20,14 +20,13 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 **Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
 
-Open these four artifacts first:
+Open these three artifacts first:
 
-1. **Project brief / start path:** https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
+1. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
 2. **Process journey:** https://rola2005-klc.github.io/brain-state-circuit-replay/journey.html
-3. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
-4. **Future research horizon:** https://rola2005-klc.github.io/brain-state-circuit-replay/future-research.html
+3. **Full thesis doc:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
-Then check the full thesis source and scientific foundation: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md), [`docs/presentable-foundation.md`](docs/presentable-foundation.md)
+For a polished non-technical overview, use the project brief: https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
 
 ## Presentation Path
 
@@ -36,7 +35,7 @@ Use [`project-brief.html`](project-brief.html) as the clean entry point. It give
 Recommended flow:
 
 1. Start on [`project-brief.html`](project-brief.html) and read the hook plus boundary.
-2. Open [`journey.html`](journey.html) and walk through the seven-step process.
+2. Open [`journey.html`](journey.html) and walk through the six-step process.
 3. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
 4. Open [`future-research.html`](future-research.html) as the closing horizon: what current science cannot do yet and what a responsible research path could ask.
 5. Keep the source Markdown docs available for deeper questions.
