@@ -263,6 +263,7 @@ a:hover {
 }
 
 .hero-actions button,
+.hero-actions a,
 .prototype-actions button,
 .prototype-actions a {
   border: 1px solid rgba(121, 242, 201, 0.5);
@@ -277,6 +278,7 @@ a:hover {
 }
 
 .hero-actions button + button,
+.hero-actions a,
 .prototype-actions a {
   border-color: rgba(143, 180, 255, 0.5);
   background: rgba(143, 180, 255, 0.12);
