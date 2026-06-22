@@ -64,7 +64,7 @@
       label: 'Ethics as Architecture',
       cluster: 'Ethics/Risk',
       status: 'known',
-      description: 'Safety cannot be added after intensity optimization. Consent, uncertainty, anti-addiction limits, and return-to-present design are architectural requirements.',
+      description: 'Safety cannot be added after intensity optimization. Consent, uncertainty, anti-addiction limits, anti-escape design, and return-to-present gates are architectural requirements.',
       docLink: docs.unreturnable
     },
     {

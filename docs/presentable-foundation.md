@@ -103,7 +103,7 @@ These are frontier ideas, not current claims.
 
 Ethics is part of the system design, not an appendix. A replay system must avoid addiction, escape, hyperactive state chasing, drug-like intensity optimization, false memory confidence, and identity harm.
 
-The design principle is **Resonance over Recreation**: past-state replay should return the person to the present, not trap them in the past.
+The design principle is **Resonance over Recreation**: past-state replay should return the person to the present, not trap them in the past. The system should never optimize for hyperactive, drug-like, or escapist intensity; it should optimize for bounded resonance followed by re-grounded agency.
 
 Operational guardrails:
 

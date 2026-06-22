@@ -72,6 +72,8 @@ Ethics is not an appendix. It is part of the system architecture.
 
 A replay system that optimizes only for intensity could become addictive, escapist, or drug-like. It could encourage state chasing, nostalgia loops, identity distortion, emotional dependency, false certainty, or avoidance of present life.
 
+Therefore the safety goal is not to maximize emotional vividness, hyperactivity, or a "best past self" high. A responsible architecture would include dose limits, cool-downs, uncertainty displays, stop conditions, and re-grounding prompts before any optimization for resonance strength.
+
 The architectural principle is:
 
 ```text

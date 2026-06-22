@@ -1,4 +1,4 @@
-Brain-State Circuit Replay / Resonance
+# Brain-State Circuit Replay / Resonance
 
 **Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.**
 
@@ -20,6 +20,8 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 **Emotional problem:** The Unreturnable Present Paradox / 当下不可归悖论 — the fear that a meaningful present cannot be returned to can create anticipatory grief inside the moment itself.
 
+**Core object:** not scene/video/image replay, and not a single emotion label. The target concept is a past-associated **integrated self-state**: body state × attention × emotion topology × context × self-model × meaning × configured ignorance / the ability to feel the world that way.
+
 Open these three artifacts first:
 
 1. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
@@ -27,6 +29,8 @@ Open these three artifacts first:
 3. **Full thesis doc:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 For a polished non-technical overview, use the project brief: https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
+
+**Boundary in one line:** weak “time travel” means bounded state reinstatement; medium means subjective similarity; strong/literal time travel is only a metaphor and is not claimed here.
 
 ## Presentation Path
 

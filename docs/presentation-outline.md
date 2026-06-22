@@ -103,6 +103,7 @@ Bullets:
 - Keep simulation secondary to the thesis.
 - Ethics as architecture: consent, identity, emotional risk, false memory, manipulation.
 - Resonance over Recreation: return to the present, do not trap the user in the past.
+- Anti-addiction architecture: no hyperactive/drug-like state chasing; require stop conditions and re-grounding.
 - Claim maturity: current artifact is E1/E2, not a validated brain-derived system.
 - Future safety: qualitative failure states, suppression manifest, privacy-capability frontier.
 
