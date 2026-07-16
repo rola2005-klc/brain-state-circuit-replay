@@ -9,8 +9,8 @@
       color: '#79f2c9',
       secondaryColor: '#8fb4ff',
       pulse: 0.45,
-      highlightNodes: ['cue-triggered', 'multimodal-cues', 'eeg-role', 'what-we-saw', 'reconstruction-vs-replay'],
-      highlightLinks: ['cue-triggered->multimodal-cues', 'reconstruction-vs-replay->cue-triggered']
+      highlightNodes: ['cue-triggered', 'multimodal-cues', 'unreturnable-present', 'self-capacity', 'what-we-saw', 'reconstruction-vs-replay'],
+      highlightLinks: ['cue-triggered->multimodal-cues', 'photo-problem->unreturnable-present', 'reconstruction-vs-replay->cue-triggered']
     },
     tmr: {
       id: 'tmr',
@@ -45,8 +45,8 @@
       color: '#c6f57a',
       secondaryColor: '#8fb4ff',
       pulse: 0.72,
-      highlightNodes: ['guided-endogenous', 'neurofeedback', 'protocols', 'state-vectors', 'emotional-risk', 'metrics'],
-      highlightLinks: ['direct-engram->guided-endogenous', 'guided-endogenous->neurofeedback', 'protocols->guided-endogenous']
+      highlightNodes: ['guided-endogenous', 'integrated-self-state', 'self-capacity', 'emotion-structured-information', 'neurofeedback', 'protocols', 'state-vectors', 'emotional-risk', 'metrics'],
+      highlightLinks: ['integrated-self-state->self-capacity', 'self-capacity->emotion-structured-information', 'direct-engram->guided-endogenous', 'guided-endogenous->neurofeedback', 'protocols->guided-endogenous']
     }
   };
 
