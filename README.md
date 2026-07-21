@@ -28,6 +28,12 @@ Open these three artifacts first:
 2. **Process journey:** https://rola2005-klc.github.io/brain-state-circuit-replay/journey.html
 3. **Full thesis doc:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
+**Audience-specific one-minute path:**
+
+- **Researchers:** thesis doc → 3D mindmap science clusters → limitations/future research.
+- **Internship reviewers:** project brief → process journey → live prototype → tests/synthetic-data caveats.
+- **General viewers:** project brief → process journey → 3D mindmap.
+
 For a polished non-technical overview, use the project brief: https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
 
 **Boundary in one line:** weak “time travel” means bounded state reinstatement; medium means subjective similarity; strong/literal time travel is only a metaphor and is not claimed here.
