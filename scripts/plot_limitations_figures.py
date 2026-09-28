@@ -58,12 +58,9 @@ def plot_decoder_noise_curve(out_path: Path, ax=None) -> None:
     ax.plot(sigmas, lr, marker="s", linewidth=2, label="Logistic regression", color="#ff7f0e")
     ax.axhline(0.25, linestyle="--", color="gray", alpha=0.7, label="Chance (25%)")
 
-    # Shade "realistic noise" region — illustrative, not measured.
-    ax.axvspan(0.3, 1.5, alpha=0.12, color="red", label="Realistic EEG noise (illustrative)")
-
     ax.set_xlabel("Background noise σ added to feature vector", fontsize=11)
     ax.set_ylabel("Decoder accuracy", fontsize=11)
-    ax.set_title("Limitation 1: Decoding power — accuracy collapses under noise",
+    ax.set_title("Limitation 1: Synthetic decoding accuracy under added noise",
                  fontsize=12, fontweight="bold")
     ax.set_ylim(0, 1.0)
     ax.set_xlim(-0.05, 1.55)
@@ -79,7 +76,7 @@ def plot_decoder_noise_curve(out_path: Path, ax=None) -> None:
         arrowprops=dict(arrowstyle="->", color="#1f77b4", alpha=0.6),
     )
     ax.annotate(
-        "Falls to chance\nbefore realistic noise",
+        "Near chance at high\nsynthetic noise",
         xy=(0.8, 0.30),
         xytext=(0.9, 0.55),
         fontsize=9,
@@ -227,7 +224,7 @@ def plot_summary(out_path: Path) -> None:
             "title": "Many electrodes, distributed engram",
             "k": 64, "r": 0.04,
             "distributed": True,
-            "subtitle": "the realistic case — needs per-subject targeting",
+            "subtitle": "distributed toy case — target layout matters",
         },
     ]
     for ax, scenario in zip(ax_panels, summary_scenarios):

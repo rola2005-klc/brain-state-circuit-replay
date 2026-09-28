@@ -36,10 +36,11 @@ Representative numbers from a default run (4 classes, chance = 25%):
 | 0.80   |           29.17% |      31.67%  |
 | 1.50   |           28.33% |      28.33%  |
 
-Both models collapse to near-chance well before the noise level approaches
-what real EEG/iEEG recordings present. The stronger model is not
-substantially better — the limitation is the feature space, not the
-classifier.
+In this synthetic experiment, both classifiers approach the 25% chance level
+as added noise increases and perform similarly across the tested levels.
+These noise units are not calibrated to EEG or iEEG, so this sweep does not
+establish a real-world noise threshold or isolate the feature space as the
+limiting factor.
 
 **What's still missing.** Real validation would require, at minimum:
 - A real neural dataset (EEG, iEEG, or fMRI) with subjects entering target

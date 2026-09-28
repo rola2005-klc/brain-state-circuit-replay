@@ -167,7 +167,8 @@ the repo:
    background noise and other emotional states. A noise-robustness sweep
    ([`scripts/evaluate_decoder_noise.py`](scripts/evaluate_decoder_noise.py))
    shows accuracy decays from ~91% on clean synthetic data to near chance
-   well before realistic noise levels.
+   at the highest tested synthetic noise level. The noise units are not
+   calibrated to EEG or other real recordings.
 2. **Stimulation coverage and precision.** Where memory lives and whether a
    finite electrode array can evoke it without recruiting unrelated neurons.
    A toy 2-D simulation

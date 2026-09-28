@@ -200,7 +200,7 @@
             <div class="lab-scale" aria-hidden="true"><span>clean</span><span>very noisy</span></div>
           </div>
           <p class="lab-readout" id="noiseReadout" aria-live="polite">At σ = 0.40, nearest-centroid is at 43.3% and logistic regression at 42.5% (chance is 25%).</p>
-          <p class="lab-takeaway"><strong>Takeaway:</strong> both collapse toward chance long before realistic EEG noise, and the stronger model is no better. The bottleneck is the feature space, not the classifier.</p>
+          <p class="lab-takeaway"><strong>Takeaway:</strong> in this synthetic experiment, both classifiers approach the 25% chance level as added noise increases and perform similarly across the tested levels. These noise units are not calibrated to EEG.</p>
           <p class="lab-links">
             <a href="https://github.com/rola2005-klc/brain-state-circuit-replay/blob/main/scripts/evaluate_decoder_noise.py">Method (Python)</a>
             <a href="data/decoder_noise_sweep.csv">Raw data (CSV)</a>
