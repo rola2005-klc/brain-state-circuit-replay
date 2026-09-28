@@ -92,6 +92,10 @@
     prev.disabled = activeIndex === 0;
     next.disabled = activeIndex === steps.length - 1;
     renderPath();
+    // Shareable deep link to this step, without adding history entries.
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', `#step-${activeIndex + 1}`);
+    }
     window.dispatchEvent(new CustomEvent('brainreplay:targetchange', {
       detail: {
         kind: 'journey-step',
@@ -106,9 +110,12 @@
   next.addEventListener('click', () => setStep(activeIndex + 1));
 
   window.addEventListener('keydown', (event) => {
+    const target = event.target;
+    if (target && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName))) return;
     if (event.key === 'ArrowLeft') setStep(activeIndex - 1);
     if (event.key === 'ArrowRight') setStep(activeIndex + 1);
   });
 
-  setStep(0);
+  const linked = /^#step-(\d+)$/.exec(window.location.hash);
+  setStep(linked ? Number(linked[1]) - 1 : 0);
 })();

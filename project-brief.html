@@ -3,31 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brain-State Circuit Resonance Project Brief</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Project Brief — Brain-State Circuit Resonance · Lecheng Ke</title>
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css?v=2026-09-28" />
+  <link rel="stylesheet" href="site.css?v=2026-09-28" />
 </head>
-<body class="brief-page">
+<body class="site brief-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="./" aria-label="Lecheng Ke — Research, home">
+        <strong>Lecheng Ke</strong><span>Research</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>Menu
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Site">
+        <a href="./#research">Research</a>
+        <a href="./#approach">Approach</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="project-bar" aria-label="Brain-State Circuit Resonance pages">
+    <div class="project-bar-inner">
+      <span class="project-bar-label">Project 01</span>
+      <div class="project-tabs">
+        <a href="resonance.html">Overview</a>
+        <a href="project-brief.html" aria-current="page">Brief</a>
+        <a href="journey.html">Journey</a>
+        <a href="mindmap.html">Concept map</a>
+        <a href="read.html">Thesis</a>
+        <a href="future-research.html">Future research</a>
+      </div>
+      <button class="project-comments" type="button" data-comments-toggle hidden>Comments</button>
+    </div>
+  </nav>
   <header class="brief-hero">
-    <nav class="journey-nav" aria-label="Project navigation">
-      <a href="index.html">Home</a>
-      <a href="#presentation-path">Start</a>
-      <a href="project-brief.html" aria-current="page">Project brief</a>
-      <a href="journey.html">Process journey</a>
-      <a href="index.html">3D mindmap</a>
-      <a href="docs/unreturnable-present-paradox.md">Thesis doc</a>
-      <a href="future-research.html">Future research</a>
-      <button type="button" data-comments-toggle>Comments</button>
-    </nav>
     <p class="eyebrow">Project brief</p>
     <h1>Brain-State Circuit Resonance</h1>
-    <p class="thesis">Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
-    <p class="brief-hook"><strong>Public boundary:</strong> this site uses Brain-State Circuit Resonance for the careful version: bounded, partial state resonance rather than exact replay, literal time travel, or current brain-state reconstruction. <strong>Resonance over Recreation:</strong> any past-associated state work should return the person to present agency, not trap them in the past.</p>
+    <p class="thesis">Photos record what we saw. This project asks whether we can reconstruct what we were.</p>
+    <p class="brief-hook"><strong>Why “Resonance”:</strong> the careful target is bounded, partial state resonance — not exact replay, literal time travel, or present-day brain-state reconstruction. <strong>Resonance over Recreation:</strong> any work with a past-associated state should return the person to present agency, not trap them in the past.</p>
     <p class="brief-hook">This project turns the fear that a meaningful present is unrevisitable into a bounded neuroscience/BCI and systems-engineering thesis: a future closed-loop scaffold may help people safely re-approach parts of a past-associated integrated self-state, while keeping uncertainty, validation boundaries, exact memory replay, literal time travel, and brain-derived claims outside the current scope.</p>
   </header>
 
-  <main class="brief-shell">
-    <aside class="brief-toc" aria-label="Presentation path">
-      <a href="#presentation-path">Presentation path</a>
+  <main id="main" class="brief-shell">
+    <aside class="brief-toc" aria-label="On this page" data-scrollspy>
+      <a href="#presentation-path">How to read this</a>
       <a href="#problem">Problem</a>
       <a href="#thesis">Thesis</a>
       <a href="#demo-boundary">Demo boundary</a>
@@ -44,15 +69,21 @@
     <section class="brief-content">
       <section class="brief-section" id="presentation-path">
         <p class="eyebrow">Start here</p>
-        <h2>Research/Engineering Presentation Path</h2>
-        <ol class="brief-steps">
-          <li><strong>Open this brief first.</strong> State the hook and the boundary before showing the demo.</li>
-          <li><strong>Show the process journey.</strong> Walk through the path from motivation to state estimation, uncertainty, and safety gate.</li>
-          <li><strong>Keep the full thesis doc nearby.</strong> It is the source of the Unreturnable Present Paradox, integrated self-state definition, time-travel boundary, and ethics-as-architecture line.</li>
-          <li><strong>Open the 3D mindmap.</strong> Use it as a concept map and systems scaffold, not as evidence that the system reads brains.</li>
-          <li><strong>Close with future research.</strong> Use the horizon page to separate open questions from implemented capabilities.</li>
-          <li><strong>End with next engineering milestones.</strong> Explain how the thesis becomes stronger through literature mapping, toy state-space modeling, validation criteria, and explicit ethics.</li>
-        </ol>
+        <h2>How to read this project</h2>
+        <div class="brief-grid three reading-paths">
+          <article>
+            <h3>1 minute</h3>
+            <p>The <a href="resonance.html">project overview</a>: the question, the idea, and two interactive stress tests of its limits.</p>
+          </article>
+          <article>
+            <h3>5 minutes</h3>
+            <p>This brief, top to bottom: problem, thesis, scientific anchors, system concept, ethics, and next steps.</p>
+          </article>
+          <article>
+            <h3>20 minutes</h3>
+            <p>The <a href="journey.html">process journey</a>, the <a href="mindmap.html">3D concept map</a> and its live prototype, the <a href="read.html">thesis text</a>, and the <a href="future-research.html">future research</a> horizon.</p>
+          </article>
+        </div>
       </section>
 
       <section class="brief-section" id="problem">
@@ -236,9 +267,10 @@
         <p class="eyebrow">Current artifacts</p>
         <h2>What Exists in This Repository</h2>
         <div class="artifact-list">
-          <a href="journey.html"><strong>Process journey</strong><span>Six-step cartoon walkthrough from "I can't go back" to cue anchor, native trace, partial self-state resonance, and safety gate.</span></a>
-          <a href="index.html"><strong>3D mindmap</strong><span>Interactive concept map separating known science, plausible bridge, and speculation.</span></a>
-          <a href="docs/unreturnable-present-paradox.md"><strong>Full thesis doc</strong><span>Complete source for the Unreturnable Present Paradox, integrated self-state, self-capacity, time-travel boundary, and ethics-as-architecture.</span></a>
+          <a href="resonance.html"><strong>Project overview</strong><span>The question, the idea, and interactive stress tests of decoding power and stimulation precision.</span></a>
+          <a href="journey.html"><strong>Process journey</strong><span>Six-step walkthrough from "I can't go back" to cue anchor, native trace, partial self-state resonance, and safety gate.</span></a>
+          <a href="mindmap.html"><strong>3D concept map</strong><span>Interactive concept map separating known science, plausible bridge, and speculation — with a live prototype that reports its own uncertainty.</span></a>
+          <a href="read.html"><strong>Full thesis text</strong><span>Complete source for the Unreturnable Present Paradox, integrated self-state, self-capacity, time-travel boundary, and ethics-as-architecture.</span></a>
           <a href="#scientific-anchors"><strong>Research anchors</strong><span>Presentation-safe summary of memory, TMR, closed-loop stimulation, prostheses, and neurofeedback.</span></a>
           <a href="#system-concept"><strong>Synthetic data layer</strong><span>Toy dataset and nearest-centroid decoder baseline, clearly labeled as pipeline illustration rather than empirical validation.</span></a>
           <a href="future-research.html"><strong>Future research directions</strong><span>Creative open problems: encoding-imminence, configured ignorance, affective topology, sleep resonance, and corpus archaeology.</span></a>
@@ -263,7 +295,7 @@
             <p>Mood labels do not capture the shape of feeling. A stronger future model would map emotional basins, transitions, and uncertainty rather than collapsing experience into a score.</p>
           </article>
         </div>
-        <p class="brief-caveat"><strong>Professor-facing caveat:</strong> these are open research problems, not implemented capabilities. The current repository remains E1/E2: literature-grounded concept plus toy simulation scaffold, not biological validation or real brain-state decoding.</p>
+        <p class="brief-caveat"><strong>Caveat:</strong> these are open research problems, not implemented capabilities. The current repository remains E1/E2: literature-grounded concept plus toy simulation scaffold, not biological validation or real brain-state decoding.</p>
         <p><a class="doc-button" href="future-research.html">Open the full future research directions page</a></p>
       </section>
 
@@ -283,6 +315,7 @@
     </section>
   </main>
   <aside class="comments-drawer" id="commentsDrawer" aria-label="Comment Mode" aria-hidden="true"></aside>
-  <script src="src/comments.js?v=comment-mode-v1"></script>
+  <script src="src/site.js?v=2026-09-28"></script>
+  <script src="src/comments.js?v=2026-09-28"></script>
 </body>
 </html>

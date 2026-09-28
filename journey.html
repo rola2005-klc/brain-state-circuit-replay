@@ -3,30 +3,54 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brain-State Circuit Resonance Process Journey</title>
-  <link rel="icon" href="data:," />
-  <link rel="stylesheet" href="style.css" />
+  <title>Process Journey — Brain-State Circuit Resonance · Lecheng Ke</title>
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css?v=2026-09-28" />
+  <link rel="stylesheet" href="site.css?v=2026-09-28" />
 </head>
-<body class="journey-page">
+<body class="site journey-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="./" aria-label="Lecheng Ke — Research, home">
+        <strong>Lecheng Ke</strong><span>Research</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>Menu
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Site">
+        <a href="./#research">Research</a>
+        <a href="./#approach">Approach</a>
+        <a href="./#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="project-bar" aria-label="Brain-State Circuit Resonance pages">
+    <div class="project-bar-inner">
+      <span class="project-bar-label">Project 01</span>
+      <div class="project-tabs">
+        <a href="resonance.html">Overview</a>
+        <a href="project-brief.html">Brief</a>
+        <a href="journey.html" aria-current="page">Journey</a>
+        <a href="mindmap.html">Concept map</a>
+        <a href="read.html">Thesis</a>
+        <a href="future-research.html">Future research</a>
+      </div>
+      <button class="project-comments" type="button" data-comments-toggle hidden>Comments</button>
+    </div>
+  </nav>
   <header class="journey-header">
-    <nav class="journey-nav" aria-label="Project navigation">
-      <a href="index.html">Home</a>
-      <a href="project-brief.html#presentation-path">Start</a>
-      <a href="project-brief.html">Project brief</a>
-      <a href="index.html">3D mindmap</a>
-      <a href="docs/unreturnable-present-paradox.md">Thesis doc</a>
-      <a href="project-brief.html#scientific-anchors">Science</a>
-      <a href="future-research.html">Future research</a>
-      <button type="button" data-comments-toggle>Comments</button>
-    </nav>
     <p class="eyebrow">Process journey</p>
     <h1>From the Unreturnable Present to Safe Resonance</h1>
-    <p class="thesis">Photos record what we saw. Brain-State Circuit Replay asks whether we can reconstruct what we were.</p>
+    <p class="thesis">Photos record what we saw. This project asks whether we can reconstruct what we were.</p>
     <p class="brief-hook"><strong>The Unreturnable Present Paradox / 当下不可归悖论:</strong> the fear that “I can’t go back anymore” can create anticipatory grief inside the moment itself.</p>
     <p class="thesis">A static, speculative map of how a future system might help someone re-approach a past-associated integrated self-state — self-capacity rather than visual playback — without claiming exact replay, literal time travel, medical benefit, or empirical validation from synthetic data.</p>
   </header>
 
-  <main class="journey-shell">
+  <main id="main" class="journey-shell">
     <section class="journey-board" aria-label="Journey step selector">
       <div class="journey-path" id="journeyPath"></div>
     </section>
@@ -63,6 +87,7 @@
   <aside class="comments-drawer" id="commentsDrawer" aria-label="Comment Mode" aria-hidden="true"></aside>
 
   <script src="src/journey.js?v=unreturnable-present-v2"></script>
-  <script src="src/comments.js?v=comment-mode-v1"></script>
+  <script src="src/site.js?v=2026-09-28"></script>
+  <script src="src/comments.js?v=2026-09-28"></script>
 </body>
 </html>

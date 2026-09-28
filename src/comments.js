@@ -3,10 +3,19 @@
   const TYPES = ['confusion', 'question', 'todo', 'note'];
   const VERSION = 1;
   const AGENT_INBOX_ENDPOINT = '/api/comment-inbox';
+  const REVIEW_KEY = 'brainReplayReviewMode';
 
   const drawer = document.getElementById('commentsDrawer');
   const toggles = Array.from(document.querySelectorAll('[data-comments-toggle]'));
   if (!drawer || !toggles.length) return;
+
+  // Comment Mode is the author's review tool (comments stay in this browser or go to a
+  // local agent inbox). Public visitors never see it; it switches on locally or with ?review.
+  if (!isReviewMode()) {
+    toggles.forEach((button) => button.remove());
+    return;
+  }
+  toggles.forEach((button) => { button.hidden = false; });
 
   const state = {
     comments: loadComments(),
@@ -398,6 +407,17 @@
       createdAt: String(comment.createdAt || comment.updatedAt || now),
       updatedAt: String(comment.updatedAt || comment.createdAt || now)
     };
+  }
+
+  function isReviewMode() {
+    const localHosts = ['localhost', '127.0.0.1', '[::1]', ''];
+    if (localHosts.includes(location.hostname)) return true;
+    try {
+      if (new URLSearchParams(location.search).has('review')) sessionStorage.setItem(REVIEW_KEY, '1');
+      return sessionStorage.getItem(REVIEW_KEY) === '1';
+    } catch (error) {
+      return new URLSearchParams(location.search).has('review');
+    }
   }
 
   function routeUrl() {

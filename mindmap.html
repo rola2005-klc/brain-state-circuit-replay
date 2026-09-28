@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Concept Map — Brain-State Circuit Resonance · Lecheng Ke</title>
+  <meta name="description" content="An interactive 3D map of the Brain-State Circuit Resonance project: 42 ideas colour-coded as known science, plausible bridge, or speculative frontier, plus a closed-loop toy simulator that shows its own uncertainty." />
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css?v=2026-09-28" />
+  <link rel="stylesheet" href="site.css?v=2026-09-28" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="graph-stage" aria-label="3D concept mindmap">
+      <div id="graph"></div>
+      <div class="ambient-grid" aria-hidden="true"></div>
+    </section>
+
+    <a class="map-home" href="resonance.html" aria-label="Back to the Brain-State Circuit Resonance overview">
+      <span aria-hidden="true">←</span><strong>Lecheng Ke</strong><em>Brain-State Circuit Resonance</em>
+    </a>
+
+    <nav class="quick-dock" aria-label="Map tools">
+      <button class="dock-button" type="button" data-toggle-target="topOverlay">About<span class="dock-extra">&nbsp;this map</span></button>
+      <button class="dock-button" type="button" data-toggle-target="mapGuide">Guide</button>
+      <button class="dock-button" type="button" data-toggle-target="controlDeck">Pathways</button>
+      <button class="dock-button dock-button-accent" type="button" data-toggle-target="prototypeConsole"><span class="dock-extra">Live&nbsp;</span>Prototype</button>
+      <button class="dock-button" type="button" data-comments-toggle hidden>Comments</button>
+    </nav>
+
+    <nav class="floating-logic-nav" id="floatingLogicNav" aria-label="Logic chain arrows">
+      <button type="button" id="floatingPrevLogicNode" aria-label="Previous logic node">←</button>
+      <span id="floatingLogicStep">Walk the argument →</span>
+      <button type="button" id="floatingNextLogicNode" aria-label="Next logic node">→</button>
+    </nav>
+
+    <header class="top-overlay" id="topOverlay">
+      <div>
+        <button class="overlay-close" type="button" data-close-target="topOverlay" aria-label="Hide concept summary">×</button>
+        <p class="eyebrow">3D concept map</p>
+        <h1>Brain-State Circuit Resonance</h1>
+        <p class="thesis">Photos record what we saw. This project asks whether we can reconstruct what we were.</p>
+        <p class="map-intent">Each dot is one idea in the argument, coloured by how much evidence stands behind it. Click a dot to read it; follow the arrows to walk the argument in order.</p>
+        <div class="hero-actions" aria-label="Primary demo actions">
+          <button type="button" data-explore-map>Explore the map</button>
+          <button type="button" data-toggle-target="prototypeConsole">Run the prototype</button>
+          <a href="journey.html">Process journey</a>
+          <a href="read.html">Thesis text</a>
+        </div>
+        <div class="hero-metrics" aria-label="Demo status">
+          <span><strong>4</strong> target states</span>
+          <span><strong>4</strong> intervention modes</span>
+          <span><strong>E1/E2</strong> concept tier</span>
+        </div>
+      </div>
+    </header>
+
+    <aside class="prototype-console compact-panel" id="prototypeConsole" aria-label="Live resonance prototype">
+      <button class="overlay-close" type="button" data-close-target="prototypeConsole" aria-label="Hide live prototype">×</button>
+      <section class="prototype-head">
+        <p class="eyebrow">Live prototype · toy model</p>
+        <h2>Closed-loop state resonance</h2>
+        <p>Pick a target state and a protocol. The simulator runs 12 times with sensor noise and shows every number next to what it has to beat.</p>
+      </section>
+
+      <section class="prototype-controls" aria-label="Prototype controls">
+        <label>
+          <span>Target state</span>
+          <select id="prototypeTarget"></select>
+        </label>
+        <label>
+          <span>Protocol</span>
+          <select id="prototypeProtocol"></select>
+        </label>
+        <label>
+          <span>Cue strength <strong id="prototypeCueValue">0.34</strong></span>
+          <input id="prototypeCue" type="range" min="0" max="1" step="0.01" value="0.34" />
+        </label>
+        <label>
+          <span>Feedback gain <strong id="prototypeFeedbackValue">0.62</strong></span>
+          <input id="prototypeFeedback" type="range" min="0" max="1" step="0.01" value="0.62" />
+        </label>
+        <label>
+          <span>Sensor noise σ <strong id="prototypeNoiseValue">0.10</strong></span>
+          <input id="prototypeNoise" type="range" min="0" max="0.5" step="0.01" value="0.10" />
+        </label>
+      </section>
+
+      <section class="prototype-readout" aria-label="Prototype metrics" aria-live="polite">
+        <div class="metric-tile metric-target">
+          <span>Target match</span>
+          <strong id="prototypeTargetScore">--</strong>
+          <i id="prototypeTargetBar"></i>
+        </div>
+        <div class="metric-tile metric-rival">
+          <span>Closest wrong state</span>
+          <strong id="prototypeRivalScore">--</strong>
+          <small id="prototypeRivalName">--</small>
+          <i id="prototypeRivalBar"></i>
+        </div>
+        <div class="metric-tile metric-margin">
+          <span>Margin</span>
+          <strong id="prototypeMargin">--</strong>
+          <small id="prototypeMarginNote">--</small>
+          <i id="prototypeMarginBar"></i>
+        </div>
+        <div class="metric-tile metric-decode">
+          <span>Right state picked</span>
+          <strong id="prototypeCorrect">--</strong>
+          <small id="prototypeChance">chance: 3 of 12</small>
+          <i id="prototypeCorrectBar"></i>
+        </div>
+      </section>
+
+      <div class="risk-row">
+        <span>Risk load</span>
+        <div class="risk-meter"><i id="prototypeRiskBar"></i></div>
+        <strong id="prototypeRisk">--</strong>
+      </div>
+
+      <section class="prototype-trace" aria-label="Prototype trace">
+        <canvas id="prototypeTimeline" width="720" height="250" role="img" aria-label="Similarity to the target and to the closest wrong state over 14 steps, with risk below."></canvas>
+        <p id="prototypeNarrative">Loading simulation.</p>
+      </section>
+
+      <section class="prototype-actions" aria-label="Prototype actions">
+        <button type="button" id="prototypeRun">New runs</button>
+        <a href="resonance.html#evidence">Why the margin matters</a>
+        <a href="future-research.html">Research path</a>
+      </section>
+    </aside>
+
+    <aside class="map-guide compact-panel open" id="mapGuide" aria-label="How to read the mindmap">
+      <button class="overlay-close" type="button" data-close-target="mapGuide" aria-label="Hide map guide">×</button>
+      <div class="guide-card">
+        <p class="eyebrow">How to read this map</p>
+        <ol>
+          <li><strong>Big labels form the spine.</strong> Start with the thesis, the problem, the limits, and the roadmap.</li>
+          <li><strong>Click one dot at a time.</strong> The panel explains its role, its papers, and its neighbours.</li>
+          <li><strong>Move freely.</strong> Drag to rotate, scroll or pinch to zoom, right-drag to pan.</li>
+          <li><strong>Pathways are routes through the argument,</strong> not measured brain output.</li>
+        </ol>
+      </div>
+      <div class="legend-card" aria-label="Map legend">
+        <span><i class="legend-dot known"></i>known science</span>
+        <span><i class="legend-dot plausible"></i>plausible bridge</span>
+        <span><i class="legend-dot speculative"></i>speculative frontier</span>
+        <button class="inline-tool-button" type="button" data-toggle-target="controlDeck">Choose a pathway</button>
+      </div>
+    </aside>
+
+    <aside class="control-deck compact-panel" id="controlDeck" aria-label="Resonance controls">
+      <button class="overlay-close" type="button" data-close-target="controlDeck" aria-label="Hide resonance controls">×</button>
+      <section class="control-block">
+        <div class="block-heading">
+          <span>Resonance pathway</span>
+          <strong id="modeTitle">Cue-triggered recall</strong>
+        </div>
+        <div class="mode-grid" id="modeButtons" role="group" aria-label="Resonance pathway selector"></div>
+        <p class="mode-copy" id="modeCopy"></p>
+      </section>
+
+      <section class="control-block">
+        <label for="epistemicSlider">
+          <span>Epistemic position</span>
+          <strong id="epistemicLabel">Balanced map</strong>
+        </label>
+        <input id="epistemicSlider" type="range" min="0" max="100" value="50" />
+        <div class="slider-scale" aria-hidden="true">
+          <span>Current science</span>
+          <span>Speculative frontier</span>
+        </div>
+      </section>
+    </aside>
+
+    <aside class="side-panel" id="sidePanel" aria-live="polite">
+      <div class="panel-head">
+        <p class="eyebrow">Selected node</p>
+        <button id="closePanel" type="button" data-close-target="sidePanel" aria-label="Close details panel">×</button>
+      </div>
+      <h2 id="nodeTitle">Brain-State Circuit Resonance</h2>
+      <div class="meta-row">
+        <span class="cluster-pill" id="nodeCluster">Overview</span>
+        <span class="status-badge status-plausible" id="nodeStatus">plausible</span>
+      </div>
+      <p id="nodeDescription">Select a node to inspect how the project separates known science, plausible engineering, and speculative frontier claims.</p>
+      <div class="logic-chain-card" aria-label="Logic chain navigation">
+        <h3>Logic chain</h3>
+        <p id="logicChainStep">Use arrows to walk the project argument node by node.</p>
+        <div class="logic-chain-actions">
+          <button type="button" id="prevLogicNode" aria-label="Previous logic node">← Previous</button>
+          <button type="button" id="nextLogicNode" aria-label="Next logic node">Next →</button>
+        </div>
+      </div>
+      <div class="node-papers-card" aria-label="Scientific papers for selected node">
+        <h3>Scientific papers / anchors</h3>
+        <ul id="nodePapers"><li>Select a node to see adjacent scientific sources and boundary notes.</li></ul>
+      </div>
+      <div class="node-explainer-grid" aria-label="Node explanation">
+        <div>
+          <h3>Why this dot exists</h3>
+          <p id="nodePurpose">It tells visitors what role this idea plays in the project.</p>
+        </div>
+        <div>
+          <h3>How it reflects the concept</h3>
+          <p id="nodeReflects">It links the personal thesis to science, engineering, or ethics.</p>
+        </div>
+      </div>
+      <div class="connection-card">
+        <h3>Connected ideas</h3>
+        <ul id="nodeConnections"><li>Click a node to see its neighboring concepts.</li></ul>
+      </div>
+      <a class="doc-button" id="nodeDocLink" href="project-brief.html">Open related section</a>
+
+      <div class="boundary-card">
+        <h3>Scientific boundaries</h3>
+        <ul>
+          <li>Concept map / simulation scaffold, not a brain-derived output, medical product, or literal time travel.</li>
+          <li>Not exact human memory replay and not exact visual playback.</li>
+          <li>EEG measures broad scalp-level correlates; it cannot read synaptic traces, identify engrams, or produce exact visual memory playback.</li>
+          <li>Synthetic classifier results illustrate pipeline behavior only; they are not empirical validation.</li>
+          <li>Brain visualization is conceptual; regions are not anatomically specific.</li>
+        </ul>
+      </div>
+
+      <nav class="doc-links" aria-label="Project documents">
+        <a href="resonance.html">Overview</a>
+        <a href="project-brief.html">Brief</a>
+        <a href="journey.html">Journey</a>
+        <a href="read.html">Thesis text</a>
+        <a href="project-brief.html#scientific-anchors">Science</a>
+        <a href="project-brief.html#ethics">Ethics</a>
+        <a href="future-research.html">Future research</a>
+        <a href="project-brief.html#next-steps">Next steps</a>
+      </nav>
+    </aside>
+
+    <div class="brain-note">Abstract state model only. Node colors separate known science, plausible bridge, and speculative frontier.</div>
+    <footer class="boundary-strip"><span class="strip-long">Concept map + toy simulation (evidence tier E1–E2) — not brain data. EEG cannot read engrams or exact memories; the 3D brain is an abstract state model, not anatomy.</span><span class="strip-short">Concept map · not brain data · E1–E2</span></footer>
+  </main>
+
+  <aside class="comments-drawer" id="commentsDrawer" aria-label="Comment Mode" aria-hidden="true"></aside>
+
+  <!-- three.js r160 and 3d-force-graph 1.73.4 are served from this site (vendor/, MIT) so the map never depends on a third-party CDN. -->
+  <script src="vendor/three.min.js"></script>
+  <script src="vendor/3d-force-graph.min.js"></script>
+  <script src="src/simulation.js?v=2026-09-28"></script>
+  <script src="src/graph-data.js?v=2026-09-28"></script>
+  <script src="src/replay-modes.js?v=2026-09-28"></script>
+  <script src="src/brain-overlay.js?v=2026-09-28"></script>
+  <script src="src/ui.js?v=2026-09-28"></script>
+  <script src="src/mindmap.js?v=2026-09-28"></script>
+  <script src="src/prototype-console.js?v=2026-09-28"></script>
+  <script src="src/comments.js?v=2026-09-28"></script>
+</body>
+</html>

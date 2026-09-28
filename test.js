@@ -50,4 +50,25 @@ const mimoReplay = sim.simulateReplay({ targetId: 'flow', protocol: 'mimo', cue:
 assert(mimoReplay.history.at(-1).error < mimoReplay.history[0].error, 'MIMO-inspired protocol should reduce reconstruction error');
 assert(mimoReplay.history.at(-1).intervention.affectedSystems.includes('hippocampus'));
 
+// Honest readouts: margins against the closest wrong state, with noise and repeats
+const self = sim.decodeMargin(sim.TARGET_STATES.calm.pattern, 'calm');
+approx(self.targetScore, 1);
+assert(self.margin > 0, 'a target pattern should beat every rival state');
+assert.notStrictEqual(self.rival.id, 'calm');
+
+const clean = sim.observeWithNoise({ a: 0.2, b: 0.8 }, 0, 5);
+approx(clean.a, 0.2);
+approx(clean.b, 0.8);
+assert.deepStrictEqual(sim.observeWithNoise({ a: 0.5 }, 0.3, 9), sim.observeWithNoise({ a: 0.5 }, 0.3, 9), 'noise must be deterministic per seed');
+
+const settings = { targetId: 'childhood', protocol: 'neurofeedback', cue: 0.34, feedback: 0.62, runs: 12, seed: 19 };
+const quiet = sim.evaluateResonance({ ...settings, noise: 0 });
+const loud = sim.evaluateResonance({ ...settings, noise: 0.5 });
+assert.strictEqual(quiet.runs, 12);
+assert.strictEqual(quiet.correct, 12, 'noise-free observations of a converged run should decode correctly');
+assert(loud.correct < quiet.correct, 'sensor noise should cost correct decodes');
+assert(quiet.meanTargetScore > 0.95, 'raw target similarity looks near-perfect');
+assert(quiet.meanMargin < 0.1, 'but the margin over the closest wrong state stays small');
+assert(quiet.meanMargin > quiet.meanBaselineMargin, 'cueing should widen the margin relative to the baseline');
+
 console.log('All simulation tests passed.');

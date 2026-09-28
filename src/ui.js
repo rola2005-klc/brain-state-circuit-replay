@@ -1,5 +1,9 @@
 (function exposeReplayUi() {
   const stateRank = { known: 0, plausible: 1, speculative: 2 };
+  // Only show hover tooltips once a real mouse has moved: the 3D library reports a
+  // "hover" at load time and on touch devices, which pinned a stray tooltip at 0,0.
+  const canHover = window.matchMedia('(hover: hover)').matches;
+  let pointerSeen = false;
 
   function statusClass(status) {
     return `status-${status || 'plausible'}`;
@@ -81,11 +85,17 @@
     }
 
     window.addEventListener('mousemove', (event) => {
+      pointerSeen = true;
       elements.tooltip.style.left = `${event.clientX}px`;
       elements.tooltip.style.top = `${event.clientY}px`;
     });
 
-    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel', 'firstVisitStrip', 'prototypeConsole'].forEach((id) => {
+    // Phones: start with the map visible; the dock opens the guide on demand.
+    if (window.matchMedia('(max-width: 980px)').matches) {
+      document.getElementById('mapGuide')?.classList.remove('open');
+    }
+
+    ['topOverlay', 'mapGuide', 'controlDeck', 'sidePanel', 'prototypeConsole'].forEach((id) => {
       updateDockState(id, document.getElementById(id)?.classList.contains('open'));
     });
 
@@ -115,7 +125,7 @@
   }
 
   function startExploring(callback) {
-    ['topOverlay', 'controlDeck', 'firstVisitStrip', 'prototypeConsole'].forEach((id) => closePanelById(id, callback));
+    ['topOverlay', 'controlDeck', 'prototypeConsole'].forEach((id) => closePanelById(id, callback));
     const guide = document.getElementById('mapGuide');
     if (guide) {
       guide.classList.add('open');
@@ -179,7 +189,11 @@
     const chain = window.BRAIN_REPLAY_GRAPH?.logicChain || [];
     const currentId = elements.panel?.dataset.currentNodeId;
     const index = logicIndex(currentId);
-    if (index < 0) return;
+    if (index < 0) {
+      // Nothing selected yet (or a node outside the chain): start the walk at the beginning.
+      if (onSelectNode && chain.length) onSelectNode(chain[0]);
+      return;
+    }
     const nextIndex = Math.min(chain.length - 1, Math.max(0, index + direction));
     if (nextIndex === index) return;
     if (onSelectNode) onSelectNode(chain[nextIndex]);
@@ -287,7 +301,7 @@
   }
 
   function showTooltip(elements, node) {
-    if (!node) {
+    if (!node || !canHover || !pointerSeen) {
       elements.tooltip.classList.add('hidden');
       return;
     }
