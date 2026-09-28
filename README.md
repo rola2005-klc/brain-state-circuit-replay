@@ -4,7 +4,7 @@
 
 Public boundary: the repo presents this as **Brain-State Circuit Resonance** because the scientifically careful target is bounded, partial state resonance — not exact playback, literal time travel, or current human brain-state reconstruction.
 
-**Open the live prototype:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+**Live site:** https://lecheng-ke-research.pages.dev/ — Lecheng Ke's research site. This project lives at [`resonance.html`](https://lecheng-ke-research.pages.dev/resonance.html); the 3D concept map and live prototype are at [`mindmap.html`](https://lecheng-ke-research.pages.dev/mindmap.html). (The same files are also served by GitHub Pages.)
 
 This repository is building the conceptual, scientific, and engineering foundation for a speculative neuroscience / BCI thesis. The public frame is resonance, not playback: if photos, videos, music, and smell can trigger memory, could future closed-loop interfaces help a person partially re-approach the **integrated self-state** of a past moment while keeping uncertainty and safety visible?
 
@@ -24,9 +24,9 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 Open these three artifacts first:
 
-1. **Live prototype / 3D mindmap:** https://rola2005-klc.github.io/brain-state-circuit-replay/
-2. **Process journey:** https://rola2005-klc.github.io/brain-state-circuit-replay/journey.html
-3. **Full thesis doc:** [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+1. **Project overview + interactive stress tests:** https://lecheng-ke-research.pages.dev/resonance.html
+2. **3D concept map + live prototype:** https://lecheng-ke-research.pages.dev/mindmap.html
+3. **Full thesis text (rendered):** https://lecheng-ke-research.pages.dev/read.html — source: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 **Audience-specific one-minute path:**
 
@@ -34,27 +34,28 @@ Open these three artifacts first:
 - **Internship reviewers:** project brief → process journey → live prototype → tests/synthetic-data caveats.
 - **General viewers:** project brief → process journey → 3D mindmap.
 
-For a polished non-technical overview, use the project brief: https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
+For a polished non-technical overview, use the project brief: https://lecheng-ke-research.pages.dev/project-brief.html
 
 **Boundary in one line:** weak “time travel” means bounded state reinstatement; medium means subjective similarity; strong/literal time travel is only a metaphor and is not claimed here.
 
 ## Presentation Path
 
-Use [`project-brief.html`](project-brief.html) as the clean entry point. It gives the hook, problem, thesis, demo boundary, scientific anchors, system concept, ethics, current artifacts, and next steps without opening raw Markdown in the browser.
+The site root ([`index.html`](index.html)) introduces Lecheng Ke; each project gets its own page. For this project, [`resonance.html`](resonance.html) is the clean entry point: the question, the idea, two interactive stress tests of the advisor-flagged limits, and the claim boundary.
 
 Recommended flow:
 
-1. Start on [`project-brief.html`](project-brief.html) and read the hook plus boundary.
-2. Open [`journey.html`](journey.html) and walk through the six-step process.
-3. Open [`index.html`](index.html) only after the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
-4. Open [`future-research.html`](future-research.html) as the closing horizon: what current science cannot do yet and what a responsible research path could ask.
-5. Keep the source Markdown docs available for deeper questions.
+1. Start on [`resonance.html`](resonance.html) for the one-minute version.
+2. Read [`project-brief.html`](project-brief.html) for the full argument.
+3. Open [`journey.html`](journey.html) and walk through the six-step process.
+4. Open [`mindmap.html`](mindmap.html) once the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
+5. Open [`future-research.html`](future-research.html) as the closing horizon: what current science cannot do yet and what a responsible research path could ask.
+6. [`read.html`](read.html) renders any of the Markdown docs in `docs/` (e.g. `read.html?doc=limitations`), so the site always shows the current text.
 
 Audience paths:
 
 - **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), [future research directions](future-research.html), and [data model](docs/data-model.md).
-- **Internship reviewers:** start with the [project brief](project-brief.html), skim the [process journey](journey.html), inspect the [3D mindmap](index.html), then close with the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
-- **General viewers:** start with the [project brief](project-brief.html), follow the [process journey](journey.html), then use the [3D mindmap](index.html) before the [future research horizon](future-research.html).
+- **Internship reviewers:** start with the [project overview](resonance.html) and [project brief](project-brief.html), skim the [process journey](journey.html), inspect the [3D mindmap](mindmap.html), then close with the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
+- **General viewers:** start with the [project overview](resonance.html), follow the [process journey](journey.html), then use the [3D mindmap](mindmap.html) before the [future research horizon](future-research.html).
 
 ## Project thesis
 
@@ -140,7 +141,9 @@ Before any public push or nightly publish, run:
 python3 scripts/safety_check.py
 ```
 
-This local gate checks that `agent-inbox/` comment artifacts are ignored/untracked, scans repo text-like files for credential patterns, verifies local HTML references and anchors, and runs the JavaScript and Python toy-model tests. It exists because the public GitHub Pages site is concept/thesis + thought map + simulation scaffold only; private local comment inbox data must stay local.
+This local gate checks that `agent-inbox/` comment artifacts are ignored/untracked, scans repo text-like files for credential patterns, verifies local HTML references and anchors on every public page, and runs the JavaScript and Python toy-model tests. It exists because the public site is concept/thesis + thought map + simulation scaffold only; private local comment inbox data must stay local.
+
+**Comment Mode is private by default.** The Comments tool only appears on `localhost`/`127.0.0.1` or when a page is opened with `?review` (remembered for the browser tab). Public visitors never see it.
 
 ## Data-backed toy model
 
@@ -178,14 +181,26 @@ Full writeup and future plan: [`docs/limitations.md`](docs/limitations.md). The 
 ## Repository structure
 
 ```text
-index.html              # static website entry point
+index.html              # site home: Lecheng Ke, research projects, approach, contact
+resonance.html          # this project's overview + interactive stress tests
+mindmap.html            # 3D concept map + live closed-loop prototype
+read.html               # renders docs/*.md in the browser (?doc=<name>)
 project-brief.html      # polished project brief
-journey.html            # one-minute process journey page
-future-research.html       # creative but bounded future research directions
-style.css               # responsive visual design
+journey.html            # one-minute process journey page (#step-N deep links)
+future-research.html    # creative but bounded future research directions
+site.css                # shared tokens, fonts, header/footer
+home.css / resonance.css / reader.css  # page styles
+style.css               # 3D map + brief/journey/future page styles
+assets/                 # self-hosted fonts (OFL), favicon, link-preview images
+vendor/                 # three.js, 3d-force-graph, marked (MIT) served locally
+src/site.js             # header menu + scrollspy
+src/home.js             # portrait ring parallax
+src/resonance.js        # hero animation, decoder chart (reads data/*.csv), stimulation playground
+src/reader.js           # Markdown reader
 src/journey.js          # keyboard/click process journey interaction
-src/simulation.js       # pure simulation logic
-src/app.js              # UI rendering and interaction
+src/simulation.js       # pure simulation logic (incl. decode margin + noise helpers)
+src/prototype-console.js # live prototype: margin vs. closest wrong state, 12 noisy runs
+src/app.js              # UI for archive/index-v1.html
 test.js                 # Node tests for simulation behavior
 tests/test_synthetic_data.py # Python tests for synthetic data generation/decoding
 scripts/generate_synthetic_data.py # synthetic state dataset generator
