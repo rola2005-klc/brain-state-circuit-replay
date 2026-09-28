@@ -2030,7 +2030,8 @@ body.brief-page {
   line-height: 1.02;
 }
 
-.boundary-strip .strip-short {
+.boundary-strip .strip-short,
+.dock-short {
   display: none;
 }
 
@@ -2076,6 +2077,10 @@ body.brief-page {
 
   .dock-extra {
     display: none;
+  }
+
+  .dock-short {
+    display: inline;
   }
 
   body:has(.prototype-console.open) .floating-logic-nav,
@@ -2158,22 +2163,6 @@ body.brief-page {
   font-size: 1.3rem;
   font-style: italic;
   font-weight: 400;
-}
-
-.project-comments {
-  flex: 0 0 auto;
-  margin-left: auto;
-  padding: 6px 12px;
-  border: 1px dashed rgba(242, 184, 114, 0.5);
-  border-radius: 999px;
-  background: transparent;
-  color: #ffd3a1;
-  font: 600 0.8rem "Inter", system-ui, sans-serif;
-  cursor: pointer;
-}
-
-.project-comments[hidden] {
-  display: none;
 }
 
 /* Journey meters: consistent bars instead of each browser's default meter. */

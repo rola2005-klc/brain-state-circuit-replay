@@ -4,7 +4,7 @@
 
 Public boundary: the repo presents this as **Brain-State Circuit Resonance** because the scientifically careful target is bounded, partial state resonance — not exact playback, literal time travel, or current human brain-state reconstruction.
 
-**Live site:** https://lecheng-ke-research.pages.dev/ — Lecheng Ke's research site. This project lives at [`resonance.html`](https://lecheng-ke-research.pages.dev/resonance.html); the 3D concept map and live prototype are at [`mindmap.html`](https://lecheng-ke-research.pages.dev/mindmap.html). (The same files are also served by GitHub Pages.)
+**Open the project site:** https://rola2005-klc.github.io/brain-state-circuit-replay/ — the overview with interactive stress tests. The 3D concept map and live prototype are at [`mindmap.html`](https://rola2005-klc.github.io/brain-state-circuit-replay/mindmap.html). Author: Lecheng Ke ([personal site](https://lecheng-ke-research.pages.dev/)).
 
 This repository is building the conceptual, scientific, and engineering foundation for a speculative neuroscience / BCI thesis. The public frame is resonance, not playback: if photos, videos, music, and smell can trigger memory, could future closed-loop interfaces help a person partially re-approach the **integrated self-state** of a past moment while keeping uncertainty and safety visible?
 
@@ -24,9 +24,9 @@ This project does **not** claim literal time travel, medical treatment, exact hu
 
 Open these three artifacts first:
 
-1. **Project overview + interactive stress tests:** https://lecheng-ke-research.pages.dev/resonance.html
-2. **3D concept map + live prototype:** https://lecheng-ke-research.pages.dev/mindmap.html
-3. **Full thesis text (rendered):** https://lecheng-ke-research.pages.dev/read.html — source: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
+1. **Project overview + interactive stress tests:** https://rola2005-klc.github.io/brain-state-circuit-replay/
+2. **3D concept map + live prototype:** https://rola2005-klc.github.io/brain-state-circuit-replay/mindmap.html
+3. **Full thesis text (rendered):** https://rola2005-klc.github.io/brain-state-circuit-replay/read.html — source: [`docs/unreturnable-present-paradox.md`](docs/unreturnable-present-paradox.md)
 
 **Audience-specific one-minute path:**
 
@@ -34,17 +34,17 @@ Open these three artifacts first:
 - **Internship reviewers:** project brief → process journey → live prototype → tests/synthetic-data caveats.
 - **General viewers:** project brief → process journey → 3D mindmap.
 
-For a polished non-technical overview, use the project brief: https://lecheng-ke-research.pages.dev/project-brief.html
+For a polished non-technical overview, use the project brief: https://rola2005-klc.github.io/brain-state-circuit-replay/project-brief.html
 
 **Boundary in one line:** weak “time travel” means bounded state reinstatement; medium means subjective similarity; strong/literal time travel is only a metaphor and is not claimed here.
 
 ## Presentation Path
 
-The site root ([`index.html`](index.html)) introduces Lecheng Ke; each project gets its own page. For this project, [`resonance.html`](resonance.html) is the clean entry point: the question, the idea, two interactive stress tests of the advisor-flagged limits, and the claim boundary.
+[`index.html`](index.html) is the clean entry point: the question, the idea, two interactive stress tests of the advisor-flagged limits, and the claim boundary.
 
 Recommended flow:
 
-1. Start on [`resonance.html`](resonance.html) for the one-minute version.
+1. Start on [`index.html`](index.html) for the one-minute version.
 2. Read [`project-brief.html`](project-brief.html) for the full argument.
 3. Open [`journey.html`](journey.html) and walk through the six-step process.
 4. Open [`mindmap.html`](mindmap.html) once the boundary is clear: it is a concept map and simulation scaffold, not brain-derived output.
@@ -54,8 +54,8 @@ Recommended flow:
 Audience paths:
 
 - **Researchers:** start with the [full thesis](docs/unreturnable-present-paradox.md), then read the [native memory trace explainer](docs/native-memory-trace-reactivation.md), [research map](docs/research.md), [future research directions](future-research.html), and [data model](docs/data-model.md).
-- **Internship reviewers:** start with the [project overview](resonance.html) and [project brief](project-brief.html), skim the [process journey](journey.html), inspect the [3D mindmap](mindmap.html), then close with the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
-- **General viewers:** start with the [project overview](resonance.html), follow the [process journey](journey.html), then use the [3D mindmap](mindmap.html) before the [future research horizon](future-research.html).
+- **Internship reviewers:** start with the [project overview](index.html) and [project brief](project-brief.html), skim the [process journey](journey.html), inspect the [3D mindmap](mindmap.html), then close with the [future research page](future-research.html), [foundation](docs/presentable-foundation.md), [presentation outline](docs/presentation-outline.md), tests, and synthetic data scripts.
+- **General viewers:** start with the [project overview](index.html), follow the [process journey](journey.html), then use the [3D mindmap](mindmap.html) before the [future research horizon](future-research.html).
 
 ## Project thesis
 
@@ -181,20 +181,18 @@ Full writeup and future plan: [`docs/limitations.md`](docs/limitations.md). The 
 ## Repository structure
 
 ```text
-index.html              # site home: Lecheng Ke, research projects, approach, contact
-resonance.html          # this project's overview + interactive stress tests
+index.html              # project overview + interactive stress tests
 mindmap.html            # 3D concept map + live closed-loop prototype
 read.html               # renders docs/*.md in the browser (?doc=<name>)
 project-brief.html      # polished project brief
 journey.html            # one-minute process journey page (#step-N deep links)
 future-research.html    # creative but bounded future research directions
 site.css                # shared tokens, fonts, header/footer
-home.css / resonance.css / reader.css  # page styles
+resonance.css / reader.css  # overview and reader page styles
 style.css               # 3D map + brief/journey/future page styles
-assets/                 # self-hosted fonts (OFL), favicon, link-preview images
+assets/                 # self-hosted fonts (OFL), favicon, link-preview image
 vendor/                 # three.js, 3d-force-graph, marked (MIT) served locally
 src/site.js             # header menu + scrollspy
-src/home.js             # portrait ring parallax
 src/resonance.js        # hero animation, decoder chart (reads data/*.csv), stimulation playground
 src/reader.js           # Markdown reader
 src/journey.js          # keyboard/click process journey interaction

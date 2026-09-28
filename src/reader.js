@@ -60,7 +60,7 @@
     buildToc(headings);
 
     const title = article.querySelector('h1');
-    if (title) document.title = `${title.textContent.trim()} — Lecheng Ke`;
+    if (title) document.title = `${title.textContent.trim()} — Brain-State Circuit Resonance`;
 
     const source = document.createElement('p');
     source.className = 'reader-source';

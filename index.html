@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lecheng Ke — Research</title>
-  <meta name="description" content="Lecheng Ke is an undergraduate researcher working across computational neuroscience, data science, and AI — on memory, emotion, and the measurable mind. Projects, methods, and how to get in touch." />
+  <title>Brain-State Circuit Resonance — a research project by Lecheng Ke</title>
+  <meta name="description" content="Brain-State Circuit Resonance, a research project by Lecheng Ke: photos record what we saw — can we reconstruct what we were? The question, the idea, two stress tests of its limits, and a clear claim boundary." />
   <meta name="theme-color" content="#0a0d12" />
-  <link rel="canonical" href="https://lecheng-ke-research.pages.dev/" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:site_name" content="Lecheng Ke — Research" />
-  <meta property="og:title" content="Lecheng Ke — Research" />
-  <meta property="og:description" content="Undergraduate researcher in computational neuroscience, data science, and AI: memory, emotion, and the measurable mind." />
-  <meta property="og:url" content="https://lecheng-ke-research.pages.dev/" />
-  <meta property="og:image" content="https://lecheng-ke-research.pages.dev/assets/og-card.jpg" />
+  <link rel="canonical" href="https://rola2005-klc.github.io/brain-state-circuit-replay/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Brain-State Circuit Resonance" />
+  <meta property="og:title" content="Brain-State Circuit Resonance — Lecheng Ke" />
+  <meta property="og:description" content="Photos record what we saw. Can we reconstruct what we were? Memory, BCI, and ethics — with the limits tested in the open." />
+  <meta property="og:url" content="https://rola2005-klc.github.io/brain-state-circuit-replay/" />
+  <meta property="og:image" content="https://rola2005-klc.github.io/brain-state-circuit-replay/assets/og-resonance.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -20,242 +20,335 @@
   <link rel="preload" href="assets/fonts/fraunces-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/fraunces-latin-400-italic.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="site.css?v=2026-09-28" />
-  <link rel="stylesheet" href="home.css?v=2026-09-28" />
+  <link rel="stylesheet" href="resonance.css?v=2026-09-28" />
 </head>
-<body class="site home">
+<body class="site project-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
     <div class="site-header-inner">
-      <a class="wordmark" href="./" aria-label="Lecheng Ke — Research, home">
-        <strong>Lecheng Ke</strong><span>Research</span>
+      <a class="wordmark" href="./" aria-label="Brain-State Circuit Resonance — project overview">
+        <strong>Brain-State Circuit Resonance</strong><span>by Lecheng Ke</span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
         <span class="menu-toggle-bars" aria-hidden="true"></span>Menu
       </button>
-      <nav class="site-nav" id="siteNav" aria-label="Site" data-scrollspy>
-        <a href="#research">Research</a>
-        <a href="#approach">Approach</a>
-        <a href="#toolkit">Toolkit</a>
-        <a href="#contact">Contact</a>
+      <nav class="site-nav" id="siteNav" aria-label="Project pages">
+        <a href="./" aria-current="page">Overview</a>
+        <a href="project-brief.html">Brief</a>
+        <a href="journey.html">Journey</a>
+        <a href="mindmap.html">Concept map</a>
+        <a href="read.html">Thesis</a>
+        <a href="future-research.html">Future research</a>
       </nav>
     </div>
   </header>
 
   <main id="main" class="page-main">
-    <!-- ================= Intro: the person first ================= -->
-    <section class="intro" aria-labelledby="introTitle">
-      <div class="intro-copy">
-        <p class="eyebrow-mono">Undergraduate researcher</p>
-        <h1 id="introTitle">Lecheng Ke</h1>
-        <p class="intro-tagline">Memory, emotion, and the <em>measurable mind.</em></p>
-        <p class="intro-lede">I build research projects across computational neuroscience, data science, and AI. I’m drawn to questions where the human side of the mind — memory, emotion, the sense of self — meets what we can actually measure, model, and responsibly change. And I try to write down where my ideas break as carefully as where they work.</p>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow-mono">Research project · <a class="byline-link" href="https://lecheng-ke-research.pages.dev/">Lecheng Ke ↗</a></p>
+        <h1 id="heroTitle">
+          <span class="hero-line">Photos record what we saw.</span>
+          <em class="hero-line hero-line-warm">Can we reconstruct what we were?</em>
+        </h1>
+        <p class="hero-lede">A research project I have been developing since April 2026, at the edge of memory science, brain–computer interfaces, and ethics. It asks whether future neurotechnology could help someone partially re-approach the inner state of a meaningful moment — and it is built to show exactly where today’s science stops.</p>
+        <dl class="project-facts">
+          <div><dt>Output</dt><dd>Thesis, 3D concept map, closed-loop toy simulator</dd></div>
+          <div><dt>Evidence</dt><dd>E1–E2: concept + synthetic data</dd></div>
+          <div><dt>Built with</dt><dd>Python, JavaScript, three.js</dd></div>
+        </dl>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#research">See my research <span class="arrow" aria-hidden="true">↓</span></a>
-          <a class="btn btn-ghost" href="#contact">Get in touch <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="#question">Take the 2-minute tour <span class="arrow" aria-hidden="true">↓</span></a>
+          <a class="btn btn-ghost" href="mindmap.html">Open the 3D concept map <span class="arrow" aria-hidden="true">→</span></a>
         </div>
-        <ul class="interest-list" aria-label="Research interests">
-          <li>Memory &amp; emotion</li>
-          <li>Brain–computer interfaces</li>
-          <li>Computational neuroscience</li>
-          <li>Data science</li>
-          <li>Research ethics</li>
-        </ul>
       </div>
 
-      <figure class="portrait" id="portrait" aria-label="Portrait of Lecheng Ke">
-        <svg class="portrait-rings" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
-          <g class="ring-par" style="--depth: 16"><g class="ring-spin" style="--spin: 96s"><circle class="ring" cx="200" cy="200" r="194" /><circle class="ring-dot warm" cx="394" cy="200" r="3.2" /></g></g>
-          <g class="ring-par" style="--depth: 13"><g class="ring-spin reverse" style="--spin: 80s"><circle class="ring dashed" cx="200" cy="200" r="178" /><circle class="ring-dot" cx="200" cy="22" r="2.6" /></g></g>
-          <g class="ring-par" style="--depth: 10"><g class="ring-spin" style="--spin: 64s"><circle class="ring" cx="200" cy="200" r="162" /><circle class="ring-dot blue" cx="38" cy="200" r="3" /></g></g>
-          <g class="ring-par" style="--depth: 8"><g class="ring-spin reverse" style="--spin: 52s"><circle class="ring dashed" cx="200" cy="200" r="147" /><circle class="ring-dot mint" cx="200" cy="347" r="2.6" /></g></g>
-          <g class="ring-par" style="--depth: 6"><g class="ring-spin" style="--spin: 44s"><circle class="ring" cx="200" cy="200" r="133" /><circle class="ring-dot warm" cx="294" cy="106" r="2.6" /></g></g>
-          <g class="ring-par" style="--depth: 4"><g class="ring-spin reverse" style="--spin: 36s"><circle class="ring dashed" cx="200" cy="200" r="120" /><circle class="ring-dot pink" cx="115" cy="285" r="2.4" /></g></g>
-          <g class="ring-par" style="--depth: 2"><g class="ring-spin" style="--spin: 30s"><circle class="ring" cx="200" cy="200" r="108" /></g></g>
-        </svg>
-        <div class="portrait-core">
-          <!-- Add a photo by uploading it to assets/me/ and uncommenting the next line.
-          <img class="portrait-photo" src="assets/me/portrait.jpg" alt="Lecheng Ke" width="640" height="640" /> -->
-          <span class="monogram" aria-hidden="true">LK</span>
+      <figure class="hero-visual" aria-labelledby="heroCaption">
+        <div class="hero-stage" id="heroStage">
+          <canvas id="heroCanvas" role="img" aria-label="Illustration: a photograph dissolves into seven orbits labelled body, attention, emotion, context, self-model, meaning, and configured ignorance. Resonance rises while you hold, but never reaches 1.0."></canvas>
+          <div class="hero-readout" aria-live="polite">
+            <span class="hero-readout-label">Resonance</span>
+            <strong id="heroResonance">0.00</strong>
+            <span class="hero-readout-state" id="heroState">present</span>
+          </div>
         </div>
+        <div class="hero-controls">
+          <button class="hold-button" id="holdButton" type="button" aria-describedby="heroCaption">
+            <span class="hold-ring" aria-hidden="true"></span>
+            <span class="hold-text">Press &amp; hold to cue the memory</span>
+          </button>
+        </div>
+        <figcaption id="heroCaption">An illustration, not data. Hold to let a photo become a state; resonance rises but never reaches 1.0. Let go and it returns to the present.</figcaption>
       </figure>
     </section>
 
-    <!-- ================= Research ================= -->
-    <section class="section" id="research" aria-labelledby="researchTitle">
+    <!-- 01 The question -->
+    <section class="section split" id="question" aria-labelledby="questionTitle">
+      <div class="split-text reveal">
+        <p class="step-label"><span>01</span>The question</p>
+        <h3 id="questionTitle">The Unreturnable Present Paradox <span class="zh" lang="zh-CN">当下不可归悖论</span></h3>
+        <p class="pull">You are inside a moment you love, and a quiet thought arrives: <em>I can’t come back here.</em> The grief for the moment starts before the moment ends.</p>
+        <p>Photos and video keep the <strong>evidence</strong> of a moment. They don’t keep the <strong>state</strong> of being in it — the body, the attention, the feeling, the context, the self, and what you didn’t know yet.</p>
+      </div>
+      <div class="loop-figure reveal" aria-label="The paradox as a loop">
+        <svg class="loop-svg" viewBox="-112 0 584 360" role="img" aria-labelledby="loopTitle loopDesc">
+          <title id="loopTitle">The Unreturnable Present loop</title>
+          <desc id="loopDesc">Four steps in a cycle: deeply present; the thought “I can’t go back”; anticipatory grief; and being unable to fully live the moment, which feeds back into the first step.</desc>
+          <defs>
+            <marker id="loopArrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="#f2b872"></path>
+            </marker>
+          </defs>
+          <circle cx="180" cy="180" r="118" fill="none" stroke="rgba(214,226,244,0.12)" stroke-width="1.5"></circle>
+          <path class="loop-arc" d="M 214 67 A 118 118 0 0 1 293 146" marker-end="url(#loopArrow)"></path>
+          <path class="loop-arc" d="M 293 214 A 118 118 0 0 1 214 293" marker-end="url(#loopArrow)"></path>
+          <path class="loop-arc" d="M 146 293 A 118 118 0 0 1 67 214" marker-end="url(#loopArrow)"></path>
+          <path class="loop-arc" d="M 67 146 A 118 118 0 0 1 146 67" marker-end="url(#loopArrow)"></path>
+          <g class="loop-node"><circle cx="180" cy="62" r="7"></circle><text x="180" y="40">Deeply present</text></g>
+          <g class="loop-node"><circle cx="298" cy="180" r="7"></circle><text class="anchor-start" x="316" y="185">“I can’t go back”</text></g>
+          <g class="loop-node"><circle cx="180" cy="298" r="7"></circle><text x="180" y="330">Anticipatory grief</text></g>
+          <g class="loop-node"><circle cx="62" cy="180" r="7"></circle><text class="anchor-end" x="44" y="185">Can’t fully live it</text></g>
+          <text class="loop-center" x="180" y="176">the moment</text>
+          <text class="loop-center" x="180" y="196">slips while</text>
+          <text class="loop-center" x="180" y="216">you guard it</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="stateTitle">
       <div class="section-head reveal">
-        <p class="eyebrow-mono">Research</p>
-        <h2 id="researchTitle">Projects, one at a time</h2>
-        <p class="section-dek">Each project gets its own page: the question, what I built, what I found — and what it can’t claim.</p>
+        <h3 id="stateTitle" class="h3-lg">What a photo leaves out: an <em>integrated self-state</em></h3>
+        <p class="section-dek">Seven dimensions, used as a design schema — a conceptual synthesis, not an established neuroscience metric.</p>
+      </div>
+      <ul class="dimension-grid">
+        <li class="reveal"><span class="dim-index">1</span><strong>Body state</strong><span>What the body predicted it was feeling.</span></li>
+        <li class="reveal"><span class="dim-index">2</span><strong>Attention</strong><span>What the mind treated as signal.</span></li>
+        <li class="reveal"><span class="dim-index">3</span><strong>Emotion</strong><span>The shape of the feeling, not a single label.</span></li>
+        <li class="reveal"><span class="dim-index">4</span><strong>Context</strong><span>The place, people, and story you were inside.</span></li>
+        <li class="reveal"><span class="dim-index">5</span><strong>Self-model</strong><span>Who you felt yourself to be.</span></li>
+        <li class="reveal"><span class="dim-index">6</span><strong>Meaning</strong><span>Why the moment mattered from that life position.</span></li>
+        <li class="reveal dim-key"><span class="dim-index">7</span><strong>Configured ignorance</strong><span>What you didn’t know yet — which made the moment feel open.</span></li>
+      </ul>
+    </section>
+
+    <!-- 02 The idea -->
+    <section class="section" id="idea" aria-labelledby="ideaTitle">
+      <div class="section-head reveal">
+        <p class="step-label"><span>02</span>The idea</p>
+        <h3 id="ideaTitle" class="h3-lg">Resonance, not replay</h3>
+        <p class="section-dek">Memory is reconstructive — recalling a moment also changes it. So the goal is not to play back an old self. It is a bounded, closed loop that helps the present self re-meet part of a past state, and then come back.</p>
+      </div>
+      <ol class="loop-steps">
+        <li class="reveal"><span class="loop-step-n">1</span><strong>Cue</strong><span>A photo, song, place, or smell opens a door to context.</span></li>
+        <li class="reveal"><span class="loop-step-n">2</span><strong>Estimate</strong><span>A coarse guess at the current state — with its uncertainty.</span></li>
+        <li class="reveal"><span class="loop-step-n">3</span><strong>Nudge</strong><span>Gentle cueing or neurofeedback, never content “writing”.</span></li>
+        <li class="reveal"><span class="loop-step-n">4</span><strong>Monitor</strong><span>Similarity, reconstruction error, and emotional risk.</span></li>
+        <li class="reveal loop-step-return"><span class="loop-step-n">5</span><strong>Return</strong><span>A gate that always ends in the present.</span></li>
+      </ol>
+
+      <div class="ladder reveal" role="table" aria-label="How far could going back go?">
+        <p class="ladder-title" role="caption">How far could “going back” go?</p>
+        <div class="ladder-row" role="row">
+          <span class="ladder-level" role="rowheader"><i class="dot known" aria-hidden="true"></i>Weak</span>
+          <span role="cell">Reinstating parts of a state through cues, sleep-based reactivation, or neurofeedback.</span>
+          <span class="ladder-verdict" role="cell">Plausible in limited forms</span>
+        </div>
+        <div class="ladder-row" role="row">
+          <span class="ladder-level" role="rowheader"><i class="dot plausible" aria-hidden="true"></i>Medium</span>
+          <span role="cell">Feeling closer to a past self — reconstructed in the present.</span>
+          <span class="ladder-verdict" role="cell">Subjective, can’t be verified as exact</span>
+        </div>
+        <div class="ladder-row" role="row">
+          <span class="ladder-level" role="rowheader"><i class="dot speculative" aria-hidden="true"></i>Strong</span>
+          <span role="cell">A literal return to the past.</span>
+          <span class="ladder-verdict" role="cell">Metaphor only — not claimed</span>
+        </div>
       </div>
 
-      <div class="project-stack">
-        <!-- To add a project, copy one <article class="project-feature"> block.
-             Order projects by strength of evidence: real data first. -->
-        <article class="project-feature reveal" aria-labelledby="p1Title">
-          <a class="project-media" href="resonance.html" tabindex="-1" aria-hidden="true">
-            <svg viewBox="0 0 480 320" preserveAspectRatio="xMidYMid slice" role="presentation" focusable="false">
-              <defs>
-                <linearGradient id="thumbSky" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#1d2547" />
-                  <stop offset="0.55" stop-color="#6a4d7a" />
-                  <stop offset="1" stop-color="#f6b36b" />
-                </linearGradient>
-                <linearGradient id="thumbSea" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#3a4a70" />
-                  <stop offset="1" stop-color="#0f1729" />
-                </linearGradient>
-                <radialGradient id="thumbGlow" cx="0.7" cy="0.5" r="0.6">
-                  <stop offset="0" stop-color="rgba(242,184,114,0.22)" />
-                  <stop offset="1" stop-color="rgba(242,184,114,0)" />
-                </radialGradient>
-              </defs>
-              <rect width="480" height="320" fill="#0f141c" />
-              <rect width="480" height="320" fill="url(#thumbGlow)" />
-              <g fill="none" stroke="rgba(214,226,244,0.16)">
-                <ellipse cx="318" cy="166" rx="132" ry="112" />
-                <ellipse cx="318" cy="166" rx="112" ry="95" />
-                <ellipse cx="318" cy="166" rx="92" ry="78" />
-                <ellipse cx="318" cy="166" rx="72" ry="61" />
-              </g>
-              <g transform="translate(58 70) rotate(-5)">
-                <rect x="-9" y="-9" width="178" height="170" rx="3" fill="#ece6da" />
-                <rect width="160" height="118" fill="url(#thumbSky)" />
-                <rect y="70" width="160" height="48" fill="url(#thumbSea)" />
-                <circle cx="104" cy="66" r="9" fill="#ffe4b0" />
-                <g fill="#ffcf96" opacity="0.8">
-                  <rect x="96" y="74" width="16" height="2" /><rect x="93" y="80" width="22" height="2" /><rect x="98" y="86" width="12" height="2" /><rect x="94" y="92" width="18" height="2" />
-                </g>
-                <path d="M0 118 L0 106 Q46 100 98 114 L98 118 Z" fill="#0a0d14" />
-              </g>
-              <g fill="#ffd3a1">
-                <rect x="232" y="104" width="4" height="4" opacity="0.9" /><rect x="248" y="96" width="3" height="3" opacity="0.8" /><rect x="262" y="84" width="3" height="3" opacity="0.7" />
-                <rect x="236" y="136" width="4" height="4" opacity="0.85" /><rect x="254" y="130" width="3" height="3" opacity="0.8" /><rect x="272" y="120" width="3" height="3" opacity="0.7" />
-                <rect x="240" y="170" width="3" height="3" opacity="0.8" /><rect x="258" y="176" width="3" height="3" opacity="0.7" />
-              </g>
-              <g>
-                <circle cx="430" cy="130" r="3" fill="#f2b872" /><circle cx="408" cy="104" r="2.6" fill="#8fb4ff" /><circle cx="386" cy="112" r="2.4" fill="#79f2c9" />
-                <circle cx="372" cy="98" r="2.2" fill="#ff9ec4" /><circle cx="412" cy="232" r="2.4" fill="#8fb4ff" /><circle cx="280" cy="262" r="2.4" fill="#79f2c9" />
-                <circle cx="350" cy="78" r="2" fill="#f2b872" /><circle cx="440" cy="190" r="2.2" fill="#ffd3a1" />
-              </g>
-            </svg>
-          </a>
-          <div class="project-body">
-            <p class="project-meta"><span>Project 01</span><span>2026 – ongoing</span><span>Concept + toy simulation</span></p>
-            <h3 id="p1Title"><a href="resonance.html">Brain-State Circuit Resonance</a></h3>
-            <p class="project-question">“Photos record what we saw. Can we reconstruct what we were?”</p>
-            <p class="project-summary">A research thesis on whether future neurotechnology could help someone partially re-approach the inner state of a meaningful moment — safely, and without pretending to replay it.</p>
-            <ul class="project-did">
-              <li>Framed the <em>Unreturnable Present Paradox</em> and an integrated self-state schema</li>
-              <li>Built a 3D concept map and a closed-loop toy simulator</li>
-              <li>Stress-tested it: decoder accuracy under noise, stimulation precision vs. coverage</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="resonance.html">Read the breakdown <span class="arrow" aria-hidden="true">→</span></a>
-              <a class="text-link" href="mindmap.html">3D concept map</a>
-              <a class="text-link" href="https://github.com/rola2005-klc/brain-state-circuit-replay">Code &amp; data</a>
+      <blockquote class="principle reveal">
+        <p>Past-state resonance should return you to the present, not trap you in the past.</p>
+        <cite>Design rule · Resonance over Recreation</cite>
+      </blockquote>
+    </section>
+
+    <!-- 03 Evidence -->
+    <section class="section" id="evidence" aria-labelledby="evidenceTitle">
+      <div class="section-head reveal">
+        <p class="step-label"><span>03</span>Stress test</p>
+        <h3 id="evidenceTitle" class="h3-lg">I tried to break my own idea</h3>
+        <p class="section-dek">Advisor review flagged two structural limits. Instead of hiding them, I built toy experiments that make them visible. Both run on synthetic data: they show the shape of each problem, not results about real brains.</p>
+      </div>
+
+      <div class="lab-card reveal" id="decoderLab">
+        <div class="lab-intro">
+          <p class="lab-kicker">Limit 1 · Decoding power</p>
+          <h4>Can a decoder tell a target memory-state from the others once the signal gets noisy?</h4>
+          <p>Four toy states, six features each, and increasing Gaussian noise (σ). Two classifiers: a nearest-centroid baseline and logistic regression.</p>
+        </div>
+        <div class="lab-figure">
+          <svg id="decoderChart" class="decoder-chart" viewBox="0 0 560 360" role="img" aria-labelledby="decoderChartTitle decoderChartDesc">
+            <title id="decoderChartTitle">Decoder accuracy versus noise</title>
+            <desc id="decoderChartDesc">Accuracy starts near 91% on clean data and falls to about 28% at the highest noise level, close to the 25% chance line, for both classifiers.</desc>
+          </svg>
+          <p class="figure-note">Measured points only; the x-axis uses a square-root scale so the low-noise region is readable.</p>
+        </div>
+        <div class="lab-body">
+          <div class="lab-control">
+            <label for="noiseSlider">Noise level <strong id="noiseValue">σ = 0.40</strong></label>
+            <input id="noiseSlider" type="range" min="0" max="6" step="1" value="4" aria-describedby="noiseReadout" />
+            <div class="lab-scale" aria-hidden="true"><span>clean</span><span>very noisy</span></div>
+          </div>
+          <p class="lab-readout" id="noiseReadout" aria-live="polite">At σ = 0.40, nearest-centroid is at 43.3% and logistic regression at 42.5% (chance is 25%).</p>
+          <p class="lab-takeaway"><strong>Takeaway:</strong> both collapse toward chance long before realistic EEG noise, and the stronger model is no better. The bottleneck is the feature space, not the classifier.</p>
+          <p class="lab-links">
+            <a href="https://github.com/rola2005-klc/brain-state-circuit-replay/blob/main/scripts/evaluate_decoder_noise.py">Method (Python)</a>
+            <a href="data/decoder_noise_sweep.csv">Raw data (CSV)</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-card reveal" id="stimLab">
+        <div class="lab-intro">
+          <p class="lab-kicker">Limit 2 · Stimulation precision</p>
+          <h4>If we knew where a memory lives, could a grid of electrodes activate it without hitting everything around it?</h4>
+          <p>Amber dots are one memory’s cells; grey dots are everything else. Pick an electrode count and a stimulation radius.</p>
+        </div>
+        <div class="lab-figure">
+          <canvas id="stimCanvas" class="stim-canvas" role="img" aria-label="Unit square with memory cells, background cells, electrodes, and their stimulation circles."></canvas>
+          <p class="figure-note">A live re-implementation of the Python sweep (2-D abstraction, not anatomy). Stimulating everything gives ≈ 9% precision — that is the floor.</p>
+        </div>
+        <div class="lab-body">
+          <div class="lab-control">
+            <span class="control-label" id="electrodeLabel">Electrodes</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="electrodeLabel" id="electrodeGroup"></div>
+          </div>
+          <div class="lab-control">
+            <label for="radiusSlider">Stimulation radius <strong id="radiusValue">0.10</strong></label>
+            <input id="radiusSlider" type="range" min="0.02" max="0.30" step="0.01" value="0.10" />
+          </div>
+          <div class="lab-control">
+            <span class="control-label" id="engramLabel">Memory layout</span>
+            <div class="segmented" role="radiogroup" aria-labelledby="engramLabel" id="engramGroup">
+              <button type="button" role="radio" aria-checked="true" data-layout="focal">One cluster</button>
+              <button type="button" role="radio" aria-checked="false" data-layout="distributed">Distributed</button>
             </div>
           </div>
-        </article>
+          <div class="stim-metrics" aria-live="polite">
+            <div><span>Recall</span><strong id="stimRecall">–</strong><small>of the memory reached</small></div>
+            <div><span>Precision</span><strong id="stimPrecision">–</strong><small>of stimulated cells on target</small></div>
+          </div>
+          <p class="challenge" id="stimChallenge">Challenge: reach ≥ 80% recall with ≥ 20% precision.</p>
+          <p class="lab-links">
+            <a href="https://github.com/rola2005-klc/brain-state-circuit-replay/blob/main/scripts/simulate_stimulation_coverage.py">Method (Python)</a>
+            <a href="data/stimulation_coverage_sweep.csv">Raw data (CSV)</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="verdict reveal">
+        <p><strong>Where this leaves the project:</strong> today’s technology cannot decode a real past memory or safely stimulate a specific human engram. The honest next step is narrower — test whether cues and feedback can move a person toward a coarse, self-reported state <em>above a null baseline</em>, with uncertainty shown.</p>
+        <a class="btn btn-ghost" href="read.html?doc=limitations">Read the full limitations write-up <span class="arrow" aria-hidden="true">→</span></a>
       </div>
     </section>
 
-    <!-- ================= Approach ================= -->
-    <section class="section" id="approach" aria-labelledby="approachTitle">
+    <!-- 04 Explore -->
+    <section class="section" id="explore" aria-labelledby="exploreTitle">
       <div class="section-head reveal">
-        <p class="eyebrow-mono">Approach</p>
-        <h2 id="approachTitle">How I work</h2>
+        <p class="step-label"><span>04</span>Go deeper</p>
+        <h3 id="exploreTitle" class="h3-lg">Explore the project</h3>
       </div>
-      <div class="principles">
-        <article class="principle-card reveal">
-          <span class="principle-n">01</span>
-          <h3>Name what a claim can’t do</h3>
-          <p>Every capability claim in my projects carries an evidence tier, from E1 (theoretical) to E5 (independently replicated). Saying “this is E2” is part of the result.</p>
-          <a class="text-link" href="resonance.html#boundary">See a claim boundary <span class="arrow" aria-hidden="true">→</span></a>
-        </article>
-        <article class="principle-card reveal">
-          <span class="principle-n">02</span>
-          <h3>Try to break my own ideas</h3>
-          <p>When advisor review flagged decoding and stimulation limits, I built stress tests that make those limits visible instead of arguing around them.</p>
-          <a class="text-link" href="resonance.html#evidence">Try the stress tests <span class="arrow" aria-hidden="true">→</span></a>
-        </article>
-        <article class="principle-card reveal">
-          <span class="principle-n">03</span>
-          <h3>Make it checkable</h3>
-          <p>Code, synthetic data, and tests are public, and the charts on this site read the raw CSV files directly — rerun a script and the figures update.</p>
-          <a class="text-link" href="https://github.com/rola2005-klc/brain-state-circuit-replay">Browse the code <span class="arrow" aria-hidden="true">→</span></a>
-        </article>
+      <div class="explore-grid">
+        <a class="explore-card explore-card-feature reveal" href="mindmap.html">
+          <span class="explore-meta">Interactive · ~5 min</span>
+          <strong>3D concept map + live prototype</strong>
+          <span>42 ideas, colour-coded by evidence — known science, plausible bridge, speculative frontier — and a closed-loop simulator that shows its own uncertainty.</span>
+          <span class="explore-legend" aria-hidden="true"><i class="dot known"></i><i class="dot plausible"></i><i class="dot speculative"></i></span>
+        </a>
+        <a class="explore-card reveal" href="journey.html">
+          <span class="explore-meta">Walkthrough · ~2 min</span>
+          <strong>Process journey</strong>
+          <span>Six steps from “I can’t go back” to a return-to-present safety gate.</span>
+        </a>
+        <a class="explore-card reveal" href="project-brief.html">
+          <span class="explore-meta">Overview · ~6 min</span>
+          <strong>Project brief</strong>
+          <span>The whole argument on one page: problem, thesis, scientific anchors, system, ethics.</span>
+        </a>
+        <a class="explore-card reveal" href="read.html">
+          <span class="explore-meta">Essay · ~8 min</span>
+          <strong>Thesis text</strong>
+          <span>The source essay: the paradox, the integrated self-state, and the time-travel boundary.</span>
+        </a>
+        <a class="explore-card reveal" href="future-research.html">
+          <span class="explore-meta">Horizon · ~6 min</span>
+          <strong>Future research</strong>
+          <span>Seven open problems current science cannot solve yet — each with its risk.</span>
+        </a>
+        <a class="explore-card reveal" href="https://github.com/rola2005-klc/brain-state-circuit-replay">
+          <span class="explore-meta">Source · GitHub</span>
+          <strong>Code &amp; data</strong>
+          <span>Toy simulation, synthetic dataset, decoder baselines, and tests.</span>
+        </a>
       </div>
     </section>
 
-    <!-- ================= Toolkit ================= -->
-    <section class="section" id="toolkit" aria-labelledby="toolkitTitle">
+    <!-- 05 Boundary -->
+    <section class="section" id="boundary" aria-labelledby="boundaryTitle">
       <div class="section-head reveal">
-        <p class="eyebrow-mono">Toolkit</p>
-        <h2 id="toolkitTitle">What I build with</h2>
+        <p class="step-label"><span>05</span>Claim boundary</p>
+        <h3 id="boundaryTitle" class="h3-lg">What this is — and isn’t</h3>
       </div>
-      <div class="toolkit-grid reveal">
-        <div class="toolkit-col">
-          <h3>Research methods</h3>
+      <div class="boundary-grid reveal">
+        <div class="boundary-col is">
+          <h4>It is</h4>
           <ul>
-            <li>Simulation and synthetic data</li>
-            <li>Classifier baselines and robustness sweeps</li>
-            <li>Literature mapping with claim tiers</li>
+            <li>A research thesis grounded in adjacent science: reconstructive memory, plasticity, targeted memory reactivation, closed-loop neurofeedback.</li>
+            <li>A toy simulation that makes assumptions, uncertainty, and risk visible.</li>
+            <li>An honest map of what is known, plausible, and speculative.</li>
           </ul>
         </div>
-        <div class="toolkit-col">
-          <h3>Data &amp; code</h3>
+        <div class="boundary-col isnt">
+          <h4>It isn’t</h4>
           <ul>
-            <li>Python — pandas, scikit-learn, matplotlib</li>
-            <li>Jupyter and Quarto for reproducible reports</li>
-            <li>Git and GitHub</li>
-          </ul>
-        </div>
-        <div class="toolkit-col">
-          <h3>Interfaces</h3>
-          <ul>
-            <li>JavaScript and TypeScript</li>
-            <li>three.js, Canvas, and SVG visualisation</li>
-            <li>Next.js prototypes</li>
-          </ul>
-        </div>
-        <div class="toolkit-col">
-          <h3>Neuroscience</h3>
-          <ul>
-            <li>Computational modelling (BrainPy)</li>
-            <li>Memory reactivation and neurofeedback literature</li>
+            <li>Brain-derived output, memory decoding, or evidence that EEG can read engrams.</li>
+            <li>Exact replay, visual playback, or literal time travel.</li>
+            <li>A medical device or treatment claim.</li>
           </ul>
         </div>
       </div>
+      <ol class="tier-ladder reveal" aria-label="Evidence tiers">
+        <li class="reached"><span>E1</span>Theoretical</li>
+        <li class="reached current"><span>E2</span>Toy scaffold <em>● current</em></li>
+        <li><span>E3</span>Validated on real user data</li>
+        <li><span>E4</span>Deployed and tested</li>
+        <li><span>E5</span>Independently replicated</li>
+      </ol>
     </section>
 
-    <!-- ================= Contact ================= -->
-    <section class="section contact" id="contact" aria-labelledby="contactTitle">
-      <div class="contact-card reveal">
-        <div>
-          <p class="eyebrow-mono">Contact</p>
-          <h2 id="contactTitle">Let’s talk</h2>
-          <p>Questions, critiques, and paper suggestions are always welcome — especially the ones that poke holes in my work.</p>
-        </div>
-        <div class="contact-links">
-          <a class="btn btn-ghost" href="https://github.com/rola2005-klc">GitHub <span class="arrow" aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
+    <nav class="next-nav" aria-label="More">
+      <a class="next-card" href="https://lecheng-ke-research.pages.dev/">
+        <span class="next-meta">About the author ↗</span>
+        <strong>Lecheng Ke — personal site</strong>
+      </a>
+      <a class="next-card next-card-forward" href="project-brief.html">
+        <span class="next-meta">Keep reading →</span>
+        <strong>The full project brief</strong>
+      </a>
+    </nav>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer-inner">
       <span>© 2026 Lecheng Ke</span>
       <nav aria-label="Footer">
-        <a href="#research">Research</a>
-        <a href="resonance.html">Brain-State Circuit Resonance</a>
-        <a href="https://github.com/rola2005-klc">GitHub</a>
+        <a href="https://lecheng-ke-research.pages.dev/">Lecheng Ke — personal site ↗</a>
+        <a href="https://github.com/rola2005-klc/brain-state-circuit-replay">Source on GitHub</a>
       </nav>
     </div>
   </footer>
 
   <script src="src/site.js?v=2026-09-28"></script>
-  <script src="src/home.js?v=2026-09-28"></script>
+  <script src="src/resonance.js?v=2026-09-28"></script>
 </body>
 </html>

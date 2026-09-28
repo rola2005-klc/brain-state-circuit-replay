@@ -1,6 +1,6 @@
 # Project Talk Track - Brain-State Circuit Resonance
 
-Use this as the verbal spine for a 3-5 minute project walkthrough. Open `resonance.html` first, then `project-brief.html`, `journey.html`, and the 3D map in `mindmap.html`.
+Use this as the verbal spine for a 3-5 minute project walkthrough. Open `index.html` (the project overview) first, then `project-brief.html`, `journey.html`, and the 3D map in `mindmap.html`.
 
 ## 30-second version
 
