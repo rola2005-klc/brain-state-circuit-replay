@@ -238,6 +238,66 @@ function simulateReplay({ targetId = 'calm', cue = 0.25, stimulation = 0.28, fee
   return { target, current, history, decoded: decodeState(current), protocol: selectedProtocol };
 }
 
+// Honest readouts: a similarity score only means something next to its rivals.
+
+function decodeMargin(pattern, targetId) {
+  const target = TARGET_STATES[targetId] || TARGET_STATES.calm;
+  const targetScore = cosineSimilarity(pattern, target.pattern);
+  let rival = null;
+  for (const [id, state] of Object.entries(TARGET_STATES)) {
+    if (state === target) continue;
+    const score = cosineSimilarity(pattern, state.pattern);
+    if (!rival || score > rival.score) rival = { id, name: state.name, score };
+  }
+  return { targetScore, rival, margin: targetScore - rival.score };
+}
+
+function observeWithNoise(pattern, sigma = 0, seed = 1) {
+  const rand = seededRandom(seed);
+  const observed = {};
+  for (const key of Object.keys(pattern)) {
+    let u = 0;
+    while (u === 0) u = rand();
+    const gaussian = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rand());
+    observed[key] = clamp(pattern[key] + gaussian * sigma);
+  }
+  return observed;
+}
+
+function evaluateResonance({ targetId = 'calm', protocol = 'cue', cue = 0.25, stimulation = 0.42, feedback = 0.5, steps = 14, noise = 0.1, runs = 12, seed = 19 } = {}) {
+  const results = [];
+  for (let r = 0; r < runs; r++) {
+    const run = simulateReplay({ targetId, protocol, cue, stimulation, feedback, steps, seed: seed + r * 101 });
+    const final = run.history[run.history.length - 1];
+    const observed = observeWithNoise(final.pattern, noise, seed * 7 + r * 13 + 1);
+    const decoded = decodeState(observed);
+    results.push({
+      run,
+      observed,
+      decoded,
+      margin: decodeMargin(observed, targetId),
+      baselineMargin: decodeMargin(run.history[0].pattern, targetId),
+      correct: decoded.id === (TARGET_STATES[targetId] ? targetId : 'calm'),
+      risk: final.risk
+    });
+  }
+  const mean = (values) => values.reduce((sum, value) => sum + value, 0) / values.length;
+  const margins = results.map((item) => item.margin.margin);
+  const meanMargin = mean(margins);
+  return {
+    results,
+    runs,
+    correct: results.filter((item) => item.correct).length,
+    chance: 1 / Object.keys(TARGET_STATES).length,
+    meanTargetScore: mean(results.map((item) => item.margin.targetScore)),
+    meanRivalScore: mean(results.map((item) => item.margin.rival.score)),
+    meanMargin,
+    sdMargin: Math.sqrt(mean(margins.map((value) => (value - meanMargin) ** 2))),
+    meanBaselineMargin: mean(results.map((item) => item.baselineMargin.margin)),
+    meanRisk: mean(results.map((item) => item.risk))
+  };
+}
+
 const api = {
   DEFAULT_SYSTEMS,
   STIMULATION_PROTOCOLS,
@@ -254,7 +314,10 @@ const api = {
   reconstructionError,
   safetyRisk,
   decodeState,
-  simulateReplay
+  simulateReplay,
+  decodeMargin,
+  observeWithNoise,
+  evaluateResonance
 };
 
 if (typeof module !== 'undefined') module.exports = api;

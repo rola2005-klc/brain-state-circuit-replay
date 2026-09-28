@@ -2,7 +2,7 @@
   const docs = {
     foundation: 'project-brief.html#thesis',
     outline: 'project-brief.html#presentation-path',
-    unreturnable: 'docs/unreturnable-present-paradox.md',
+    unreturnable: 'read.html',
     nativeTrace: 'project-brief.html#scientific-anchors',
     research: 'project-brief.html#scientific-anchors',
     data: 'project-brief.html#system-concept',

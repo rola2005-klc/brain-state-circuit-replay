@@ -113,6 +113,6 @@ Close with why this matters. If a system can influence recall intensity or state
 
 ## Companion links
 
-- 3D mindmap: [../index.html](../index.html)
+- 3D mindmap: [../mindmap.html](../mindmap.html)
 - Process journey: [../journey.html](../journey.html)
 - Full thesis: [unreturnable-present-paradox.md](unreturnable-present-paradox.md)

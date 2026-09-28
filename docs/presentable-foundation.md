@@ -18,7 +18,7 @@ The realistic floor is cue-triggered recall and Targeted Memory Reactivation: us
 
 The current repo therefore prioritizes a presentable conceptual and scientific foundation. The interactive simulation is useful, but secondary. It demonstrates vocabulary, state vectors, protocol assumptions, reconstruction error, and safety risk. The main product at this stage is the thesis: memory replay should be discussed as partial state reconstruction under strict scientific boundaries, not as exact human memory playback.
 
-Start with the [3D mindmap](../index.html), the [process journey](../journey.html), and the full thesis: [The Unreturnable Present Paradox](unreturnable-present-paradox.md).
+Start with the [3D mindmap](../mindmap.html), the [process journey](../journey.html), and the full thesis: [The Unreturnable Present Paradox](unreturnable-present-paradox.md).
 
 ## Core framework
 

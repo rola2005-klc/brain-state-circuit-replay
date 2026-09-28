@@ -251,8 +251,9 @@
         .backgroundColor('rgba(0,0,0,0)')
         .width(window.innerWidth)
         .height(window.innerHeight)
-        .nodeLabel((node) => `${node.label} · ${node.cluster} · ${node.status}
-${node.purpose || ''}`)
+        // Our own styled tooltip (ui.js) replaces the library's unstyled one.
+        .nodeLabel(() => '')
+        .showNavInfo(false)
         .nodeThreeObjectExtend(true)
         .nodeThreeObject((node) => node.isKey ? makeLabelSprite(node) : null)
         .nodeResolution(24)

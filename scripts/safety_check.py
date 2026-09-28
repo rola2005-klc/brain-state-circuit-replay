@@ -128,7 +128,7 @@ def normalize_local_ref(ref: str) -> tuple[str | None, str | None]:
 def check_static_refs() -> None:
     missing: list[str] = []
     parsed_html: dict[Path, LinkParser] = {}
-    for html_file in ['index.html', 'project-brief.html', 'journey.html', 'future-research.html']:
+    for html_file in ['index.html', 'mindmap.html', 'read.html', 'project-brief.html', 'journey.html', 'future-research.html']:
         path = ROOT / html_file
         parser = LinkParser()
         parser.feed(path.read_text(encoding='utf-8', errors='ignore'))

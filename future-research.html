@@ -3,28 +3,43 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Brain-State Circuit Resonance Future Research Directions</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Future Research — Brain-State Circuit Resonance</title>
+  <meta name="theme-color" content="#0a0d12" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css?v=2026-09-28" />
+  <link rel="stylesheet" href="site.css?v=2026-09-28" />
 </head>
-<body class="brief-page">
+<body class="site brief-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="wordmark" href="./" aria-label="Brain-State Circuit Resonance — project overview">
+        <strong>Brain-State Circuit Resonance</strong><span>by Lecheng Ke</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="siteNav">
+        <span class="menu-toggle-bars" aria-hidden="true"></span>Menu
+      </button>
+      <nav class="site-nav" id="siteNav" aria-label="Project pages">
+        <a href="./">Overview</a>
+        <a href="project-brief.html">Brief</a>
+        <a href="journey.html">Journey</a>
+        <a href="mindmap.html">Concept map</a>
+        <a href="read.html">Thesis</a>
+        <a href="future-research.html" aria-current="page">Future research</a>
+        <button class="nav-comments" type="button" data-comments-toggle hidden>Comments</button>
+      </nav>
+    </div>
+  </header>
   <header class="brief-hero">
-    <nav class="journey-nav" aria-label="Project navigation">
-      <a href="index.html">Home</a>
-      <a href="project-brief.html#presentation-path">Start</a>
-      <a href="project-brief.html">Project brief</a>
-      <a href="journey.html">Process journey</a>
-      <a href="index.html">3D mindmap</a>
-      <a href="future-research.html" aria-current="page">Future research</a>
-      <button type="button" data-comments-toggle>Comments</button>
-    </nav>
     <p class="eyebrow">Future research directions</p>
     <h1>What Current Science Cannot Do Yet</h1>
     <p class="thesis">A creative but bounded roadmap for the technologies and research questions that would have to exist before Brain-State Circuit Resonance could move beyond concept and simulation scaffold.</p>
     <p class="brief-hook"><strong>Boundary:</strong> these are open research directions, not product claims. The current project does not decode real brain states, identify engrams, reconstruct exact memories, or provide medical benefit.</p>
   </header>
 
-  <main class="brief-shell">
-    <aside class="brief-toc" aria-label="Future research path">
+  <main id="main" class="brief-shell">
+    <aside class="brief-toc" aria-label="On this page" data-scrollspy>
       <a href="#why-future">Why future-facing</a>
       <a href="#current-bci-neuro-signals">BCI / neuro watchlist</a>
       <a href="#encoding-imminence">Encoding-imminence</a>
@@ -50,12 +65,12 @@
         <h2>Current BCI / Neuro Signals to Watch</h2>
         <p>These are near-term radar items for framing questions, not evidence that Resonance can decode memories, identify engrams, or infer private experience. They are useful only if kept inside the project boundary.</p>
         <ul>
-          <li><strong>Neuralink surgical robot / implantation workflow reports:</strong> treat as secondary and low-confidence until an official source is added to this page. The interesting signal is infrastructure: reports describe efforts to make electrode-thread implantation more repeatable and scalable. That matters for future BCI access, but implantation repeatability is not decoding, and it says nothing by itself about memory reconstruction. <a href="https://www.eandtmagazine.com/2026/05/01/neuralink-builds-surgical-robot-implant-its-brain-chip-humans">Secondary report</a></li>
+          <li><strong>Neuralink surgical robot / implantation workflow reports:</strong> treat as secondary and low-confidence — no primary source yet. The interesting signal is infrastructure: reports describe efforts to make electrode-thread implantation more repeatable and scalable. That matters for future BCI access, but implantation repeatability is not decoding, and it says nothing by itself about memory reconstruction. <a href="https://www.eandtmagazine.com/2026/05/01/neuralink-builds-surgical-robot-implant-its-brain-chip-humans">Secondary report</a></li>
           <li><strong>arXiv 2605.04680, "Multi-Level Bidirectional Biomimetic Learning for EEG-Based Visual Decoding" (2026-05-06):</strong> watch as an EEG visual-decoding representation paper, not as exact memory reading. The relevant boundary for Resonance is that reconstructing or aligning visual representations from EEG remains a lossy model output tied to task data, not access to a private remembered scene. <a href="https://arxiv.org/abs/2605.04680">arXiv</a></li>
           <li><strong>arXiv 2605.03874, "Spatiotemporal Convolutions on EEG signal -- A Representation Learning Perspective on Efficient and Explainable EEG Classification with Convolutional Neural Nets" (2026-05-05):</strong> watch for efficient EEG state-classification methods and explainability claims. The boundary is classification: separating task or state labels from EEG features is not the same as reading a lived self-state or recovering a circuit trace. <a href="https://arxiv.org/abs/2605.03874">arXiv</a></li>
           <li><strong>arXiv 2605.03169, "NeuralSet: A High-Performing Python Package for Neuro-AI" (2026-05-04):</strong> watch for possible tooling and scaffold relevance. A PyTorch-ready neuro-AI data interface could inform future simulation, provenance, or multimodal dataset organization, but it would not validate the current toy model or supply biological evidence by itself. <a href="https://arxiv.org/abs/2605.03169">arXiv</a></li>
         </ul>
-        <p class="brief-caveat"><strong>Presentation boundary:</strong> cite these as signals to monitor, not claims to import. The current project remains a concept and synthetic simulation scaffold.</p>
+        <p class="brief-caveat"><strong>Boundary:</strong> these are signals to monitor, not claims to import. The current project remains a concept and synthetic simulation scaffold.</p>
       </section>
 
       <section class="brief-section" id="encoding-imminence">
@@ -122,7 +137,7 @@
       </section>
 
       <section class="brief-section boundary-emphasis" id="caveat">
-        <p class="eyebrow">Professor-facing caveat</p>
+        <p class="eyebrow">Where this stands</p>
         <h2>Open Problems, Not Implemented Capabilities</h2>
         <p>This project is currently a thesis-quality concept document and technical scaffold, not a validated neuroscience system. None of these future research directions are achievable near-term features. They are stated as open research problems in memory science, affective computing, BCI, and human-computer interaction.</p>
         <p>The contribution is the framework design, the claim-boundary discipline, and the ability to state difficult future questions without pretending they have already been solved.</p>
@@ -130,6 +145,7 @@
     </section>
   </main>
   <aside class="comments-drawer" id="commentsDrawer" aria-label="Comment Mode" aria-hidden="true"></aside>
-  <script src="src/comments.js?v=comment-mode-v1"></script>
+  <script src="src/site.js?v=2026-09-28"></script>
+  <script src="src/comments.js?v=2026-09-28"></script>
 </body>
 </html>

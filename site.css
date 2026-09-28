@@ -1,0 +1,561 @@
+/* Shared site layer: fonts, tokens, header/footer, buttons, focus, motion.
+ * Loaded by every page. Pages that also load style.css load this file after it. */
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces-latin-400-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("assets/fonts/fraunces-latin-600-italic.woff2") format("woff2");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/inter-latin-600-normal.woff2") format("woff2");
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("assets/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2");
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+
+  /* Surfaces: a darkroom, not a dashboard. */
+  --ink-0: #0a0d12;
+  --ink-1: #0f141c;
+  --ink-2: #151b26;
+  --ink-3: #1c2431;
+  --hairline: rgba(214, 226, 244, 0.12);
+  --hairline-strong: rgba(214, 226, 244, 0.22);
+
+  --text-1: #eef2f8;
+  --text-2: #bcc6d6;
+  --text-3: #8f9bb0;
+
+  /* Human register: film light. Science register: the evidence trio. */
+  --warm: #f2b872;
+  --warm-soft: rgba(242, 184, 114, 0.14);
+  --warm-strong: #ffd3a1;
+  --known: #79f2c9;
+  --plausible: #8fb4ff;
+  --speculative: #ff9ec4;
+
+  --font-serif: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-l: 22px;
+  --page-max: 1160px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 60px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body.site {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--ink-0);
+  color: var(--text-1);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Film grain: one static texture, no animation cost. */
+body.site::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+:where(.site) a {
+  color: inherit;
+}
+
+.site :focus-visible {
+  outline: 2px solid var(--warm);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 16px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+  background: var(--warm);
+  color: #1b1206;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(10, 13, 18, 0.78);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(var(--page-max), 100% - 2 * var(--gutter));
+  height: var(--header-h);
+  margin: 0 auto;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  color: var(--text-1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark strong {
+  font-family: var(--font-serif);
+  font-size: 1.22rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.wordmark span {
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav a {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: var(--text-2);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"],
+.site-nav a.is-active {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-1);
+}
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-1);
+  font: 600 0.85rem var(--font-sans);
+  cursor: pointer;
+}
+
+.menu-toggle-bars {
+  position: relative;
+  width: 14px;
+  height: 10px;
+}
+
+.menu-toggle-bars::before,
+.menu-toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+.menu-toggle-bars::before { top: 1px; }
+.menu-toggle-bars::after { top: 7px; }
+
+.menu-toggle[aria-expanded="true"] .menu-toggle-bars::before { top: 4px; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-toggle-bars::after { top: 4px; transform: rotate(-45deg); }
+
+.nav-comments {
+  margin-left: 6px;
+  padding: 7px 12px;
+  border: 1px dashed rgba(242, 184, 114, 0.5);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--warm-strong);
+  font: 600 0.82rem var(--font-sans);
+  cursor: pointer;
+}
+
+.nav-comments[hidden] {
+  display: none;
+}
+
+/* ---------- Shared bits ---------- */
+
+.byline-link {
+  color: var(--warm-strong);
+  text-decoration: underline;
+  text-decoration-color: rgba(242, 184, 114, 0.45);
+  text-underline-offset: 3px;
+}
+
+.byline-link:hover {
+  text-decoration-color: var(--warm);
+}
+
+
+.eyebrow-mono {
+  margin: 0 0 14px;
+  color: var(--warm);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 11px 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: 600 0.95rem/1.2 var(--font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-out), background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--warm);
+  color: #1d1307;
+}
+
+.btn-primary:hover {
+  background: var(--warm-strong);
+}
+
+.btn-ghost {
+  border-color: var(--hairline-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-1);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(242, 184, 114, 0.6);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.2s var(--ease-out);
+}
+
+a:hover > .arrow,
+.btn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.tier-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 999px;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.tier-chip i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--known);
+  box-shadow: 0 0 10px var(--known);
+}
+
+/* ---------- Page scaffolding shared by the new-style pages ---------- */
+
+.page-main {
+  width: min(var(--page-max), 100% - 2 * var(--gutter));
+  margin: 0 auto;
+}
+
+.page-main :is(h1, h2, h3, h4) {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.page-main em {
+  font-style: italic;
+}
+
+.section {
+  padding-block: clamp(56px, 9vw, 112px) 0;
+}
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: clamp(24px, 4vw, 40px);
+}
+
+.section-head h2,
+.h3-lg {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.08;
+}
+
+.section-head h2 em,
+.h3-lg em {
+  color: var(--warm);
+}
+
+.section-dek {
+  margin: 16px 0 0;
+  color: var(--text-2);
+  font-size: clamp(1.02rem, 1.6vw, 1.14rem);
+  line-height: 1.65;
+}
+
+.step-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.step-label span {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(242, 184, 114, 0.5);
+  border-radius: 50%;
+  color: var(--warm);
+  letter-spacing: 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot.known { background: var(--known); box-shadow: 0 0 10px rgba(121, 242, 201, 0.6); }
+.dot.plausible { background: var(--plausible); box-shadow: 0 0 10px rgba(143, 180, 255, 0.6); }
+.dot.speculative { background: var(--speculative); box-shadow: 0 0 10px rgba(255, 158, 196, 0.6); }
+
+/* ---------- Reveal on scroll ----------
+ * Pure CSS scroll-driven animation: browsers without support simply show the
+ * content, and nothing depends on JavaScript to become visible. */
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+    }
+  }
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--hairline);
+  margin-top: 40px;
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  width: min(var(--page-max), 100% - 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 26px 0 34px;
+  color: var(--text-3);
+  font-size: 0.86rem;
+}
+
+.site-footer a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--text-1);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+}
+
+/* ---------- Tablets and phones ---------- */
+
+@media (max-width: 980px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(var(--header-h) - 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px var(--gutter) 16px;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--ink-0);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.55);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 10px;
+    border-radius: var(--radius-s);
+    font-size: 1rem;
+  }
+
+  .nav-comments {
+    align-self: flex-start;
+    margin: 6px 0 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .wordmark strong {
+    font-size: 1.02rem;
+  }
+
+  .wordmark span {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
